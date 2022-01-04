@@ -1,0 +1,41 @@
+/*!
+ * 
+ * 	Fascino All (https://fascino.svilupporep.site)
+ * 	@version v0.0.6
+ * 	@copyright 2020-2022 Sviluppo Web (https://svilupporep.site)
+ * 	@author Robert Pérez <delfinmundo@gmail.com>
+ *
+ * 	@license Licensed under MIT
+ */
+
+/*!
+ * Cropper.js v1.5.12
+ * https://fengyuanchen.github.io/cropperjs
+ *
+ * Copyright 2015-present Chen Fengyuan
+ * Released under the MIT license
+ *
+ * Date: 2021-06-12T08:00:17.411Z
+ */
+
+/**
+ * Fascino JS
+ * @version 0.0.6
+ * @author Robert Pérez <delfinmundo@gmail.com>
+ * @copyright 2021 [Sviluppo Web]{@link https://svilupporep.site}
+ * @license Licensed under MIT
+ */
+
+/**
+ * Manejador de Eventos Data<br>
+ * <i>Nota: esto es una copia modificada de [Data Jquery]{@link https://jquery.com}</i>
+ * @copyright Copyright JS Foundation and other contributors, https://js.foundation/
+ * @license under MIT
+ * @namespace Data
+ * @memberOf Kernel
+ * @requires Utils.hasProp
+ * @requires Utils.isArrayish
+ * @requires Utils.isString
+ * @requires Utils.not
+ * @class
+ */

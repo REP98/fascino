@@ -1,0 +1,57 @@
+.navbar-toggler:focus{
+	box-shadow: none;
+}
+#menuall {
+  background-color: #2b2b4f;
+  color: rgba(255,255,255,.55);
+  width: 16em;
+}
+
+#menuall a{
+	color: rgba(255,255,255,.55);
+}
+
+#menuall a:focus,
+#menuall a:hover{
+	color: #fff;
+}
+
+#menuall .offcanvas-header {
+  background-color: rgba(0,0,0,.15);
+  color: #ff5722;
+}
+#menuallLabel {
+  color: #ff5722;
+}
+.navbar{
+	background-color: #2b2b4f !important;
+}
+.collapse-toggle i{
+	transition: transform .2s ease-in-out;
+}
+.collapse-toggle:not(.collapsed) i {
+  transform: rotate(90deg);
+}
+
+.content {
+  margin-bottom: 3rem;
+}
+.accordion-button:focus{
+  box-shadow:  none !important;
+}
+.accordion-button:not(.collapsed) {
+  color: #9f9faf !important;
+  background-color: #2b2b4f !important;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+}
+.accordion-collapse {
+  padding: .5em;
+}
+.bd-4x{
+  border-color:  #2b2b4f !important;
+  border-style: solid !important;
+  border-left-width: 1px !important;
+}
+.type-signature{
+  font-family: 'Inconsolata', monospace !important;
+}

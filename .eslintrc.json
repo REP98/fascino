@@ -1,0 +1,70 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"google"
+	],
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-var":"off",
+		"no-invalid-this":"off",
+		"one-var": "off",
+		"quote-props": "off",
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs":true
+			}
+		],
+		"max-len": 0,
+		"prefer-const": 0,
+		"valid-jsdoc": 0,
+		"comma-dangle": 0,
+		"arrow-parens": [
+			"error",
+			"as-needed",
+			{
+				"requireForBlockBody": true
+			}
+		],
+		"capitalized-comments": "off",
+		"no-mixed-spaces-and-tabs": "off",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"MemberExpression": "off",
+				"SwitchCase": 1,
+				"ignoredNodes": ["ConditionalExpression"]
+			}
+		],
+		"max-params": [
+			"warn",
+			5
+		],
+		"multiline-ternary": [
+		  "error",
+		  "always-multiline"
+		],
+		"new-cap": [
+		  "error",
+		  {
+			"properties": false
+		  }
+		],
+		"no-console": "off",
+		"object-curly-spacing": [
+		  "error",
+		  "always"
+		],
+		"semi": [
+		  "error",
+		  "never"
+		]
+	}
+}

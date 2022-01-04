@@ -1,0 +1,10 @@
+/*!
+ * 
+ * 	Fascino ProgressBar (https://fascino.svilupporep.site)
+ * 	@version v0.0.6
+ * 	@copyright 2020-2022 Sviluppo Web (https://svilupporep.site)
+ * 	@author Robert Pérez <delfinmundo@gmail.com>
+ *
+ * 	@license Licensed under MIT
+ */
+.progress{position:relative}.progress,.progress .progress-bar{display:flex;height:1rem;width:100%}.progress .progress-bar{background-color:#e9ecef;border-radius:.25rem;font-size:.75rem;height:100%;overflow:hidden}.progress .progress-bar .progress-value{align-items:center;background-color:#0d6efd;color:#fff;display:flex;flex-direction:column;height:100%;justify-content:center;overflow:hidden;text-align:center;transition:width .6s ease;white-space:nowrap;width:0}.progress .progress-bar .progress-value .progress-text{align-items:center;display:flex;justify-content:center;max-height:100%;max-width:100%}.progress-load{bottom:auto;height:2px!important;left:0;opacity:1;position:fixed;right:0;top:0;transition:opacity .5s ease-in-out;z-index:99998}

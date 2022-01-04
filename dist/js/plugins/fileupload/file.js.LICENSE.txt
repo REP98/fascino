@@ -1,0 +1,19 @@
+/*!
+ * 
+ * 	Fascino file (https://fascino.svilupporep.site)
+ * 	@version v0.0.6
+ * 	@copyright 2020-2022 Sviluppo Web (https://svilupporep.site)
+ * 	@author Robert Pérez <delfinmundo@gmail.com>
+ *
+ * 	@license Licensed under MIT
+ */
+
+/*!
+ * Cropper.js v1.5.12
+ * https://fengyuanchen.github.io/cropperjs
+ *
+ * Copyright 2015-present Chen Fengyuan
+ * Released under the MIT license
+ *
+ * Date: 2021-06-12T08:00:17.411Z
+ */
