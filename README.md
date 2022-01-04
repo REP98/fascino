@@ -45,5 +45,5 @@ if (_$.not(mivar)) {
 
 ### Documentación
 
-<p>La documentación oficial la puede encontrar en <a href="https://fascino.svilupporeo.site">fascino.svilupporep.site</p>
+<p>La documentación oficial la puede encontrar en <a href="https://fascino.svilupporeo.site">fascino.svilupporep.site</a></p>
 <p>Si desea ir directamente a la API presione <a href="https://fascino.svilupporeo.site/docs/api">aquí</a></p>
