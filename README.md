@@ -1,4 +1,4 @@
-## Fascino JS/CSS
+## Fascino JS
 <p>
 	Framework JS, modular y expansible
 </p>
@@ -20,7 +20,7 @@ let MyDiv = _$('.midiv')
 ```
 <p>
 	En el ejemplo anterior se muestra como al seleccionar un elemento Fascino hace uso de `querySeletor` y `querySeletorAll` para ello
-	pero te lo resume en `_$(mislector)` para escribir meno, así lograr códigos mas pequeños y que no relentisen tu página web.
+	pero te lo resume en `_$('mislector')` para escribir meno, así lograr códigos mas pequeños y que no relentisen tu página web.
 	Así mismo son todas las funcionalidades de Fascino solo toma un setenar de operaciones rutinarias y las unifica para un solo uso
 </p>
 
@@ -46,4 +46,4 @@ if (_$.not(mivar)) {
 ### Documentación
 
 <p>La documentación oficial la puede encontrar en <a href="https://fascino.svilupporeo.site">fascino.svilupporep.site</p>
-<p>Si desea ir directamente a la API presione <a href="https://fascino.svilupporeo.site/docs/api">aquí</p>
+<p>Si desea ir directamente a la API presione <a href="https://fascino.svilupporeo.site/docs/api">aquí</a></p>
