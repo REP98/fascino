@@ -1,6 +1,6 @@
 {
   "name": "fascino",
-  "version": "0.0.6",
+  "version": "0.1.60",
   "description": "Fascino CSS/JS Framework",
   "main": "dist/js/fascino.js",
   "scripts": {
@@ -26,14 +26,15 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "fascino"
+    "url": "https://github.com/REP98/fascino.git"
   },
   "directories": {
-    "doc": "docs"
+    "doc": "docs",
+    "src": "src"
   },
   "files": [
-    "docs/src/**/*.{js,scss,map}",
-    "docs/dist/{css,js}/*.{css,js,map}"
+    "src/**/*",
+    "dist/**/*.{css,js,map}"
   ],
   "devDependencies": {
     "@babel/cli": "^7.16.7",
