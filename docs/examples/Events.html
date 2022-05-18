@@ -1,0 +1,68 @@
+<h3>Event</h3>
+<p>
+	Los Eventos se utilizan para interactual con el DOM
+</p>
+<p>
+	FascinoJs posee los metodos para usar, basados en los mismo metodos basicos de Javascript
+</p>
+<section class="example">
+	<div class="container">
+		<div class="btn-group">
+			<button id="clickbtn">Dame Click</button>
+		</div>
+		<div id="hover">
+			Pasa el mouse
+		</div>
+		<div>
+			<input type="text" id="writeInput">
+		</div>
+	</div>
+	<div class="sidebar">
+		<output></output>
+	</div>
+</section>
+<pre class="prettyprint lang-js">
+	<code>
+// Format
+//_$(selector).nameEvent(selector(Optional), function(){}, optionsAddEventListener(Optional) )
+_$("#clickbtn").click(function(event){
+	console.log(event)
+})
+// Function ON
+_$("#writeInput").on('input keypress', function(e){
+	console.log(e)
+	console.log(`He escrito ${_$(this).val()}`)
+})
+	</code></pre>
+<script>
+	var l = _$.parseHTML('<link type="text/css" rel="stylesheet" href="assets/css/example.css">'),
+		o = _$("output")
+
+	_$(l).appendTo('head')
+
+	_$("#writeInput").on('input keypress',function(e){
+		o.html(`Escibiendo: ${_$(this).val()}`)
+	})
+
+	_$('#clickbtn').click(function(e){
+		o.html('Hicistes Click')
+		console.log(e)
+	})
+	_$("#hover").hover(function(e){
+		o.html(`<h5>Entro el mouse</h5>
+			<ul>
+			<li>pageX: ${e.pageX}</li>
+			<li>pageY: ${e.pageY}</li>
+			<li>clientX: ${e.clientX}</li>
+			<li>clientY: ${e.clientY}</li>
+			 </ul>`)
+	}, function(e){
+		o.html(`<h5>Salio el mouse</h5>
+			<ul>
+			<li>pageX: ${e.pageX}</li>
+			<li>pageY: ${e.pageY}</li>
+			<li>clientX: ${e.clientX}</li>
+			<li>clientY: ${e.clientY}</li>
+			 </ul>`)
+	})
+</script>

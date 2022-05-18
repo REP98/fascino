@@ -1,0 +1,2353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Adding favicon -->
+    
+    <link rel="icon" href="assets/Images/logo_white_512.png" />
+    
+
+    <!-- Adding meta -->
+    
+    
+    <meta name="author" content="Robert Pérez" />
+    
+    <meta name="description" content="Documentación Oficial de la Librería Javacript Fascino JS" />
+    
+    <meta property="og:title" content="FascinoJs" />
+    
+    <meta property="og:description" content="Documentación Oficial de la Librería Javacript Fascino JS" />
+    
+    <meta property="og:type" content="website" />
+    
+    <meta property="og:url" content="https://github.com/REP98/fascino" />
+    
+    <meta property="og:site_name" content="FascinoJs" />
+    
+    <meta property="og:image" content="assets/Images/FAS.png" />
+    
+    <meta property="og:image:width" content="512" />
+    
+    <meta property="og:image:height" content="512" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <meta name="twitter:creator" content="@Robert_saer" />
+    
+    <meta name="twitter:site" content="https://github.com/REP98/fascino" />
+    
+    <meta name="twitter:title" content="FascinoJs" />
+    
+    <meta name="twitter:description" content="Documentación Oficial de la Librería Javacript Fascino JS" />
+    
+    <meta name="theme-color" content="#000" />
+    
+    
+
+    <!-- Adding external script-->
+    
+
+    <!-- Adding external style-->
+    
+
+    <!-- Adding scripts-->
+    
+    
+    <script src="fascino-all.umd.min.js"></script>
+    
+    
+
+    <!-- Adding style-->
+    
+
+    <!-- Adding overlay script-->
+    
+
+    <!-- Adding overlay style-->
+    
+
+
+    <title>
+      core.js
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/third-party/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/third-party/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/reset.css">
+    <link type="text/css" rel="stylesheet" href="styles/clean-jsdoc-theme-base.css">
+    <link type="text/css" rel="stylesheet" href="styles/clean-jsdoc-theme-dark.css">
+    
+    <svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    style="display:none">
+    <defs>
+        <symbol id="copy-icon" viewbox="0 0 488.3 488.3">
+            <g>
+                <path
+                    d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z" />
+                <path
+                    d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z" />
+            </g>
+        </symbol>
+        <symbol id='search-icon' viewBox="0 0 512 512">
+            <g>
+                <g>
+                    <path
+                        d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z" />
+                </g>
+            </g>
+            <g>
+                <g>
+                    <path
+                        d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z" />
+                </g>
+            </g>
+        </symbol>
+        <symbol id="down-icon" viewBox="0 0 16 16">
+            <path 
+                fill-rule="evenodd" 
+                clip-rule="evenodd" 
+                d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"
+            >
+            </path>
+        </symbol>
+    </defs>
+</svg>
+  </head>
+
+  <body>
+
+    <nav class="navbar" id="navbar">
+      <h2><a href="index.html"><img src="assets/Images/logo_white_512.png" loading="lazy" height="36" style="max-width: 100%; margin-right: .8rem;" /> <span style="color: #fff">FascinoJs</span></a></h2><div class="search-box" id="search-box"><div class="search-box-input-container"><input class="search-box-input" type="text" placeholder="Search..." id="search-box-input" /><svg class="search-icon" alt="search-icon"><use xlink:href="#search-icon"></use></svg></div><div class="search-item-container" id="search-item-container"><ul class="search-item-ul" id="search-item-ul"></ul></div></div><div class="sidebar-main-content" id="sidebar-main-content"><ul><li class="menu-li"><a href='https://github.com/REP98/fascino' class=' menu-link' id='' target='_blank'>Github</a></li><li class="menu-li"><a href='https://www.npmjs.com/package/fascino' class=' menu-link' id='' target='_blank'>NPM</a></li><li class="menu-li"><a href='https://www.jsdelivr.com/package/npm/fascino?version=1.0.0' class=' menu-link' id='' target='_blank'>jsDelvir</a></li></ul><div class="accordion collapsed" id="3964055" > <h3 class="accordion-heading">Modules<svg><use xlink:href="#down-icon"></use></svg></h3><ul class="accordion-content"><li class="accordion-list" id=""><a href="module-Core.html">Core</a></li><li class="accordion-list" id=""><a href="module-Plugins.html">Plugins</a></li><li class="accordion collapsed child" id=7698889><div class="accordion-heading child"><a href="module-Utils.html">Utils</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Utils.html#.cleanPreCode">cleanPreCode</a></li><li data-type='method'><a href="module-Utils.html#.createScript">createScript</a></li><li data-type='method'><a href="module-Utils.html#.createURI">createURI</a></li><li data-type='method'><a href="module-Utils.html#.each">each</a></li><li data-type='method'><a href="module-Utils.html#.empty">empty</a></li><li data-type='method'><a href="module-Utils.html#.extend">extend</a></li><li data-type='method'><a href="module-Utils.html#.formatBytes">formatBytes</a></li><li data-type='method'><a href="module-Utils.html#.getStyleComputed">getStyleComputed</a></li><li data-type='method'><a href="module-Utils.html#.hasProp">hasProp</a></li><li data-type='method'><a href="module-Utils.html#.htmlEntities">htmlEntities</a></li><li data-type='method'><a href="module-Utils.html#.isArray">isArray</a></li><li data-type='method'><a href="module-Utils.html#.isArrayish">isArrayish</a></li><li data-type='method'><a href="module-Utils.html#.isElement">isElement</a></li><li data-type='method'><a href="module-Utils.html#.isFascinoElement">isFascinoElement</a></li><li data-type='method'><a href="module-Utils.html#.isFunction">isFunction</a></li><li data-type='method'><a href="module-Utils.html#.isHiden">isHiden</a></li><li data-type='method'><a href="module-Utils.html#.isNumber">isNumber</a></li><li data-type='method'><a href="module-Utils.html#.isObject">isObject</a></li><li data-type='method'><a href="module-Utils.html#.isSelector">isSelector</a></li><li data-type='method'><a href="module-Utils.html#.isString">isString</a></li><li data-type='method'><a href="module-Utils.html#.isURL">isURL</a></li><li data-type='method'><a href="module-Utils.html#.isVisible">isVisible</a></li><li data-type='method'><a href="module-Utils.html#.jsonToFormdata">jsonToFormdata</a></li><li data-type='method'><a href="module-Utils.html#.merge">merge</a></li><li data-type='method'><a href="module-Utils.html#.normalizeData">normalizeData</a></li><li data-type='method'><a href="module-Utils.html#.normalizeElements">normalizeElements</a></li><li data-type='method'><a href="module-Utils.html#.normName">normName</a></li><li data-type='method'><a href="module-Utils.html#.not">not</a></li><li data-type='method'><a href="module-Utils.html#.parseHTML">parseHTML</a></li><li data-type='method'><a href="module-Utils.html#.random">random</a></li><li data-type='method'><a href="module-Utils.html#.randomMap">randomMap</a></li><li data-type='method'><a href="module-Utils.html#.script">script</a></li><li data-type='method'><a href="module-Utils.html#.SetOptinsOfData">SetOptinsOfData</a></li><li data-type='method'><a href="module-Utils.html#.strToArr">strToArr</a></li><li data-type='method'><a href="module-Utils.html#.template">template</a></li><li data-type='method'><a href="module-Utils.html#.toString">toString</a></li><li data-type='method'><a href="module-Utils.html#.uniqueId">uniqueId</a></li><li data-type='method'><a href="module-Utils.html#.url">url</a></li></ul></li></ul> </div><div class="accordion collapsed" id="3961249" > <h3 class="accordion-heading">Classes<svg><use xlink:href="#down-icon"></use></svg></h3><ul class="accordion-content"><li class="accordion collapsed child" id=4672584><div class="accordion-heading child"><a href="Fascino.html">Fascino</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="Fascino.html#.addFn">addFn</a></li><li data-type='method'><a href="Fascino.html#.border">border</a></li><li data-type='method'><a href="Fascino.html#.margin">margin</a></li><li data-type='method'><a href="Fascino.html#.padding">padding</a></li><li data-type='method'><a href="Fascino.html#addClass">addClass</a></li><li data-type='method'><a href="Fascino.html#adopt">adopt</a></li><li data-type='method'><a href="Fascino.html#after">after</a></li><li data-type='method'><a href="Fascino.html#append">append</a></li><li data-type='method'><a href="Fascino.html#appendTo">appendTo</a></li><li data-type='method'><a href="Fascino.html#attr">attr</a></li><li data-type='method'><a href="Fascino.html#before">before</a></li><li data-type='method'><a href="Fascino.html#children">children</a></li><li data-type='method'><a href="Fascino.html#cleanAttr">cleanAttr</a></li><li data-type='method'><a href="Fascino.html#clone">clone</a></li><li data-type='method'><a href="Fascino.html#closest">closest</a></li><li data-type='method'><a href="Fascino.html#contains">contains</a></li><li data-type='method'><a href="Fascino.html#contents">contents</a></li><li data-type='method'><a href="Fascino.html#data">data</a></li><li data-type='method'><a href="Fascino.html#each">each</a></li><li data-type='method'><a href="Fascino.html#emptyHtml">emptyHtml</a></li><li data-type='method'><a href="Fascino.html#emptyVal">emptyVal</a></li><li data-type='method'><a href="Fascino.html#eq">eq</a></li><li data-type='method'><a href="Fascino.html#even">even</a></li><li data-type='method'><a href="Fascino.html#fadeIn">fadeIn</a></li><li data-type='method'><a href="Fascino.html#fadeOut">fadeOut</a></li><li data-type='method'><a href="Fascino.html#filter">filter</a></li><li data-type='method'><a href="Fascino.html#find">find</a></li><li data-type='method'><a href="Fascino.html#fire">fire</a></li><li data-type='method'><a href="Fascino.html#first">first</a></li><li data-type='method'><a href="Fascino.html#get">get</a></li><li data-type='method'><a href="Fascino.html#getEvent">getEvent</a></li><li data-type='method'><a href="Fascino.html#hasAttr">hasAttr</a></li><li data-type='method'><a href="Fascino.html#hasClass">hasClass</a></li><li data-type='method'><a href="Fascino.html#hasData">hasData</a></li><li data-type='method'><a href="Fascino.html#height">height</a></li><li data-type='method'><a href="Fascino.html#hide">hide</a></li><li data-type='method'><a href="Fascino.html#hover">hover</a></li><li data-type='method'><a href="Fascino.html#html">html</a></li><li data-type='method'><a href="Fascino.html#import">import</a></li><li data-type='method'><a href="Fascino.html#index">index</a></li><li data-type='method'><a href="Fascino.html#innerHeight">innerHeight</a></li><li data-type='method'><a href="Fascino.html#innerWidth">innerWidth</a></li><li data-type='method'><a href="Fascino.html#insertAfter">insertAfter</a></li><li data-type='method'><a href="Fascino.html#insertBefore">insertBefore</a></li><li data-type='method'><a href="Fascino.html#is">is</a></li><li data-type='method'><a href="Fascino.html#last">last</a></li><li data-type='method'><a href="Fascino.html#left">left</a></li><li data-type='method'><a href="Fascino.html#map">map</a></li><li data-type='method'><a href="Fascino.html#matches">matches</a></li><li data-type='method'><a href="Fascino.html#merge">merge</a></li><li data-type='method'><a href="Fascino.html#next">next</a></li><li data-type='method'><a href="Fascino.html#odd">odd</a></li><li data-type='method'><a href="Fascino.html#off">off</a></li><li data-type='method'><a href="Fascino.html#offset">offset</a></li><li data-type='method'><a href="Fascino.html#on">on</a></li><li data-type='method'><a href="Fascino.html#one">one</a></li><li data-type='method'><a href="Fascino.html#outerHeight">outerHeight</a></li><li data-type='method'><a href="Fascino.html#outerHTML">outerHTML</a></li><li data-type='method'><a href="Fascino.html#outerWidth">outerWidth</a></li><li data-type='method'><a href="Fascino.html#parent">parent</a></li><li data-type='method'><a href="Fascino.html#parents">parents</a></li><li data-type='method'><a href="Fascino.html#position">position</a></li><li data-type='method'><a href="Fascino.html#prepend">prepend</a></li><li data-type='method'><a href="Fascino.html#prependTo">prependTo</a></li><li data-type='method'><a href="Fascino.html#prev">prev</a></li><li data-type='method'><a href="Fascino.html#prop">prop</a></li><li data-type='method'><a href="Fascino.html#remove">remove</a></li><li data-type='method'><a href="Fascino.html#removeAttr">removeAttr</a></li><li data-type='method'><a href="Fascino.html#removeClass">removeClass</a></li><li data-type='method'><a href="Fascino.html#removeData">removeData</a></li><li data-type='method'><a href="Fascino.html#removeStyle">removeStyle</a></li><li data-type='method'><a href="Fascino.html#replaceClass">replaceClass</a></li><li data-type='method'><a href="Fascino.html#scrollLeft">scrollLeft</a></li><li data-type='method'><a href="Fascino.html#scrollTop">scrollTop</a></li><li data-type='method'><a href="Fascino.html#show">show</a></li><li data-type='method'><a href="Fascino.html#style">style</a></li><li data-type='method'><a href="Fascino.html#text">text</a></li><li data-type='method'><a href="Fascino.html#toggleAttr">toggleAttr</a></li><li data-type='method'><a href="Fascino.html#toggleClass">toggleClass</a></li><li data-type='method'><a href="Fascino.html#toggleData">toggleData</a></li><li data-type='method'><a href="Fascino.html#top">top</a></li><li data-type='method'><a href="Fascino.html#trigger">trigger</a></li><li data-type='method'><a href="Fascino.html#unwrap">unwrap</a></li><li data-type='method'><a href="Fascino.html#val">val</a></li><li data-type='method'><a href="Fascino.html#width">width</a></li><li data-type='method'><a href="Fascino.html#wrap">wrap</a></li><li data-type='method'><a href="Fascino.html#wrapAll">wrapAll</a></li><li data-type='method'><a href="Fascino.html#wrapInner">wrapInner</a></li></ul></li><li class="accordion-list" id=""><a href="Fascino_Fascino.html">Fascino</a></li><li class="accordion-list" id=""><a href="module.exports_module.exports.html">exports</a></li><li class="accordion collapsed child" id=231902><div class="accordion-heading child"><a href="module-Core.Data.html">Data</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Core.Data.html#.acceptData">acceptData</a></li><li data-type='method'><a href="module-Core.Data.html#.acceptDataSet">acceptDataSet</a></li><li data-type='method'><a href="module-Core.Data.html#.access">access</a></li><li data-type='method'><a href="module-Core.Data.html#.attrToStorage">attrToStorage</a></li><li data-type='method'><a href="module-Core.Data.html#.data">data</a></li><li data-type='method'><a href="module-Core.Data.html#.get">get</a></li><li data-type='method'><a href="module-Core.Data.html#.has">has</a></li><li data-type='method'><a href="module-Core.Data.html#.remove">remove</a></li><li data-type='method'><a href="module-Core.Data.html#.set">set</a></li><li data-type='method'><a href="module-Core.Data.html#.storage">storage</a></li></ul></li><li class="accordion-list" id=""><a href="module-Core.Event.html">Event</a></li><li class="accordion collapsed child" id=5256267><div class="accordion-heading child"><a href="module-Core.Selector.html">Selector</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Core.Selector.html#.mergeEl">mergeEl</a></li><li data-type='method'><a href="module-Core.Selector.html#.querySelector">querySelector</a></li><li data-type='method'><a href="module-Core.Selector.html#.sel">sel</a></li></ul></li><li class="accordion-list" id=""><a href="module-Core.Selector.SelectorError.html">SelectorError</a></li><li class="accordion collapsed child" id=1801653><div class="accordion-heading child"><a href="module-Plugins.HTTP.Serialize.html">Serialize</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Plugins.HTTP.Serialize.html#.exports.SerializeToForm">exports.SerializeToForm</a></li><li data-type='method'><a href="module-Plugins.HTTP.Serialize.html#.Serialize#parse">Serialize#parse</a></li><li data-type='method'><a href="module-Plugins.HTTP.Serialize.html#.Serialize#stringify">Serialize#stringify</a></li></ul></li><li class="accordion collapsed child" id=9872701><div class="accordion-heading child"><a href="module-Plugins.Progress.Progress.html">Progress</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.attributeChangedCallback">attributeChangedCallback</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.connectedCallback">connectedCallback</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.disconnectedCallback">disconnectedCallback</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.getValue">getValue</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.setBg">setBg</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.setBgValue">setBgValue</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.setSize">setSize</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.setSpeed">setSpeed</a></li><li data-type='method'><a href="module-Plugins.Progress.Progress.html#.setValue">setValue</a></li></ul></li></ul> </div><div class="accordion collapsed" id="2348731" > <h3 class="accordion-heading">Namespaces<svg><use xlink:href="#down-icon"></use></svg></h3><ul class="accordion-content"><li class="accordion collapsed child" id=2901186><div class="accordion-heading child"><a href="-_$.html">_$</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="-_$.html#.addFn">addFn</a></li><li data-type='method'><a href="-_$.html#.axios">axios</a></li><li data-type='method'><a href="-_$.html#.beforeunload">beforeunload</a></li><li data-type='method'><a href="-_$.html#.DOMLoad">DOMLoad</a></li><li data-type='method'><a href="-_$.html#.ft">ft</a></li><li data-type='method'><a href="-_$.html#.getscript">getscript</a></li><li data-type='method'><a href="-_$.html#.global">global</a></li><li data-type='method'><a href="-_$.html#.Lazy">Lazy</a></li><li data-type='method'><a href="-_$.html#.load">load</a></li><li data-type='method'><a href="-_$.html#.noConflict">noConflict</a></li><li data-type='method'><a href="-_$.html#.progressSet">progressSet</a></li><li data-type='method'><a href="-_$.html#.progressVal">progressVal</a></li><li data-type='method'><a href="-_$.html#.serialize">serialize</a></li><li data-type='method'><a href="-_$.html#.setFree$">setFree$</a></li><li data-type='method'><a href="-_$.html#.unserialize">unserialize</a></li><li data-type='method'><a href="-_$.html#.WLoad">WLoad</a></li></ul></li><li class="accordion collapsed child" id=8227639><div class="accordion-heading child"><a href="-_$.Hooks.html">Hooks</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="-_$.Hooks.html#.add">add</a></li><li data-type='method'><a href="-_$.Hooks.html#.run">run</a></li></ul></li><li class="accordion collapsed child" id=7170266><div class="accordion-heading child"><a href="module-Plugins.HTTP.html">HTTP</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Plugins.HTTP.html#.fetch">fetch</a></li></ul></li><li class="accordion-list" id=""><a href="module-Plugins.HTTP.fetch.OptionsFT.html">OptionsFT</a></li><li class="accordion-list" id=""><a href="module-Plugins.Progress.html">Progress</a></li><li class="accordion collapsed child" id=5417114><div class="accordion-heading child"><a href="module-Utils.Colors.html">Colors</a><svg><use xlink:href="#down-icon"></use></svg></div><ul class='methods accordion-content'><li data-type='method'><a href="module-Utils.Colors.html#.AlphaHex">AlphaHex</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Color2Str">Color2Str</a></li><li data-type='method'><a href="module-Utils.Colors.html#.ColorStr2Obj">ColorStr2Obj</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hex2Hsl">Hex2Hsl</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hex2Hsl">Hex2Hsl</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hex2Per">Hex2Per</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hex2Rgb">Hex2Rgb</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hsl2Hex">Hsl2Hex</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hsl2Hwb">Hsl2Hwb</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hsl2Rgb">Hsl2Rgb</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hwb2Hex">Hwb2Hex</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hwb2Hsl">Hwb2Hsl</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Hwb2Rgb">Hwb2Rgb</a></li><li data-type='method'><a href="module-Utils.Colors.html#.isHex">isHex</a></li><li data-type='method'><a href="module-Utils.Colors.html#.isHSL">isHSL</a></li><li data-type='method'><a href="module-Utils.Colors.html#.isHwb">isHwb</a></li><li data-type='method'><a href="module-Utils.Colors.html#.isRGB">isRGB</a></li><li data-type='method'><a href="module-Utils.Colors.html#.lightOrDark">lightOrDark</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Per2Hex">Per2Hex</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Rgb2Hex">Rgb2Hex</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Rgb2Hsl">Rgb2Hsl</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Rgb2Hsp">Rgb2Hsp</a></li><li data-type='method'><a href="module-Utils.Colors.html#.Rgb2Hwb">Rgb2Hwb</a></li></ul></li></ul> </div><div class="accordion collapsed" id="9525180" > <h3 class="accordion-heading">Tutorials<svg><use xlink:href="#down-icon"></use></svg></h3><ul class="accordion-content"><li class="accordion-list" id=""><a href="tutorial-Colors.html">Colors</a></li><li class="accordion-list" id=""><a href="tutorial-Data.html">Data</a></li><li class="accordion-list" id=""><a href="tutorial-Events.html">Events</a></li></ul> </div>
+      
+
+    </nav>
+    <div class="navbar-ham" id="navbar-ham">
+      <div>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third"></div>
+      </div>
+    </div>
+
+    <div id="main" class="main-content">
+      
+      <h1 id='page-title' class="page-title">
+        core.js
+      </h1>
+      
+
+      
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {Data, Event, Selector} from './Classes'
+import pkg from '../package.json'
+import {
+	camelCase,
+	createScript,
+	each,
+	empty,
+	extend,
+	formatBytes,
+	getStyleComputed,
+	hasProp,
+	isArrayish,
+	isElement,
+	isFunction,
+	isFascinoElement,
+	isNumber,
+	isObject,
+	isSelector,
+	isString,
+	isVisible,
+	merge,
+	normName,
+	normalizeData,
+	normalizeElements,
+	not,
+	parseHTML,
+	script
+}  from './Utils/Utils.js'
+
+if (!Element.prototype.matches) {
+	Element.prototype.matches =
+		Element.prototype.matchesSelector ||
+		Element.prototype.mozMatchesSelector ||
+		Element.prototype.msMatchesSelector ||
+		Element.prototype.oMatchesSelector ||
+		Element.prototype.webkitMatchesSelector ||
+		function(s) {
+			let matches = (this.document || this.ownerDocument).querySelectorAll(s),
+				i = matches.length
+			while (--i >= 0 &amp;&amp; matches.item(i) !== this) { }
+			return i > -1
+		}
+}
+
+if (!Element.prototype.closest) {
+	Element.prototype.closest = function(s) {
+		let el = this
+
+		do {
+			if (el.matches(s)) return el
+			el = el.parentElement || el.parentNode
+		} while (el !== null &amp;&amp; el.nodeType === 1)
+		return null
+	}
+}
+
+/**
+ * Lista de Eventos Nativos de Javascript &lt;br>
+ * Aquí se Almacenan los nombre de las funciones de eventos nativos 
+ * 'blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+ * 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown',
+ * 'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'
+ * @example &lt;caption>Uso&lt;/caption>
+ * _$('selector').clicK(function(e){})
+ * @memberOf Fascino
+ * @private
+ * @type {Array}
+ */
+const ListEvents = [
+	'blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+	'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown',
+	'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'
+]
+/**
+ * @memberOf Fascino
+ * @private
+ * @const {Number}
+ * @default 3
+ */
+const NODETEXT = 3
+/**
+ * Función que reinvoca la Clase Fascino
+ * @memberOf Fascino
+ * @private
+ * @param  {(String|Element|Array|Function|Object)} selector
+ * @param  {HTMLElement} context
+ * @return {Fascino}
+ */
+function w(sel, ctx){
+	return new Fascino(sel, ctx);
+}
+
+/**
+ * Fascino, Encantador Framework JS para su fácil uso
+ * @global
+ * @namespace Fascino
+ * @class
+ * @extends {module:Core.Selector}
+ */
+export class Fascino extends Selector{
+	_ds = new Data()
+	_ev = new Event()
+	/**
+	 * @param  {(String|Element|Array|Function|Object)} selector Seletor, Elemento ó funcion para iniciar FascinoJs
+	 * @param  {HTMLElement} context Contexto del selector, por defecto es &lt;code>document&lt;/code>
+	 * @return {Fascino}
+	 */
+	constructor(selector, context = document) {
+		super(selector, context)
+		this.name = 'FascinoJS'
+		this.length = this.Elem.length
+		this.version = pkg.version
+		if (this.length == 1) {
+			this.events = this.getEvent()
+		}
+	}
+	// STATICOS
+
+	/**
+	 * Añade funciones a Fascino
+	 * @memberOf Fascino
+	 * @public
+	 * @param {String} name Nombre de la función
+	 * @param {Function} fn Función a asignar
+	 * @return {Fascino}
+	 */
+	static addFn(name, fn) {
+		if (!hasProp(this, name)) {
+			this.prototype[name] = fn
+		}
+
+		return this		
+	}
+
+	// PRIVADOS
+	/**
+	 * Private _is
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String}  prop propiedad tipo
+	 * @return {Boolean}
+	 */
+	_is(prop) {
+		let res = false
+		this.each((el) => {
+			res = el[prop]
+		})
+		return res
+	}
+	/**
+	 * Busca y obtiene una propiedad de un elemento dado
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String} n Nombre de la propiedad
+	 * @param  {String} v Valor de la propiedad
+	 * @return {Fascino}
+	 */
+	_prop(n, v) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (arguments.length === 1) {
+			return n in this.Elem[0] ? this.Elem[0][n] : undefined
+		}
+
+		if (empty(v)) {
+			v = ''
+		}
+
+		return this.each((el) => {
+			el[n] = v
+			if (n === 'innerHTML') {
+				script(el)
+			}
+		})
+	}
+
+	/**
+	 * Método privado que ayuda a establecer opciones a un elemento dado.
+	 * @memberOf Fascino
+	 * @private
+	 * @param {(Element|NodeList)} newNode
+	 * @param {Object} options
+	 */
+	_setOptions(newNode, options) {
+		if (!empty(options)) {
+			for (let key in options) {
+				if (hasProp(options, key)) {
+					let value = options[key]
+					if (hasProp(this, key)) {
+						w(newNode)[key].apply(this, value)
+					}
+				}
+			}
+		}
+	}
+	/**
+	 * Tamaño Externo del elemento
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String} prop
+	 * @param  {String} val
+	 * @return {(String|Number)}
+	 */
+	_sizeOut(prop, val) {
+		let el, size, style, result
+
+		if (this.length === 0) {
+			return
+		}
+
+		if (!empty(val) &amp;&amp; typeof val !== 'boolean') {
+			return this.each((el) => {
+				if (el === window || el === document) {
+					return
+				}
+				let h, style = getStyleComputed(el),
+					bs = prop === 'width' ? parseInt(style['border-left-width']) + parseInt(style['border-right-width']) : parseInt(style['border-top-width']) + parseInt(style['border-bottom-width']),
+					pa = prop === 'width' ? parseInt(style['padding-left']) + parseInt(style['padding-right']) : parseInt(style['padding-top']) + parseInt(style['padding-bottom'])
+
+				h = w(el)[prop](val)[prop]() - bs - pa
+				el.style[prop] = h + 'px'
+			})
+		}
+
+		el = this.Elem[0]
+		size = el[prop === 'width' ? 'offsetWidth' : 'offsetHeight']
+		style = getStyleComputed(el)
+		result = size + parseInt(style[prop === 'width' ? 'margin-left' : 'margin-top']) + parseInt(style[prop === 'width' ? 'margin-right' : 'margin-bottom'])
+		return val === true ? result : size
+	}
+	/**
+	 * Tamano real del elemento
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String} pro
+	 * @param  {String} val
+	 * @return {(fascino|Number|NaN|String)}
+	 */
+	_size(prop, val) {
+		if (this.length === 0) {
+			return NaN
+		}
+
+		if (empty(val)) {
+			let el = this.Elem[0]
+			if (prop === 'height') {
+				return el === window ? window.innerHeight : el === document ? el.body.clientHeight : parseInt(getComputedStyle(el).height)
+			} else if (prop === 'width') {
+				return el === window ? window.innerWidth : el === document ? el.body.clientWidth : parseInt(getComputedStyle(el).width)
+			}
+		}
+
+		return this.each((el) => {
+			if (el === window || el === document) {
+				return
+			}
+			el.style[prop] = isNaN(val) ? val : val + 'px'
+		})
+	}
+	// PUBLICOS
+	/**
+	 * Recorre los elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...(Function|Array)} arg Argumentos
+	 * @return {Fascino}
+	 */
+	each(...arg) {
+		this.Elem.forEach(...arg)
+		return this
+	}
+	/**
+	 * Verifica si el elemento es seleccionable por el Selector
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} selectorString Selector CSS
+	 * @return {(Element|Array)}
+	 */
+	matches(selectorString) {
+		const elem = []
+		this.each((el) => {
+			if (el.matches(selectorString)) {
+				elem.push(el)
+			}
+		})
+		return elem
+	}
+	/**
+	 * Crea una nueva matriz de elementos a través de la función dada
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} callback Función
+	 * @return {Array}
+	 */
+	map(callback) {
+		return this.Elem.map(callback)
+	}
+	/**
+	 * Combina Elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Array} els Matriz de elementos nueva
+	 * @return {Fascino}
+	 */
+	merge(els) {
+		merge(this.Elem, els)
+		return this
+	}
+	/**
+	 * Obtiene la posición del elemento dentro de su padre
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Null)} parent   El padre de los Elementos
+	 * @param  {String} nodeName tipo de nombre de nodo entre los cuales buscar
+	 * @return {Number}
+	 */
+	index(parent, nodeName) {
+		let el = this.Elem[0], index = -1, child
+		parent = empty(parent) ? el.parentNode() : normalizeElements(parent)
+
+		if (empty(nodeName)) {
+			child = w(parent).children()
+		} else {
+			child = w(parent).find(nodeName)
+		}
+
+		child.each((element, i) => {
+			if (element === el) {
+				index = i
+			}
+		})
+
+		return index
+	}
+	/**
+	 * Obtiene el Elemento solicitado por su posición dentro de la matriz de Elementos, El Elemeto obtenido es de tipo Element
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Number} i Posición
+	 * @return {Element}
+	 */
+	get(i) {
+		if (not(i)) {
+			return this.Elem
+		}
+		return i &lt; 0 ? this.Elem[i + this.length] : this.Elem[i]
+	}
+	/**
+	 * Busca, valida y obtiene el elemento dado por su posición dentro de la matriz de elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Number} i posición del elemento
+	 * @return {Fascino}
+	 */
+	eq(i) {
+		return !isNaN(i) &amp;&amp; this.length > 0 ? extend(w(this.get(i)), { _prevObj: this }) : this
+	}
+	/**
+	 * Obtiene el ultimo elemento de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Element}
+	 */
+	last() {
+		return this.eq(this.length - 1)
+	}
+	/**
+	 * Obtiene el primer elemento de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Element}
+	 */
+	first() {
+		return this.eq(0)
+	}
+	/**
+	 * Crea una nueva selección de elemento que cumplan con la condición dada en la función
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fn Función para filtrar
+	 * @return {Fascino}
+	 */
+	filter(fn) {
+		if (isString(fn)) {
+			let sel = fn
+			fn = function(el) {
+				return el.matches(sel)
+			}
+		}
+
+		return extend(
+			merge(w().Elem, [].filter.call(this.Elem, fn)),
+			{ _prevObj: this })
+	}
+	/**
+	 * Obtiene los elementos impares de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {(Element|Fascino)}
+	 */
+	odd() {
+		let result = this.filter(function(el, i) {
+			return i % 2 === 0
+		})
+		return extend(result, { _prevObj: this })
+	}
+	/**
+	 * Obtiene los numero pares de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {(Element|Fascino)}
+	 */
+	even() {
+		let result = this.filter(function(el, i) {
+			return i % 2 !== 0
+		})
+		return extend(result, { _prevObj: this })
+	}
+	/**
+	 * Busca un elemento hijo por su selector CSS
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector CSS valido
+	 * @return {Fascino}
+	 */
+	find(sel) {
+		let rEl = Array.from('')
+
+		this.Elem.forEach((el)=>{
+			rEl.push(
+				[].concat(...Element.prototype.querySelectorAll.call(el, sel))
+			)
+		})
+
+		return rEl.length === 0 ? [] : rEl.length === 1 ? w(rEl[0]) : merge(w().Elem, rEl)
+	}
+	/**
+	 * Verifica si el elemento es hijo del Elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} s Selector CSS
+	 * @return {Boolean}
+	 */
+	contains(s) {
+		return this.find(s).length > 0
+	}
+	/**
+	 * Obtiene los hijos de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector o elemento hijo a buscar
+	 * @return {Array} Lista de hijos
+	 */
+	children(sel) {
+		let element = this.Elem[0]
+		if (empty(sel)) {
+			return [].concat(...element.children)
+		}
+
+
+		return [].concat(...element.children)
+			.filter(child => child.matches(sel))
+	}
+	/**
+	 * Verifica de que tipo es el selector
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {*}  s
+	 * @return {Boolean}
+	 */
+	is(s) {
+		let result = false
+		if (this.length === 0 ) {
+			return false
+		}
+
+		if (s &amp;&amp; hasProp(s, 'Elem')) {
+			this.each((el) => {
+				s.each((o) => {
+					if (el === o) {
+						result = true
+						return
+					}
+				})
+			})
+		}
+
+		if (isString(s)) {
+			if (s === ':selected') {
+				result = this._is('selected')
+			} else if (s === ':checked') {
+				result = this._is('checked')
+			} else if (s === ':visible') {
+				this.each((el) => {
+					if (isVisible(el)) {
+						result = true
+					}
+				})
+			} else if (s === ':hidden') {
+				this.each((el) => {
+					if (el.getAttribute('type') === 'hidden' || isHiden(el)) {
+						result = true
+					}
+				})
+			} else if (s === ':disabled') {
+				this.each((el) => {
+					if (el.getAttribute('disabled') || _$(el).hasClass('disabled')) {
+						result = true
+					}
+				})
+			} else if (s === ':readonly') {
+				this.each((el) => {
+					if (el.getAttribute('readonly') || _$(el).hasClass('readonly')) {
+						result = true
+					}
+				})
+			} else {
+				this.each((el) => {
+					if (el.matches(s) || Element.prototype.matches.call(el, s)) {
+						result = true
+					}
+				})
+			}
+		} else if (isArrayish(s)) {
+			this.each((el) => {
+				s.forEach((sel) => {
+					if (el === sel) {
+						result = true
+					}
+				})
+			})
+		} else if (s.nodeType === 1) {
+			this.each((el) => {
+				if (el === s) {
+					result = true
+				}
+			})
+		}
+
+		return result
+	}
+	/**
+	 * Método público de Fascino._prop
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} n
+	 * @param  {String} v
+	 * @return {Fascino}
+	 */
+	prop(n, v) {
+		return arguments.length === 1 ?
+			this._prop(n) :
+			this._prop(n, empty(v) ? '' : v)
+	}
+	/**
+	 * Agrega un elemento al padre seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino|String)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	append(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el) => {
+			w(newNode).each((nN, i) => {
+				if (nN === el) {
+					return
+				}
+				let child = i === 0 ? nN : nN.cloneNode(true)
+				script(child)
+				if (child.tagName &amp;&amp; child.tagName !== 'SCRIPT') {
+					el.append(child)
+				}
+			})
+		})
+	}
+	/**
+	 * Agrega el elemento seleccionado al nuevo padre
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino|String)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	appendTo(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el) => {
+			w(newNode).each((p, i) => {
+				if (el === p) {
+					return p
+				}
+				p.append(
+					i === 0 ? el : el.cloneNode(true)
+				)
+			})
+		})
+	}
+	/**
+	 * Agrega un nuevo elemento al principio del padre seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino|String)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	prepend(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el, elIndex) => {
+			w(newNode).each((e) => {
+				if (el === e) return
+				let child = elIndex === 0 ? e : e.cloneNode(true)
+				script(child)
+				if (child.tagName &amp;&amp; child.tagName !== 'SCRIPT') {
+					el.prepend(child)
+				}
+			})
+		})
+	}
+	/**
+	 * Agrega el elemento seleccionado al nuevo padre
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	prependTo(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el)=>{
+			w(newNode).each((parent, parIndex) => {
+				if (el === parent) return parent
+				w(parent).prepend(parIndex === 0 ? el : el.cloneNode(true))
+			})
+		})
+	}
+	
+	/**
+	 * Clona el elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Boolean} deep Verdadero si los hijos del nodo también deben ser clonados
+	 * @return {Array}
+	 */
+	clone(deep = false) {
+		let res = []
+		if (not(deep)) {
+			deep = false
+		}
+
+		this.each((e) => {
+			let el = e.cloneNode(deep)
+			res.push(el)
+		})
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Crea una copia de un nodo desde un documento externo
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Boolean} deep Verdadero si los hijos del nodo también deben ser importados
+	 * @return {Array}
+	 */
+	import(deep = true) {
+		let res = []
+		if (not(deep)) {
+			deep = true
+		}
+		this.each((e) => {
+			res.push(document.importNode(e, deep))
+		})
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Transfiere un node desde otro document al documento del método
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Array}
+	 */
+	adopt() {
+		let res = []
+		this.each((e) => {
+			res.push(document.adoptNode(e))
+		})
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Obtiene el contenido de un Iframe o Template
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Array}
+	 */
+	contents() {
+		if (this.length === 0) {
+			return this
+		}
+		let res = []
+		this.each((el) => {
+			let content
+			if (el.nodeName === 'IFRAME') {
+				content = el.contentDocument || el.contentWindow.document
+			} else if (el.nodeName === 'TEMPLATE') {
+				content = el.content
+			}
+			res.push(content)
+		})
+
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Obtiene el o los padres de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector del padre a buscar
+	 * @return {Fascino} Lista de Padres
+	 */
+	parents(sel) {
+		const parents = []
+		this.each((el) => {
+			let ancestor = el.parentNode
+			while (ancestor &amp;&amp; ancestor.nodeType === Node.ELEMENT_NODE &amp;&amp; ancestor.nodeType !== NODETEXT) {
+				if (ancestor.matches(sel)) {
+					parents.push(ancestor)
+				}
+
+				ancestor = ancestor.parentNode
+			}
+		})
+
+		return w(parents)
+	}
+	/**
+	 * Obtiene el padre del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	parent() {
+		const parent = []
+		this.each((el) => {
+			parent.push(el.parentNode)
+		})
+		return w(parent)
+	}
+	/**
+	 * Obtiene o busca el hermano anterior
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel
+	 * @return {(Fascino|Array)}
+	 */
+	prev(sel) {
+		let el = this.Elem[0],
+			previous = el.previousElementSibling
+
+		if (empty(sel)) {
+			return w(previous)
+		}
+
+		while (previous) {
+			if (previous.matches(sel)) {
+				return w(previous)
+			}
+
+			previous = previous.previousElementSibling
+		}
+
+		return []
+	}
+	/**
+	 * Obtiene o busca el hermano siguiente
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)}   sel
+	 * @return {(Fascino|Array)}
+	 */
+	next(sel) {
+		let el = this.Elem[0],
+			next = el.nextElementSibling
+
+		if (empty(sel)) {
+			return w(next)
+		}
+
+		while (next) {
+			if (next.matches(sel)) {
+				return w(next)
+			}
+
+			next = next.nextElementSibling
+		}
+
+		return []
+	}
+	/**
+	 * Busca el ascendiente más cercano al elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector del ascendiente a buscar
+	 * @return {(Fascino|Element|Array|Null)}
+	 */
+	closest(sel) {
+		if (this.length === 0) return this
+
+		if (!sel) {
+			return this.parent(sel)
+		}
+
+		const res = []
+		this.each((el) => {
+			if ('closest' in el) {
+				res.push(el.closest(sel))
+			} else {
+				while (el) {
+					if (!el) break
+					if (el.matches(sel)) {
+						res.push(el)
+						return
+					}
+					el = el.parentElement
+				}
+			}
+		})
+		return res
+	}
+	/**
+	 * Vacía el contenido HTML de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	emptyHtml() {
+		return this.each((el) => {
+			el.innerHTML = ''
+		})
+	}
+	/**
+	 * Vacía el valor de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	emptyVal() {
+		return this.each((el) => {
+			el.value = ''
+		})
+	}
+	/**
+	 * Encierra un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|String)} el
+	 * @return {Fascino} El nuevo padre
+	 */
+	wrap( el ) {
+		if (this.length === 0) {
+			return
+		}
+
+		const wrapper = w(normalizeElements(el))
+
+		if (!wrapper.length) {
+			return
+		}
+
+		let res = []
+
+		this.each((el) => {
+			let _target, _wrapper
+
+			_wrapper = w(wrapper.clone(true))
+			_wrapper.insertBefore(el)
+
+			_target = _wrapper
+			while (_target.children().length) {
+				_target = _target.children().eq(0)
+			}
+			_target.append(el)
+
+			res.push(_wrapper.e(0))
+		})
+
+		return w(res)
+	}
+	/**
+	 * Busca y encierra todos los elemento del tipo dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(NodeList|Fascino-Object|Object|Array)} el
+	 * @return {Fascino}
+	 */
+	wrapAll( el ) {
+		let wrapper, _wrapper, _target
+
+		if (this.length === 0) {
+			return
+		}
+
+		wrapper = w(normalizeElements(el))
+
+		if (!wrapper.length) {
+			return
+		}
+
+		_wrapper = w(wrapper.clone(true))
+		_wrapper.insertBefore(this.Elem[0])
+
+		_target = _wrapper
+		while (_target.children().length) {
+			_target = _target.children().eq(0)
+		}
+
+		this.each((e) => {
+			_target.append(e)
+		})
+
+		return _wrapper
+	}
+	/**
+	 * Busca y encierra los hijo de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Elemento|Fascino|String)} el
+	 * @return {Fascino}
+	 */
+	wrapInner( el ) {
+		if (this.length === 0) {
+			return
+		}
+
+		const wrapper = w(normalizeElements(el))
+
+		if (!wrapper.length) {
+			return
+		}
+
+		let res = []
+
+		this.each((e) => {
+			let elem = w(e),
+				html = elem.html(),
+				wrp = w(wrapper.clone(true))
+
+			elem.html(wrp.html(html))
+			res.push(wrp)
+		})
+
+		return w(res)
+	}
+	/**
+	 * Desencierra los elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	unwrap() {
+		return this.each((el) => {
+			let p = el.parentNode
+			while (el.firstChild) {
+				p.insertBefore(el.firstChild, el)
+			}
+			p.removeChild(el)
+		})
+	}
+	/**
+	 * Elimina uno o todos los elementos del DOM
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element|Array)} sel Selector a eliminar
+	 * @return {Array}
+	 */
+	remove(sel) {
+		let out = !empty(sel) ?
+				this.Elem.filter((el) => {
+					return el.matches(sel)
+				}) :
+				this.Elem,
+			res = []
+		out.forEach((el) => {
+			res.push(el.parentNode.removeChild(el))
+		})
+
+		return [].concat(...this.Elem, ...res)
+	}
+	/**
+	 * Inserta un elemento antes del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Element} elements
+	 * @return {Fascino}
+	 */
+	insertBefore(elements) {
+		let _el = w(elements)
+		return this.each((el) => {
+			_el.each((_e, i) => {
+				if (_e === el) {
+					return
+				}
+				let p = _e.parentNode
+				if (p) {
+					p.insertBefore(
+						i === 0 ? el : el.cloneNode(true),
+						_e
+					)
+				}
+			})
+		})
+	}
+	/**
+	 * Inserta un elemento después del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Element} elements
+	 * @return {Fascino}
+	 */
+	insertAfter(elements) {
+		let _el = w(elements)
+		return this.each((el) => {
+			_el.each((_e, i) => {
+				if (_e === el) {
+					return
+				}
+				let p = _e.parentNode
+				if (p) {
+					p.insertBefore(
+						i === 0 ? el : el.cloneNode(true),
+						_e.nextSibling
+					)
+				}
+			})
+		})
+	}
+	/**
+	 * Agrega un elemento o etiquetas HTML después del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} html
+	 * @param  {String} position la posición equivale a afterbegin o afterend; @default afterbegin
+	 * @return {Fascino}
+	 */
+	after(html, position = 'afterbegin') {
+		return this.each((el) => {
+			if (isString(html)) {
+				el.insertAdjacentHTML(position, html)
+			} else {
+				w(html).insertAfter(el)
+			}
+		})
+	}
+	/**
+	 * Agrega un elemento o HTML antes del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} html
+	 * @param  {String} position la posición equivale a beforebegin o beforeend; @default beforebegin
+	 * @return {Fascino}
+	 */
+	before(html, position = 'beforebegin') {
+		return this.each((el) => {
+			if (isString(html)) {
+				el.insertAdjacentHTML(position, html)
+			} else {
+				w(html).insertBefore(el)
+			}
+		})
+	}
+	/**
+	 * Obtiene o Establece el texto al elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Null)} txt
+	 * @return {(Fascino|String)}
+	 */
+	text(txt) {
+		return empty(txt) ?
+				this._prop('textContent') :
+				this._prop('textContent', txt)
+	}
+	/**
+	 * Obtiene o Establece el contenido HTML del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Fascino|Element)} html
+	 * @return {(Fascino|String)}
+	 */
+	html(html) {
+		let value = []
+		if (this.length === 0) {
+			return this
+		}
+
+		if (html === '') {
+			return this._prop('innerHTML', '')
+		}
+
+		if (empty(html)) {
+			return this._prop('innerHTML')
+		}
+
+		if (Array.isArray(html)) {
+			value = [].concat(...value, ...html)
+		} else if (html instanceof Element || isFascinoElement(html)) {
+			let res = [],
+				h = (html instanceof Element) ? w(html) : html
+
+			h.each((v) => {
+				res.push(w(v).outerHTML())
+			})
+
+			value = [].concat(...value, ...res)
+		} else {
+			value.push(html)
+		}
+
+		this._prop('innerHTML',
+			value.length === 1 &amp;&amp; empty(value[0]) ? '' : value.join('\n')
+		)
+
+		return this
+	}
+	/**
+	 * Obtiene o Establece el valor de un elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} value Valor del input, textarea o elemento que contenta value
+	 * @return {(Fascino|String)}
+	 */
+	val(value) {
+		if (not(value)) {
+			return this.length === 0 ? undefined : this._prop('value')
+		}
+
+		return this.each((el) => {
+			if (typeof el.value != 'undefined') {
+				el.value = value
+			} else {
+				w(el).html(value)
+			}
+		})
+	}
+	/**
+	 * Obtiene el HTML o envoltura del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @return {String}
+	 */
+	outerHTML() {
+		return this._prop('outerHTML')
+	}
+	/**
+	 * Agrega clases al elemento dado
+	 * @memberOf Fascino
+	 * @example
+	 * _$(mi-elem).addClass('miclass')
+	 * _$(mi-elem).addClass('miclass1', 'miclass2' /*...*\)
+	 * @public
+	 * @param {...String} arg Lista de clases separadas por coma(,)
+	 * @return {Fascino}
+	 */
+	addClass(...arg) {
+		return this.each((e) => {
+			e.classList.add(...arg)
+		})
+	}
+	/**
+	 * Elimina Clases del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args
+	 * @return {Fascino}
+	 */
+	removeClass(...args) {
+		return this.each((e) => {
+			e.classList.remove(...args)
+		})
+	}
+	/**
+	 * Intercambia clases del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args Lista de Clases a cambiar
+	 * @return {Fascino}
+	 */
+	toggleClass(...args) {
+		return this.each((e) => {
+			e.classList.toggle(...args)
+		})
+	}
+	/**
+	 * Reemplaza una clase por otra
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args Clase vieja clase nueva
+	 * @example
+	 * miElement.replaceClass('oldClass', 'NewClass')
+	 * @return {Fascino}
+	 */
+	replaceClass(...args) {
+		return this.each((e) => {
+			e.classList.replace(...args)
+		})
+	}
+	/**
+	 * Verifica si el elemento posee una clase
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String}  className Nombre de la clase
+	 * @return {Boolean} Verdadero si existe
+	 */
+	hasClass(className) {
+		return this.Elem[0].classList.contains(className)
+	}
+	/**
+	 * Agrega u Obtiene estilos CSS a los Elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...(String|Array|Object)} arg
+	 * @example &lt;caption>Uso&lt;/caption>
+	 * miElement.style('display', 'none') // establece la propiedad CSS a display none
+	 * miElement.style({
+	 *   border: '1px solid #ff0' // Establece un border Amarillo
+	 *   color: '#000' // y un color de texto Negro
+	 * })
+	 * miElement.style('display') // retorna none
+	 * miElement.style() // Retorna todos los Estilos establecidos(CSSStyleDeclaration)
+	 * miElement.style([
+	 *   'border', 'color' // Retorna un Objecto {IDfromMiElem: {border: '1px solid #ff0', color: '#000'}}
+	 * ]) // Importante: si el elemento no tiene ID se le creara uno aleatorio
+	 * @return {(Fascino|Array|Object|String)}
+	 */
+	style(...arg) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (arg.length === 0) {
+			return getComputedStyle(this.Elem[0])
+		}
+
+		if (arg.length === 1) {
+			if (isArrayish(arg[0])) {
+				let getStyle = {}, i = 0
+				this.each((el) => {
+					let id = el.getAttribute('id'),
+						prefix = !empty(id) ? id : el.tagName+i
+					getStyle[prefix] = {}
+					arg[0].forEach( (nameStyle) => {
+						getStyle[prefix][nameStyle] = el.style[nameStyle]
+					})
+					i++
+				})
+				return getStyle
+			} else if (isObject(arg[0])) {
+				return this.each((el) => {
+					for (let key in arg[0]) {
+						if (hasProp(arg[0], key)) {
+							let value = arg[0][key]
+							el.style.setProperty(key, value)
+						}
+					}
+				})
+			} else if (arg[0].indexOf(':') === 0) {
+				return getStyleComputed(this.Elem[0], null, arg[0])
+			} else if (arg[0] === '*' || arg[0] === 'all') {
+				return getStyleComputed(this.Elem[0])
+			} else {
+				let st = getStyleComputed(this.Elem[0])
+				return arg[0] in st ? st[arg[0]] : ''
+			}
+		}
+
+		if (arg.length === 2 || arg.length === 3) {
+			return this.each((el) => {
+				el.style.setProperty(...arg)
+			})
+		}
+
+		return this
+	}
+	/**
+	 * Remueve todos o los estilos establecidos
+	 * @memberOf Fascino
+	 * @public
+	 * @example
+	 * miElement.removeStyle('border', 'color') // Removerá los estilos del border y el color
+	 * @param  {...String} name Lista de Stilo}
+	 * @return {Fascino}
+	 */
+	removeStyle(...name) {
+		if (empty(name) || this.length === 0) {
+			return this
+		}
+
+		return this.each((el) => {
+			name.forEach((n) => {
+				el.style.removeProperty(n)
+			})
+		})
+	}
+	/**
+	 * Obtiene o estable el valor de la barra de desplazamiento vertical
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	scrollTop(val) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (not(val)) {
+			return this.Elem[0] === window ? window.pageYOffset : this.Elem[0].scrollTop
+		}
+
+		return this.each((el) => {
+			el.scrollTop = val
+		})
+	}
+	/**
+	 * Obtiene o estable el valor de la barra de desplazamiento Horizontal
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	scrollLeft(val) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (empty(val)) {
+			return this.Elem[0] === window ? window.pageXOffset : this.Elem[0].scrollLeft
+		}
+
+		return this.each((el) => {
+			el.scrollLeft = val
+		})
+	}
+	/**
+	 * Obtiene o Establece el Ancho total del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	outerWidth(val) {
+		return this._sizeOut('width', val)
+	}
+	/**
+	 * Obtiene o Establece la Altura total del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	outerHeight(val) {
+		return this._sizeOut('height', val)
+	}
+	/**
+	 * Obtiene o Establece la posición del Elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Object} val Objeto {top,left}
+	 * @return {(Object|Fascino)}
+	 */
+	offset(val) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (empty(val)) {
+			const rect = this.Elem[0].getBoundingClientRect(),
+				scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+				scrollTop = window.pageYOffset || document.documentElement.scrollTop
+			return {
+				top: rect.top + scrollTop,
+				left: rect.left + scrollLeft
+			}
+		}
+
+		return this.each((el) => {
+			let offset = w(el).offset(),
+				top = val.top,
+				left = val.left,
+				position = getStyleComputed(el).position
+
+			if (position === 'static') {
+				w(el).style('position', 'relative')
+			}
+
+			if (['absolute', 'fixed'].indexOf(position) === -1) {
+				top = top - offset.top
+				left = left - offset.left
+			}
+
+			w(el).style({
+				top: top,
+				left: left
+			})
+		})
+	}
+	/**
+	 * Obtiene la Posición del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Boolean} margin Verdader si se incluye el margen
+	 * @return {(Object|Undefined)}
+	 */
+	position(margin = false) {
+		if (this.length === 0) {
+			return undefined
+		}
+
+		if (typeof margin != 'boolean') {
+			try {
+				margin = JSON.parse(margin)
+			} catch (e) {
+				margin = false
+			}
+		}
+
+		let ml = 0, mt = 0
+
+		if (margin) {
+			let s = getStyleComputed(this.Elem[0])
+			ml = parseInt(s['margin-left'])
+			mt = parseInt(s['margin-top'])
+		}
+
+		return {
+			top: this.Elem[0].offsetTop - mt,
+			left: this.Elem[0].offsetLeft - ml
+		}
+	}
+	/**
+	 * Obtiene o Establece la posición horizontal del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)}  v Nueva posición
+	 * @param  {Boolean} m Si se debe incluir el margen
+	 * @return {(String|Number|NaN)}
+	 */
+	left(v, m = false) {
+		if (this.length === 0) {
+			return NaN
+		}
+		if (typeof v === 'boolean') {
+			m = v
+			v = undefined
+		}
+		if (empty(v)) {
+			return this.position(m).left
+		}
+
+		return this.style('left', !isNaN(v) ? v + 'px' : v)
+	}
+	/**
+	 * Obtiene o Establece la posición vertical del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)}  v Nueva posición
+	 * @param  {Boolean} m Si se debe incluir el margen
+	 * @return {(String|Number|NaN)}
+	 */
+	top(v, m = false) {
+		if (this.length === 0) {
+			return NaN
+		}
+		if (typeof v === 'boolean') {
+			m = v
+			v = undefined
+		}
+		if (empty(v)) {
+			return this.position(m).top
+		}
+
+		return this.style('top', !isNaN(v) ? v + 'px' : v)
+	}
+	/**
+	 * Obtiene el Ancho interno del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Number}
+	 */
+	innerWidth() {
+		return this.Elem[0] === window ? window.innerWidth : this.Elem[0].clientWidth
+	}
+	/**
+	 * Obtiene el Alto interno del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Number}
+	 */
+	innerHeight() {
+		return this.Elem[0].clientHeight
+	}
+	/**
+	 * Obtiene o establece la altura del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Number|String)} val
+	 * @return {(Number|String|Fascino)}
+	 */
+	height(val) {
+		return this._size('height', val)
+	}
+	/**
+	 * Obtiene o establece la anchura del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Number|String)} val
+	 * @return {(Number|String|Fascino)}
+	 */
+	width(val) {
+		return this._size('width', val)
+	}
+	/**
+	 * Oculta un ELemento y ejecuta la función dada
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} callback
+	 * @return {Fascino}
+	 */
+	hide(callback) {
+		return this.each((el) => {
+			let display = w(el).style('display'),
+				opacity = w(el).style('opacity')
+
+			if (display != 'none' &amp;&amp; parseInt(opacity) != 0) {
+				w(el).origin('display', display)
+				w(el).origin('opacity', opacity)
+
+				w(el).style({
+					display: 'none',
+					opacity: 0
+				})
+			}
+			if (isFunction(callback)) {
+				callback.call(this, el)
+			}
+		})
+	}
+	/**
+	 * Muestra un elemento y ejecuta la función dada
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} callback
+	 * @return {Fascino}
+	 */
+	show(callback) {
+		return this.each((el) => {
+			let display = w(el).origin('display', undefined, 'block'),
+				opacity = w(el).origin('opacity', undefined, '1'),
+				setDisplay = 'block', setOpacity = 1
+
+			if (display &amp;&amp; display !== 'none') {
+				setDisplay = display
+			}
+			if (opacity &amp;&amp; opacity !== 0) {
+				setOpacity = opacity
+			}
+
+			w(el).style({
+				display: setDisplay,
+				opacity: setOpacity
+			})
+
+			if (isFunction(callback)) {
+				callback.call(this, el)
+			}
+		})
+	}
+	/**
+	 * Muestra un elemento con desvanecimiento suave
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fn   Funcion a ejecutar despues del efecto
+	 * @param  {Number}   time Tiempo del desvanecimiento
+	 * @return {Fascino} 
+	 */
+	fadeIn(fn, time = 600) {
+		this.style({
+			opacity: 0,
+			display: ''
+		})
+
+		if (isNumber(fn)) {
+			time = fn 
+			fn = (el) => {}
+		}
+
+		var last = +new Date(),
+			element = this.Elem[0],
+			view = () => {
+				this.style('opacity', +element.style.opacity + (new Date() - last) / time)
+				last = +new Date()
+				
+				if (+element.style.opacity &lt; 1) {
+					(window.requestAnimationFrame &amp;&amp; requestAnimationFrame(view)) || setTimeout(view, 16)
+				}
+			}
+
+		view()
+		if (isFunction(fn)) {
+			fn.apply(this, [element])
+		}
+		return this;
+	}
+	/**
+	 * Funcion que Oculta con un desvanecimiento suave
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fn   Función a ejecutar luego de ocultar
+	 * @param  {Number}   time Tiempo del desvanecimiento
+	 * @return {Fascino}
+	 */
+	fadeOut(fn, time = 600) {
+		this.style({
+			opacity: 1,
+			display: ''
+		})
+		var last = +new Date(),
+			element = this.Elem[0],
+			view = () => {
+				element.style.opacity = Number(+element.style.opacity - (new Date() - last) / time).toFixed(4);
+				last = +new Date()
+				
+				if (-element.style.opacity &lt;= 0) {
+				    (window.requestAnimationFrame &amp;&amp; requestAnimationFrame(view)) || setTimeout(view, 16)
+				}
+			}
+		view()
+		if (isFunction(fn)) {
+			fn.apply(this, [element])
+		}
+		return this;
+	}
+	/**
+	 * Obtiene o Establece los Atributos de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...(String|Array|Object|Function)} args
+	 * @example &lt;caption>Uso&lt;/caption>
+	 * miElement.attr('name', 'paswd') // Establece el Atributo Name a passwd
+	 * miElement.attr({
+	 *   id:'miElementID', // Establece el Id a miElementID y cambia el placeholder
+	 *   placeholder:'Escribe Aquí'
+	 * })
+	 * miElement.attr() // Re-establece los Atributos y retorna un NodeMap con ellos en caso de no poseer atributos retornara un Objecto Fascino
+	 * miElement.attr('name') // Retorna 'passwd' o false
+	 * miElement.attr(['name', 'id']) // Retorna un objecto {miElementID: {name: 'passwd', id:'miElementID'}}
+	 * // Ademas podemos pasar una función que se invocara dentro de un bucle que recorre los atributos
+	 * miElement.attr( function(attrName, attrValue, Attr) {
+	 *   console.log(
+	 *       this, // El Elemento iterado
+	 *       attrName, // El nombre del atributo
+	 *       attrValue, // El Valor del Attributo
+	 *       Attr // Lista de todos los atributos
+	 * )
+	 * })
+	 * @return {(String|Array|Object|Fascino)}
+	 */
+	attr(...args) {
+		if (this.length === 0) {
+			return this
+		}
+		if (args.length === 0) {
+			if (this.Elem[0].hasAttributes()) {
+				const Attr = this.Elem[0].attributes
+				Array.from(Attr).forEach((a)=>{
+					this.Elem[0].setAttribute(a.nodeName, a.nodeValue)
+				})
+				return Attr
+			} else {
+				return this
+			}
+		}
+		if (args.length === 1) {
+			if (isArrayish(args[0])) {
+				const Attrs ={}
+				let i = 0
+				this.each((el) => {
+					let id = el.getAttribute('id'),
+						prefix = !not(id) ? id : el.tagName+i
+					Attrs[prefix] = {}
+					args[0].forEach((a) => {
+						if (el.hasAttributes(a)) {
+							Attrs[prefix][a] = el.getAttribute(a)
+						} else {
+							Attrs[prefix][a] = false
+						}
+					})
+					i++
+				})
+				return Attrs
+			} else if (isObject(args[0])) {
+				return this.each((el) => {
+					for (let key in args[0]) {
+						if (hasProp(args[0], key)) {
+							let value = normalizeData(args[0][key])
+							if (key in el) {
+								el[key] = value
+							} else {
+								el.setAttribute(key, value)
+							}
+						}
+					}
+				})
+			} else if (isString(args[0])) {
+				return this.Elem[0].hasAttributes(args[0]) ? this.Elem[0].getAttribute(args[0]) : false
+			} else if (isFunction(args[0])) {
+				return this.each((el) => {
+					if (el.hasAttributes()) {
+						let a = el.attributes
+						Array.from(a).forEach((attr) => {
+							args[0].call(el, [attr.nodeName, attr.nodeValue, attr])
+						})
+					}
+				})
+			}
+		}
+
+		return this.each((el) => {
+			let key = args[0],
+				value = normalizeData(args[1])
+			if (key in el) {
+				el[key] = value
+			} else {
+				el.setAttribute(key, value)
+			}
+		})
+	}
+	/**
+	 * Remueve los atributos dados
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args Lista de Atributos
+	 * @example
+	 * miElement.removeAttr('style', 'name')
+	 * @return {Fascino}
+	 */
+	removeAttr(...args) {
+		return this.each((el) => {
+			let attrs = []
+			if (args.length == 1 &amp;&amp; !isArrayish(args[0])) {
+				attrs.push(args[0])
+			} else {
+				attrs = [].slice(args)
+			}
+
+			attrs.forEach((a)=>{
+				el.removeAttribute(a)
+			})
+		})
+	}
+	/**
+	 * Verifica si el elemento tiene el atributo dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String}  attr
+	 * @return {Boolean}
+	 */
+	hasAttr(attr) {
+		if (empty(attr)) {
+			return false
+		}
+
+		return this.Elem[0].hasAttribute(attr)
+	}
+	/**
+	 * Alterna los Atributos y su valor
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name  Nombre del Atributo
+	 * @param  {String} value Valor d el Atributo
+	 * @return {Fascino}
+	 */
+	toggleAttr(name, value = undefined) {
+		let _this = this
+		return this.each((el) => {
+			if (name in el &amp;&amp; el[name] !== value) {
+				el[name] = value
+			}
+			if (!empty(name) &amp;&amp; not(value)) {
+				if (el.hasAttributes(name)) {
+					el.removeAttribute(name)
+				}
+			} else {
+				_this.Elem = [el]
+				_this.attr(name, value)
+			}
+		})
+	}
+	/**
+	 * Elimina todos los atributos de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	cleanAttr() {
+		return this.each((el) => {
+			if (el.hasAttributes()) {
+				let attr = el.attributes
+				attr.forEach((a) => {
+					el.removeAttribute(a.nodeName)
+				})
+			}
+		})
+	}
+
+	/**
+	 * Establece u Obtiene los datos del Elemento Dataset
+	 * @memberOf Fascino
+	 * @public
+	 * @example &lt;caption>Uso&lt;/caption>
+	 * miElement.data('role', 'dialog')  // Establece el Rol a dialog
+	 * // Esteble al data-json al objecto dado
+	 * miElement.data({
+	 *   json:{
+	 *      a: 1,
+	 *      b: 2
+	 * }
+	 * })
+	 * miElement.data() // Retorna un Objecto con todos los datos del Atributo data
+	 * miElement.data('role') // Retorna Dialog
+	 * miElement.data(['role','json']) // Retornara un Objecto {miElementID: {role: 'dialog', json: {a:1,b:2}}}
+	 * @param  {...(String|Array|Object)} args
+	 * @return {(String|Array|Object|Fascino)}
+	 */
+	data(...args){
+		return this.length === 0 ? this : this._ds.data(this.Elem, ...args)
+	}
+	/**
+	 * Remueve los Atributos data
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} keys Lista de nombres de data sin el data
+	 * @example
+	 * // &lt;input id="miElement" data-role='pick' data-color="#fff">
+	 * _$('#miElement').removeData('role', 'color');
+	 * // Obtendremos
+	 * // &lt;input id="miElement">
+	 * @return {Fascino}
+	 */
+	removeData(...keys) {
+		return this.each((el) => {
+			this._ds.remove(el, ...keys)
+		})
+	}
+	/**
+	 * Verifica si el Elemento tiene un atributo data dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String}  key Nombre sin el data
+	 * @return {Boolean}
+	 */
+	hasData(key) {
+		if (empty(key)) {
+			return false
+		}
+
+		if (this._ds.has(this.Elem[0], key)) {
+			return this._ds.get(this.Elem[0], key)
+		}
+
+		if (hasProp(this.Elem[0].dataset, key)) {
+			return true
+		}
+
+		return this.hasAttr(`data-${key}`)
+	}
+	/**
+	 * Alterna entre los atributos data
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name  Nombre del Atributo sin el data
+	 * @param  {(String|Object|Array)} value Valor del atributo data
+	 * @return {(Boolean|String|Object|Array|Fascino)}
+	 */
+	toggleData(name, value) {
+		if (arguments.length === 0) {
+			return false
+		}
+
+		if (this.hasData()) {
+			return this._ds.access(this.ELem[0], name, value)
+		}
+
+		return this.toggleAttr(`data-${name}`, value)
+	}
+	/**
+	 * Establece el Evento para un elemento&lt;br>
+	 * Si va usar eventos estándar es mejor que use los de la lista &lt;code>_$().click(), $().blur() ...&lt;/code>
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Array)} eventsList El nombre del Evento
+	 * @param  {String} sel Namespace o selector
+	 * @param  {Function} handler Función a ejecutar
+	 * @param  {Object} options Opciones de AddEventListiner
+	 * @return {Fascino}
+	 */
+	on(eventsList, sel, handler, options) {
+		return this.each((el) => {
+			this._ev.on(el, eventsList, sel, handler, options)
+		})
+	}
+	/**
+	 * Desvincula el Evento para un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} eventsList El nombre del Evento
+	 * @param  {String} sel Namespace o selector
+	 * @param  {Function} handler Función a ejecutar
+	 * @param  {Object} options Opciones de AddEventListiner
+	 * @param  {Number} ix Index del evento
+	 * @return {Fascino}
+	 */
+	off(eventsList, sel, options, ix) {
+		return this.each((el) => {
+			this._ev.off(el, eventsList, sel, options, ix)
+		})
+	}
+	/**
+	 * Ejecuta el evento solo para el primer evento dado
+	 * @memberOf Fascino
+	 * @param  {String} events  El evento
+	 * @param  {String} sel Namespace o selector
+	 * @param  {Function} handler Función a ejecutar
+	 * @param  {Object} options Opciones de AddEventListiner
+	 * @return {Fascino}
+	 */
+	one(events, sel, handler, options) {
+		return this.each((el) => {
+			this._ev.one(el, events, sel, handler, options)
+		})
+	}
+	/**
+	 * Dispara o Crea un Evento Personalizado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name Nombre del Evento
+	 * @param  {Object} data Información del Evento
+	 * @return {(void|Fascino)}
+	 */
+	fire(name, data) {
+		var _name = normName(name), newEv
+
+		if(['submit', 'reset'].indexOf(_name) > -1){
+			if(this.Elem[0].nodeName === 'FORM'){
+				this.Elem[0][_name].call(this.Elem[0])
+			} else {
+				let form = this.parents('form')
+				form.Elem[0][_name].call(form.Elem[0])
+			}
+			return this
+		}
+
+		if (ListEvents.indexOf(_name) > -1) {
+			this.Elem[0][_name].call(this.Elem[0])
+		}
+
+		newEv = this._ev.createEv(name, data)
+
+		return this.each((el) => {
+			let customEvent = w(el).data('customEvent'),
+				et = {}
+
+			et[_name] = newEv
+			if(not(customEvent)) {
+				w(el).data('customEvent', et)
+			} else {
+				w(el).data('customEvent', extend({}, customEvent, et))
+			}
+			this._ev.fire(el, newEv)
+		})
+	}
+	/**
+	 * Dispara un evento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name Nombre del Evento
+	 * @param  {Object} data Información del evento
+	 * @return {Fascino}
+	 */
+	trigger(name, data) {
+		var _name = normName(name)
+		return this.each((el) => {
+			if (ListEvents.indexOf(_name) > -1) {
+				el[_name].call(el)
+			} else if(w(el).hasData('customEvent') ){
+				let customEvent = w(el).data('customEvent')
+				if(!not(customEvent) &amp;&amp; hasProp(customEvent, _name)){
+					this._ev.fire(el, customEvent[_name])
+				} else {
+					w(el).fire(name, data)
+				}
+			}
+		})
+	}
+	/**
+	 * Crea el evento hover
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fnOver Función de entrada
+	 * @param  {Function} fnOut  Función de Salida
+	 * @return {Fascino}
+	 */
+	hover(fnOver, fnOut) {
+		return this.each((el) => {
+			this.on('mouseenter', fnOver).on('mouseleave', fnOut)
+		})
+	}
+	/**
+	 * Obtiene las lista de eventos asignados aun elemento, si no se pasa ningun argumento se obtendran todos los eventos
+	 * @param  {String} name  Nombre del Evento
+	 * @param  {Number} index Posición del evento a buscar
+	 * @return {Object}
+	 */
+	getEvent(name, index) {
+		return this._ev.getEvents(this.Elem[0], name, index)
+	}
+}
+
+[
+	/**
+	 * Obtiene o Establece el relleno del Elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @function padding
+	 * @param  {(String|Number|null)} val   Valor del Elemento a establecer
+	 * @param  {String} pseudo      Important
+	 * @return {(Object|Fascino)}
+	 */
+	'padding', 
+	/**
+	 * Obtiene o Establece el relleno del Elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @function margin
+	 * @param  {(String|Number|null)} val   Valor del Elemento a establecer
+	 * @param  {String} pseudo      Important
+	 * @return {(Object|Fascino)}
+	 */
+	'margin', 
+	/**
+	 * Obtiene o Establece el relleno del Elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @function border
+	 * @param  {(String|Number|null)} val   Valor del Elemento a establecer
+	 * @param  {String} pseudo      Important
+	 * @return {(Object|Fascino)}
+	 */
+	'border'
+].forEach((name) => {
+	Fascino.addFn(name, function(val, pseudo){
+		if (this.length === 0) {
+			return
+		}
+		if (isString(val)) {
+			if (val.indexOf(':') === 0) {
+				pseudo = val
+				val = undefined
+			}
+		}
+
+		if (empty(val)) {
+			let s = getStyleComputed(this.Elem[0], null, !empty(pseudo) ? pseudo : ''),
+				res = {}
+			if (name !== 'border') {
+				res = {
+					top: parseInt(s[`${name}-top`]),
+					right: parseInt(s[`${name}-right`]),
+					bottom: parseInt(s[`${name}-bottom`]),
+					left: parseInt(s[`${name}-left`]),
+				}
+			} else {
+				res = {
+					top: parseInt(s['border-top-width']),
+					right: parseInt(s['border-right-width']),
+					bottom: parseInt(s['border-bottom-width']),
+					left: parseInt(s['border-left-width'])
+				}
+			}
+			return res
+		}
+
+		return this.each((el) => {
+			if (isArrayish(val)) {
+				w(el).style(name, val.join(' '))
+			} else if (isObject(val)) {
+				let res = {},
+					ext = name === 'border' ? '-width' : ''
+				for (let i in val) {
+					if (hasProp(val, i)) {
+						res[`${name}-${i}${ext}`] = val[i]
+					}
+				}
+				w(el).style(res)
+			} else {
+				w(el).style(name, val)
+			}
+		})
+	})
+})
+
+/**
+ * Eventos Nativos de Javascript &lt;br>
+ * 'blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+ * 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown',
+ * 'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'
+ * @example &lt;caption>Uso&lt;/caption>
+ * // Formato
+ * // _$(miselector).[nameEvento](selector, function, options)
+ * _$('body').clicK(function(e){
+ * 	console.log("Presionastes sobre el body")
+ * })
+ * // Al hacer doble click sobre una section del elemento main, se ejecuta la funcion del click del body
+ * _$('main').dblclick("section", function(e){
+ * 		_$('body').click()
+ * })
+ * @memberOf Fascino
+ * @public
+ * @param  {String} s selector
+ * @param  {Function} f Función a ejecutar
+ * @param  {Object} o Opciones de AddEventListiner
+ * @return {Fascino}
+ */
+ListEvents.forEach((n) => {
+	Fascino.addFn(n, function(s, f, o) {
+		return arguments.length > 0 ? this.on(n, s, f, o) : this.fire(n, {detail: 'Fire '+n})
+	})
+})
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    </div>
+
+    <footer class="footer" id="footer">
+      &copy; 2020-2022 FascinoJs.
+    </footer>
+
+    <script src="scripts/third-party/prettify.js"></script>
+    <script src="scripts/third-party/lang-css.js"></script>
+    <script type="text/javascript" src="scripts/misc.js"></script>
+
+    <script>prettyPrint();</script>
+    <script src="scripts/linenumber.js"></script>
+    <script src="scripts/fix-code-block.js"></script>
+    <script src="scripts/fix-navbar.js"></script>
+    
+      <script src="scripts/search.js"></script>
+      <script src="scripts/third-party/fuse.js"></script>
+      <script>
+        var list = [{"title":"Core","link":"<a href=\"module-Core.html\">Core</a>"},{"title":"Plugins","link":"<a href=\"module-Plugins.html\">Plugins</a>"},{"title":"Utils","link":"<a href=\"module-Utils.html\">Utils</a>"},{"title":"module:Utils.cleanPreCode","link":"<a href=\"module-Utils.html#.cleanPreCode\">module:Utils &rtrif; cleanPreCode</a>"},{"title":"module:Utils.createScript","link":"<a href=\"module-Utils.html#.createScript\">module:Utils &rtrif; createScript</a>"},{"title":"module:Utils.createURI","link":"<a href=\"module-Utils.html#.createURI\">module:Utils &rtrif; createURI</a>"},{"title":"module:Utils.each","link":"<a href=\"module-Utils.html#.each\">module:Utils &rtrif; each</a>"},{"title":"module:Utils.empty","link":"<a href=\"module-Utils.html#.empty\">module:Utils &rtrif; empty</a>"},{"title":"module:Utils.extend","link":"<a href=\"module-Utils.html#.extend\">module:Utils &rtrif; extend</a>"},{"title":"module:Utils.formatBytes","link":"<a href=\"module-Utils.html#.formatBytes\">module:Utils &rtrif; formatBytes</a>"},{"title":"module:Utils.getStyleComputed","link":"<a href=\"module-Utils.html#.getStyleComputed\">module:Utils &rtrif; getStyleComputed</a>"},{"title":"module:Utils.hasProp","link":"<a href=\"module-Utils.html#.hasProp\">module:Utils &rtrif; hasProp</a>"},{"title":"module:Utils.htmlEntities","link":"<a href=\"module-Utils.html#.htmlEntities\">module:Utils &rtrif; htmlEntities</a>"},{"title":"module:Utils.isArray","link":"<a href=\"module-Utils.html#.isArray\">module:Utils &rtrif; isArray</a>"},{"title":"module:Utils.isArrayish","link":"<a href=\"module-Utils.html#.isArrayish\">module:Utils &rtrif; isArrayish</a>"},{"title":"module:Utils.isElement","link":"<a href=\"module-Utils.html#.isElement\">module:Utils &rtrif; isElement</a>"},{"title":"module:Utils.isFascinoElement","link":"<a href=\"module-Utils.html#.isFascinoElement\">module:Utils &rtrif; isFascinoElement</a>"},{"title":"module:Utils.isFunction","link":"<a href=\"module-Utils.html#.isFunction\">module:Utils &rtrif; isFunction</a>"},{"title":"module:Utils.isHiden","link":"<a href=\"module-Utils.html#.isHiden\">module:Utils &rtrif; isHiden</a>"},{"title":"module:Utils.isNumber","link":"<a href=\"module-Utils.html#.isNumber\">module:Utils &rtrif; isNumber</a>"},{"title":"module:Utils.isObject","link":"<a href=\"module-Utils.html#.isObject\">module:Utils &rtrif; isObject</a>"},{"title":"module:Utils.isSelector","link":"<a href=\"module-Utils.html#.isSelector\">module:Utils &rtrif; isSelector</a>"},{"title":"module:Utils.isString","link":"<a href=\"module-Utils.html#.isString\">module:Utils &rtrif; isString</a>"},{"title":"module:Utils.isURL","link":"<a href=\"module-Utils.html#.isURL\">module:Utils &rtrif; isURL</a>"},{"title":"module:Utils.isVisible","link":"<a href=\"module-Utils.html#.isVisible\">module:Utils &rtrif; isVisible</a>"},{"title":"module:Utils.jsonToFormdata","link":"<a href=\"module-Utils.html#.jsonToFormdata\">module:Utils &rtrif; jsonToFormdata</a>"},{"title":"module:Utils.merge","link":"<a href=\"module-Utils.html#.merge\">module:Utils &rtrif; merge</a>"},{"title":"module:Utils.normalizeData","link":"<a href=\"module-Utils.html#.normalizeData\">module:Utils &rtrif; normalizeData</a>"},{"title":"module:Utils.normalizeElements","link":"<a href=\"module-Utils.html#.normalizeElements\">module:Utils &rtrif; normalizeElements</a>"},{"title":"module:Utils.normName","link":"<a href=\"module-Utils.html#.normName\">module:Utils &rtrif; normName</a>"},{"title":"module:Utils.not","link":"<a href=\"module-Utils.html#.not\">module:Utils &rtrif; not</a>"},{"title":"module:Utils.parseHTML","link":"<a href=\"module-Utils.html#.parseHTML\">module:Utils &rtrif; parseHTML</a>"},{"title":"module:Utils.random","link":"<a href=\"module-Utils.html#.random\">module:Utils &rtrif; random</a>"},{"title":"module:Utils.randomMap","link":"<a href=\"module-Utils.html#.randomMap\">module:Utils &rtrif; randomMap</a>"},{"title":"module:Utils.script","link":"<a href=\"module-Utils.html#.script\">module:Utils &rtrif; script</a>"},{"title":"module:Utils.SetOptinsOfData","link":"<a href=\"module-Utils.html#.SetOptinsOfData\">module:Utils &rtrif; SetOptinsOfData</a>"},{"title":"module:Utils.strToArr","link":"<a href=\"module-Utils.html#.strToArr\">module:Utils &rtrif; strToArr</a>"},{"title":"module:Utils.template","link":"<a href=\"module-Utils.html#.template\">module:Utils &rtrif; template</a>"},{"title":"module:Utils.toString","link":"<a href=\"module-Utils.html#.toString\">module:Utils &rtrif; toString</a>"},{"title":"module:Utils.uniqueId","link":"<a href=\"module-Utils.html#.uniqueId\">module:Utils &rtrif; uniqueId</a>"},{"title":"module:Utils.url","link":"<a href=\"module-Utils.html#.url\">module:Utils &rtrif; url</a>"},{"title":"Fascino","link":"<a href=\"Fascino.html\">Fascino</a>"},{"title":"Fascino.addFn","link":"<a href=\"Fascino.html#.addFn\">Fascino &rtrif; addFn</a>"},{"title":"Fascino.border","link":"<a href=\"Fascino.html#.border\">Fascino &rtrif; border</a>"},{"title":"Fascino.margin","link":"<a href=\"Fascino.html#.margin\">Fascino &rtrif; margin</a>"},{"title":"Fascino.padding","link":"<a href=\"Fascino.html#.padding\">Fascino &rtrif; padding</a>"},{"title":"Fascino#addClass","link":"<a href=\"Fascino.html#addClass\">Fascino &rtrif; addClass</a>"},{"title":"Fascino#adopt","link":"<a href=\"Fascino.html#adopt\">Fascino &rtrif; adopt</a>"},{"title":"Fascino#after","link":"<a href=\"Fascino.html#after\">Fascino &rtrif; after</a>"},{"title":"Fascino#append","link":"<a href=\"Fascino.html#append\">Fascino &rtrif; append</a>"},{"title":"Fascino#appendTo","link":"<a href=\"Fascino.html#appendTo\">Fascino &rtrif; appendTo</a>"},{"title":"Fascino#attr","link":"<a href=\"Fascino.html#attr\">Fascino &rtrif; attr</a>"},{"title":"Fascino#before","link":"<a href=\"Fascino.html#before\">Fascino &rtrif; before</a>"},{"title":"Fascino#children","link":"<a href=\"Fascino.html#children\">Fascino &rtrif; children</a>"},{"title":"Fascino#cleanAttr","link":"<a href=\"Fascino.html#cleanAttr\">Fascino &rtrif; cleanAttr</a>"},{"title":"Fascino#clone","link":"<a href=\"Fascino.html#clone\">Fascino &rtrif; clone</a>"},{"title":"Fascino#closest","link":"<a href=\"Fascino.html#closest\">Fascino &rtrif; closest</a>"},{"title":"Fascino#contains","link":"<a href=\"Fascino.html#contains\">Fascino &rtrif; contains</a>"},{"title":"Fascino#contents","link":"<a href=\"Fascino.html#contents\">Fascino &rtrif; contents</a>"},{"title":"Fascino#data","link":"<a href=\"Fascino.html#data\">Fascino &rtrif; data</a>"},{"title":"Fascino#each","link":"<a href=\"Fascino.html#each\">Fascino &rtrif; each</a>"},{"title":"Fascino#emptyHtml","link":"<a href=\"Fascino.html#emptyHtml\">Fascino &rtrif; emptyHtml</a>"},{"title":"Fascino#emptyVal","link":"<a href=\"Fascino.html#emptyVal\">Fascino &rtrif; emptyVal</a>"},{"title":"Fascino#eq","link":"<a href=\"Fascino.html#eq\">Fascino &rtrif; eq</a>"},{"title":"Fascino#even","link":"<a href=\"Fascino.html#even\">Fascino &rtrif; even</a>"},{"title":"Fascino#fadeIn","link":"<a href=\"Fascino.html#fadeIn\">Fascino &rtrif; fadeIn</a>"},{"title":"Fascino#fadeOut","link":"<a href=\"Fascino.html#fadeOut\">Fascino &rtrif; fadeOut</a>"},{"title":"Fascino#filter","link":"<a href=\"Fascino.html#filter\">Fascino &rtrif; filter</a>"},{"title":"Fascino#find","link":"<a href=\"Fascino.html#find\">Fascino &rtrif; find</a>"},{"title":"Fascino#fire","link":"<a href=\"Fascino.html#fire\">Fascino &rtrif; fire</a>"},{"title":"Fascino#first","link":"<a href=\"Fascino.html#first\">Fascino &rtrif; first</a>"},{"title":"Fascino#get","link":"<a href=\"Fascino.html#get\">Fascino &rtrif; get</a>"},{"title":"Fascino#getEvent","link":"<a href=\"Fascino.html#getEvent\">Fascino &rtrif; getEvent</a>"},{"title":"Fascino#hasAttr","link":"<a href=\"Fascino.html#hasAttr\">Fascino &rtrif; hasAttr</a>"},{"title":"Fascino#hasClass","link":"<a href=\"Fascino.html#hasClass\">Fascino &rtrif; hasClass</a>"},{"title":"Fascino#hasData","link":"<a href=\"Fascino.html#hasData\">Fascino &rtrif; hasData</a>"},{"title":"Fascino#height","link":"<a href=\"Fascino.html#height\">Fascino &rtrif; height</a>"},{"title":"Fascino#hide","link":"<a href=\"Fascino.html#hide\">Fascino &rtrif; hide</a>"},{"title":"Fascino#hover","link":"<a href=\"Fascino.html#hover\">Fascino &rtrif; hover</a>"},{"title":"Fascino#html","link":"<a href=\"Fascino.html#html\">Fascino &rtrif; html</a>"},{"title":"Fascino#import","link":"<a href=\"Fascino.html#import\">Fascino &rtrif; import</a>"},{"title":"Fascino#index","link":"<a href=\"Fascino.html#index\">Fascino &rtrif; index</a>"},{"title":"Fascino#innerHeight","link":"<a href=\"Fascino.html#innerHeight\">Fascino &rtrif; innerHeight</a>"},{"title":"Fascino#innerWidth","link":"<a href=\"Fascino.html#innerWidth\">Fascino &rtrif; innerWidth</a>"},{"title":"Fascino#insertAfter","link":"<a href=\"Fascino.html#insertAfter\">Fascino &rtrif; insertAfter</a>"},{"title":"Fascino#insertBefore","link":"<a href=\"Fascino.html#insertBefore\">Fascino &rtrif; insertBefore</a>"},{"title":"Fascino#is","link":"<a href=\"Fascino.html#is\">Fascino &rtrif; is</a>"},{"title":"Fascino#last","link":"<a href=\"Fascino.html#last\">Fascino &rtrif; last</a>"},{"title":"Fascino#left","link":"<a href=\"Fascino.html#left\">Fascino &rtrif; left</a>"},{"title":"Fascino#map","link":"<a href=\"Fascino.html#map\">Fascino &rtrif; map</a>"},{"title":"Fascino#matches","link":"<a href=\"Fascino.html#matches\">Fascino &rtrif; matches</a>"},{"title":"Fascino#merge","link":"<a href=\"Fascino.html#merge\">Fascino &rtrif; merge</a>"},{"title":"Fascino#next","link":"<a href=\"Fascino.html#next\">Fascino &rtrif; next</a>"},{"title":"Fascino#odd","link":"<a href=\"Fascino.html#odd\">Fascino &rtrif; odd</a>"},{"title":"Fascino#off","link":"<a href=\"Fascino.html#off\">Fascino &rtrif; off</a>"},{"title":"Fascino#offset","link":"<a href=\"Fascino.html#offset\">Fascino &rtrif; offset</a>"},{"title":"Fascino#on","link":"<a href=\"Fascino.html#on\">Fascino &rtrif; on</a>"},{"title":"Fascino#one","link":"<a href=\"Fascino.html#one\">Fascino &rtrif; one</a>"},{"title":"Fascino#outerHeight","link":"<a href=\"Fascino.html#outerHeight\">Fascino &rtrif; outerHeight</a>"},{"title":"Fascino#outerHTML","link":"<a href=\"Fascino.html#outerHTML\">Fascino &rtrif; outerHTML</a>"},{"title":"Fascino#outerWidth","link":"<a href=\"Fascino.html#outerWidth\">Fascino &rtrif; outerWidth</a>"},{"title":"Fascino#parent","link":"<a href=\"Fascino.html#parent\">Fascino &rtrif; parent</a>"},{"title":"Fascino#parents","link":"<a href=\"Fascino.html#parents\">Fascino &rtrif; parents</a>"},{"title":"Fascino#position","link":"<a href=\"Fascino.html#position\">Fascino &rtrif; position</a>"},{"title":"Fascino#prepend","link":"<a href=\"Fascino.html#prepend\">Fascino &rtrif; prepend</a>"},{"title":"Fascino#prependTo","link":"<a href=\"Fascino.html#prependTo\">Fascino &rtrif; prependTo</a>"},{"title":"Fascino#prev","link":"<a href=\"Fascino.html#prev\">Fascino &rtrif; prev</a>"},{"title":"Fascino#prop","link":"<a href=\"Fascino.html#prop\">Fascino &rtrif; prop</a>"},{"title":"Fascino#remove","link":"<a href=\"Fascino.html#remove\">Fascino &rtrif; remove</a>"},{"title":"Fascino#removeAttr","link":"<a href=\"Fascino.html#removeAttr\">Fascino &rtrif; removeAttr</a>"},{"title":"Fascino#removeClass","link":"<a href=\"Fascino.html#removeClass\">Fascino &rtrif; removeClass</a>"},{"title":"Fascino#removeData","link":"<a href=\"Fascino.html#removeData\">Fascino &rtrif; removeData</a>"},{"title":"Fascino#removeStyle","link":"<a href=\"Fascino.html#removeStyle\">Fascino &rtrif; removeStyle</a>"},{"title":"Fascino#replaceClass","link":"<a href=\"Fascino.html#replaceClass\">Fascino &rtrif; replaceClass</a>"},{"title":"Fascino#scrollLeft","link":"<a href=\"Fascino.html#scrollLeft\">Fascino &rtrif; scrollLeft</a>"},{"title":"Fascino#scrollTop","link":"<a href=\"Fascino.html#scrollTop\">Fascino &rtrif; scrollTop</a>"},{"title":"Fascino#show","link":"<a href=\"Fascino.html#show\">Fascino &rtrif; show</a>"},{"title":"Fascino#style","link":"<a href=\"Fascino.html#style\">Fascino &rtrif; style</a>"},{"title":"Fascino#text","link":"<a href=\"Fascino.html#text\">Fascino &rtrif; text</a>"},{"title":"Fascino#toggleAttr","link":"<a href=\"Fascino.html#toggleAttr\">Fascino &rtrif; toggleAttr</a>"},{"title":"Fascino#toggleClass","link":"<a href=\"Fascino.html#toggleClass\">Fascino &rtrif; toggleClass</a>"},{"title":"Fascino#toggleData","link":"<a href=\"Fascino.html#toggleData\">Fascino &rtrif; toggleData</a>"},{"title":"Fascino#top","link":"<a href=\"Fascino.html#top\">Fascino &rtrif; top</a>"},{"title":"Fascino#trigger","link":"<a href=\"Fascino.html#trigger\">Fascino &rtrif; trigger</a>"},{"title":"Fascino#unwrap","link":"<a href=\"Fascino.html#unwrap\">Fascino &rtrif; unwrap</a>"},{"title":"Fascino#val","link":"<a href=\"Fascino.html#val\">Fascino &rtrif; val</a>"},{"title":"Fascino#width","link":"<a href=\"Fascino.html#width\">Fascino &rtrif; width</a>"},{"title":"Fascino#wrap","link":"<a href=\"Fascino.html#wrap\">Fascino &rtrif; wrap</a>"},{"title":"Fascino#wrapAll","link":"<a href=\"Fascino.html#wrapAll\">Fascino &rtrif; wrapAll</a>"},{"title":"Fascino#wrapInner","link":"<a href=\"Fascino.html#wrapInner\">Fascino &rtrif; wrapInner</a>"},{"title":"Fascino","link":"<a href=\"Fascino_Fascino.html\">Fascino</a>"},{"title":"exports","link":"<a href=\"module.exports_module.exports.html\">exports</a>"},{"title":"Data","link":"<a href=\"module-Core.Data.html\">Data</a>"},{"title":"module:Core.Data.acceptData","link":"<a href=\"module-Core.Data.html#.acceptData\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.acceptDataSet","link":"<a href=\"module-Core.Data.html#.acceptDataSet\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.access","link":"<a href=\"module-Core.Data.html#.access\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.attrToStorage","link":"<a href=\"module-Core.Data.html#.attrToStorage\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.data","link":"<a href=\"module-Core.Data.html#.data\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.get","link":"<a href=\"module-Core.Data.html#.get\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.has","link":"<a href=\"module-Core.Data.html#.has\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.remove","link":"<a href=\"module-Core.Data.html#.remove\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.set","link":"<a href=\"module-Core.Data.html#.set\">module:Core &rtrif; Data</a>"},{"title":"module:Core.Data.storage","link":"<a href=\"module-Core.Data.html#.storage\">module:Core &rtrif; Data</a>"},{"title":"Event","link":"<a href=\"module-Core.Event.html\">Event</a>"},{"title":"Selector","link":"<a href=\"module-Core.Selector.html\">Selector</a>"},{"title":"module:Core.Selector.mergeEl","link":"<a href=\"module-Core.Selector.html#.mergeEl\">module:Core &rtrif; Selector</a>"},{"title":"module:Core.Selector.querySelector","link":"<a href=\"module-Core.Selector.html#.querySelector\">module:Core &rtrif; Selector</a>"},{"title":"module:Core.Selector.sel","link":"<a href=\"module-Core.Selector.html#.sel\">module:Core &rtrif; Selector</a>"},{"title":"SelectorError","link":"<a href=\"module-Core.Selector.SelectorError.html\">SelectorError</a>"},{"title":"Serialize","link":"<a href=\"module-Plugins.HTTP.Serialize.html\">Serialize</a>"},{"title":"module:Plugins.HTTP.Serialize.exports.SerializeToForm","link":"<a href=\"module-Plugins.HTTP.Serialize.html#.exports.SerializeToForm\">module:Plugins &rtrif; HTTP</a>"},{"title":"module:Plugins.HTTP.Serialize.Serialize#parse","link":"<a href=\"module-Plugins.HTTP.Serialize.html#.Serialize#parse\">module:Plugins &rtrif; HTTP</a>"},{"title":"module:Plugins.HTTP.Serialize.Serialize#stringify","link":"<a href=\"module-Plugins.HTTP.Serialize.html#.Serialize#stringify\">module:Plugins &rtrif; HTTP</a>"},{"title":"Progress","link":"<a href=\"module-Plugins.Progress.Progress.html\">Progress</a>"},{"title":"module:Plugins.Progress.Progress.attributeChangedCallback","link":"<a href=\"module-Plugins.Progress.Progress.html#.attributeChangedCallback\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.connectedCallback","link":"<a href=\"module-Plugins.Progress.Progress.html#.connectedCallback\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.disconnectedCallback","link":"<a href=\"module-Plugins.Progress.Progress.html#.disconnectedCallback\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.getValue","link":"<a href=\"module-Plugins.Progress.Progress.html#.getValue\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.setBg","link":"<a href=\"module-Plugins.Progress.Progress.html#.setBg\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.setBgValue","link":"<a href=\"module-Plugins.Progress.Progress.html#.setBgValue\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.setSize","link":"<a href=\"module-Plugins.Progress.Progress.html#.setSize\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.setSpeed","link":"<a href=\"module-Plugins.Progress.Progress.html#.setSpeed\">module:Plugins &rtrif; Progress</a>"},{"title":"module:Plugins.Progress.Progress.setValue","link":"<a href=\"module-Plugins.Progress.Progress.html#.setValue\">module:Plugins &rtrif; Progress</a>"},{"title":"_$","link":"<a href=\"-_$.html\">_$</a>"},{"title":"_$.addFn","link":"<a href=\"-_$.html#.addFn\">_$ &rtrif; addFn</a>"},{"title":"_$.axios","link":"<a href=\"-_$.html#.axios\">_$ &rtrif; axios</a>"},{"title":"_$.beforeunload","link":"<a href=\"-_$.html#.beforeunload\">_$ &rtrif; beforeunload</a>"},{"title":"_$.DOMLoad","link":"<a href=\"-_$.html#.DOMLoad\">_$ &rtrif; DOMLoad</a>"},{"title":"_$.ft","link":"<a href=\"-_$.html#.ft\">_$ &rtrif; ft</a>"},{"title":"_$.getscript","link":"<a href=\"-_$.html#.getscript\">_$ &rtrif; getscript</a>"},{"title":"_$.global","link":"<a href=\"-_$.html#.global\">_$ &rtrif; global</a>"},{"title":"_$.Lazy","link":"<a href=\"-_$.html#.Lazy\">_$ &rtrif; Lazy</a>"},{"title":"_$.load","link":"<a href=\"-_$.html#.load\">_$ &rtrif; load</a>"},{"title":"_$.noConflict","link":"<a href=\"-_$.html#.noConflict\">_$ &rtrif; noConflict</a>"},{"title":"_$.progressSet","link":"<a href=\"-_$.html#.progressSet\">_$ &rtrif; progressSet</a>"},{"title":"_$.progressVal","link":"<a href=\"-_$.html#.progressVal\">_$ &rtrif; progressVal</a>"},{"title":"_$.serialize","link":"<a href=\"-_$.html#.serialize\">_$ &rtrif; serialize</a>"},{"title":"_$.setFree$","link":"<a href=\"-_$.html#.setFree$\">_$ &rtrif; setFree$</a>"},{"title":"_$.unserialize","link":"<a href=\"-_$.html#.unserialize\">_$ &rtrif; unserialize</a>"},{"title":"_$.WLoad","link":"<a href=\"-_$.html#.WLoad\">_$ &rtrif; WLoad</a>"},{"title":"Hooks","link":"<a href=\"-_$.Hooks.html\">Hooks</a>"},{"title":"_$.Hooks.add","link":"<a href=\"-_$.Hooks.html#.add\">_$ &rtrif; Hooks</a>"},{"title":"_$.Hooks.run","link":"<a href=\"-_$.Hooks.html#.run\">_$ &rtrif; Hooks</a>"},{"title":"HTTP","link":"<a href=\"module-Plugins.HTTP.html\">HTTP</a>"},{"title":"module:Plugins.HTTP.fetch","link":"<a href=\"module-Plugins.HTTP.html#.fetch\">module:Plugins &rtrif; HTTP</a>"},{"title":"OptionsFT","link":"<a href=\"module-Plugins.HTTP.fetch.OptionsFT.html\">OptionsFT</a>"},{"title":"Progress","link":"<a href=\"module-Plugins.Progress.html\">Progress</a>"},{"title":"Colors","link":"<a href=\"module-Utils.Colors.html\">Colors</a>"},{"title":"module:Utils.Colors.AlphaHex","link":"<a href=\"module-Utils.Colors.html#.AlphaHex\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Color2Str","link":"<a href=\"module-Utils.Colors.html#.Color2Str\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.ColorStr2Obj","link":"<a href=\"module-Utils.Colors.html#.ColorStr2Obj\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hex2Hsl","link":"<a href=\"module-Utils.Colors.html#.Hex2Hsl\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hex2Hsl","link":"<a href=\"module-Utils.Colors.html#.Hex2Hsl\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hex2Per","link":"<a href=\"module-Utils.Colors.html#.Hex2Per\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hex2Rgb","link":"<a href=\"module-Utils.Colors.html#.Hex2Rgb\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hsl2Hex","link":"<a href=\"module-Utils.Colors.html#.Hsl2Hex\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hsl2Hwb","link":"<a href=\"module-Utils.Colors.html#.Hsl2Hwb\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hsl2Rgb","link":"<a href=\"module-Utils.Colors.html#.Hsl2Rgb\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hwb2Hex","link":"<a href=\"module-Utils.Colors.html#.Hwb2Hex\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hwb2Hsl","link":"<a href=\"module-Utils.Colors.html#.Hwb2Hsl\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Hwb2Rgb","link":"<a href=\"module-Utils.Colors.html#.Hwb2Rgb\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.isHex","link":"<a href=\"module-Utils.Colors.html#.isHex\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.isHSL","link":"<a href=\"module-Utils.Colors.html#.isHSL\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.isHwb","link":"<a href=\"module-Utils.Colors.html#.isHwb\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.isRGB","link":"<a href=\"module-Utils.Colors.html#.isRGB\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.lightOrDark","link":"<a href=\"module-Utils.Colors.html#.lightOrDark\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Per2Hex","link":"<a href=\"module-Utils.Colors.html#.Per2Hex\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Rgb2Hex","link":"<a href=\"module-Utils.Colors.html#.Rgb2Hex\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Rgb2Hsl","link":"<a href=\"module-Utils.Colors.html#.Rgb2Hsl\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Rgb2Hsp","link":"<a href=\"module-Utils.Colors.html#.Rgb2Hsp\">module:Utils &rtrif; Colors</a>"},{"title":"module:Utils.Colors.Rgb2Hwb","link":"<a href=\"module-Utils.Colors.html#.Rgb2Hwb\">module:Utils &rtrif; Colors</a>"},{"title":"Colors","link":"Colors"},{"title":"Data","link":"Data"},{"title":"Events","link":"Events"}];
+        var options = 
+          setupSearch(list, options)
+      </script>
+    
+
+    
+
+    
+
+    
+
+
+  </body>
+
+</html>

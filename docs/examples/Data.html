@@ -1,0 +1,140 @@
+<h3>Uso Simple</h3>
+<p>
+	Podemos usarlo para obtener o establecer los atributtos data o alamcenamiento interno.
+</p>
+<blockquote>
+	Nota: para establecer un atributo data <code>data-algo</code> se usa la función <code>attr</code>.
+</blockquote>
+<section class="example">
+	<div class="container">
+		<div class="show">
+			<div id="myelem" data-id="myql09" data-color="#ff0"> Soy un Div</div>
+			<output style="max-width: 50%;"></output>
+		</div>
+		<div class="sidebar">
+			<h4>Data Via Atributos</h4>
+			<h5>Coloremos el Cuadro</h5>
+			<div class="btn-group">
+				<button data-sel="datatoattr" data-fn="set" data-attr='{"data-color": "#FF00DC"}'>Pintemos de Magenta</button>
+				<button data-sel="datatoattr" data-fn="get" data-attr="color">Obtengamo el Color</button>
+				<button data-sel="datatoattr" data-fn="clean" data-attr="">Limpiemos</button>
+			</div>
+			<h4>Data via almacenamiento</h4>
+			<div class="btn-group">
+				<button data-sel="datatodata" data-fn="get" data-attr='id'>Obtengamos su ID</button>
+				<button data-sel="datatodata" data-fn="set" data-attr="#FF00DC,#fff">Almacenamos el color</button>
+				<button data-sel="datatodata" data-fn="clean" data-attr="">Limpiemos</button>
+			</div>
+		</div>
+	</div>
+</section>
+<pre class="prettyprint lang-html">
+	<code>&lt;div id="myelem" data-id="myql09"&gt;Soy un div&lt;/div&gt;</code>
+</pre>
+<pre class="prettyprint lang-js">
+	<code>
+let m = _$("#myelem")
+
+// Establemecos el valor del data
+m.data('color', '#FF00DC')
+// ó Podemos hacerlo
+m.data({
+	color: '#FF00DC'
+})
+// esto crea una propiedad dentro del elemento llamado FSData si ejecutamos
+// _$("#myelem").prop('FSData') en la consola podemos ver su valor
+
+// Obteniendo un valor
+m.data('color')
+// Obteniendo todos los valores
+m.data() // Esto retorna el valor de la propiedad FSData
+
+// Removiendo
+m.removeData() // Esto vacia la propiedad FSData
+m.removeData('color') // Esto removera el valor de color
+
+// Verificando si existe
+m.hasData('color') // esto verifica si existe el data color
+
+// Altenar valores de data
+m.toggleData('color', "#ff0") // alterna el valor de color de magenta a yellow
+
+	</code>
+</pre>
+<style>
+	#myelem{
+		display: flex; 
+		align-items: center; 
+		width: 300px; 
+		height: 300px;
+		justify-content: center; 
+		color: #fff;
+		position: relative;
+	}
+	#myelem::before{
+		--color: #FF00DC;
+		content: "";
+		position: absolute;
+		top:  0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		background-color: var(--color); 
+	}
+</style>
+<script>
+	var l = _$.parseHTML('<link type="text/css" rel="stylesheet" href="assets/css/example.css">'),
+		m = _$("#myelem"),
+		c = _$("#codeattr"),
+		o = _$("output")
+
+	_$(l).appendTo('head')
+
+
+function addTextNode(p1, text) {
+	console.log(p1, text)
+  var newtext = document.createTextNode(text);
+ 	 p1.appendChild(newtext);
+}
+
+function jsonToArryFromAttr(obj) {
+	var a=[]
+	_$.each(obj, function(val, key) {
+		a.push(`${key}="${val}"`)
+	})
+	return a.join(" ")
+}
+	_$('[data-sel="datatoattr"]').click(function(e){
+		var fn = _$(this).data('fn')
+		var attr = _$(this).data('attr')
+		if(fn == 'set') {
+			m.attr(attr)
+		o.html(`Se estableció ${jsonToArryFromAttr(attr)}`)
+		} else if(fn == 'clean') {
+			m.removeData('color')
+			o.html(`${o.html()}<br>Se Elimino color`)
+		} else {
+			var cl = m.data('color')
+			o.html(`${o.html()}<br>El código Hexadecimal de color es ${cl}`)
+		}
+	})
+
+	_$('[data-sel="datatodata"]').click(function(e) {
+		var fn = _$(this).data('fn')
+		var attr = _$(this).data('attr')
+		if(fn == 'set') {
+			m.data("colors", attr)
+			o.html("Se añadio colors a su almacenamiento revise la consola")
+			console.dir(m.get(0))
+		} else if(fn == 'clean') {
+			m.removeData('colors')
+			o.html(`${o.html()}<br>Se elimino colors a su almacenamiento revise la consola`)
+			console.log(m.data())
+		} else {
+			var id = m.data('id')
+			o.html(`${o.html()}<br>Su data-id es ${id} <br> Revise consola para ver todos los datas alamcenados`)
+			console.log(m.data())
+		}
+	})
+</script>

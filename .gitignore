@@ -1,11 +1,13 @@
 /vendor/
 /node_modules/
-/docs/
 *.log
-*-lock.json
-index.php
+*-lock.*
 *.tar.*
 *.tar
 *.code-workspace
 mix-manifest.json
 .htaccess
+*.sublime*
+*.sublime
+/.bk/
+*.backup

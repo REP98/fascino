@@ -1,0 +1,49 @@
+.example{
+	width: 100%;
+	background-color: #090909;
+	padding: 0.3125rem 1.5rem;
+	color: #ff8a00;
+}
+.example .container{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.example .container > * {
+	flex: 1 0 auto;
+}
+.example .container > .show{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100%;
+}
+.example .container > .sidebar{
+	min-height: 15rem;
+	padding: 0.65rem;
+	margin: -0.65rem;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	background: rgba(255,255,255,.25);
+}
+.btn-group{
+	display: flex;
+	justify-content: space-between;
+	gap: 1px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.btn-group button{
+	padding: 0.3rem 0.6rem;
+	background-color: #444;
+	color: #fff;
+	border-radius: 0;
+	border: 0;
+	box-shadow: 0px 0px 1px 0px #595959;
+	transition: all .5s;
+	cursor: pointer;
+}
+
+.btn-group button:hover{
+
+}

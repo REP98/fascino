@@ -1,5 +1,11 @@
-/docs/
 /node_modules/
+/.bk/
 *.code-workspace
 *.tgz
 *.php
+*.sublime
+*.sublime*
+*.backup
+*-log.*
+/docs/
+/assets/
