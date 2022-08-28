@@ -2,5 +2,10 @@
  * Componentes de Fascino
  * @module Plugins
  */
-import './http'
-import './progressbar'
+import * as http from './http'
+import Progress from './progressbar'
+
+export default {
+    http,
+    Progress
+}

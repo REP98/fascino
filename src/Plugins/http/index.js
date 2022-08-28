@@ -173,7 +173,6 @@ if (window._$ !== undefined) {
 			})
 		}
 	})
-
 }
 
 export default { axios, ft }

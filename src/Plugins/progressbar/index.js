@@ -52,3 +52,5 @@ _$.addFn('progressSet', function(name,val = null){
         }
     })
 })
+
+export default Progress;

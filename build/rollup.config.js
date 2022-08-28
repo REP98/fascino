@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { terser } from "rollup-plugin-terser";
 //import eslint from "@rollup/plugin-eslint";
+import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 
 const pkg = require("../package.json");
 const banner  = require("./banner.js");
@@ -24,19 +25,29 @@ const plugins = [
 		exclude: "node_modules/**",
 		babelHelpers: "runtime"
 	}),
-	json()
+	json(),
+	dynamicImportVars()
 	//eslint()
 ]
+
+const external = ['camelcase', 'axios']
+
+const globals = {
+	'camelcase' : 'camelcase',
+	'axios': 'axios'
+}
 
 const entryConfig = (input, options) => {
 	return {
 		input: input,
+		external,
 		output: [
 			{
 				banner,
 				format: "es",
-				file: path.resolve(__dirname,  `${options.dir}/${options.name}.es.js`),
+				file: path.resolve(__dirname,  `${options.dir}/${options.name}-es.js`),
 				exports: "named",
+				globals,
 				sourcemap: DEV ? 'inline' : false,
 				plugins:[getBabelOutputPlugin({
 					presets: [
@@ -56,8 +67,9 @@ const entryConfig = (input, options) => {
 			{
 				banner,
 				format: "es",
-				file: path.resolve(__dirname,  `${options.dir}/${options.name}.es.min.js`),
+				file: path.resolve(__dirname,  `${options.dir}/${options.name}-es.min.js`),
 				exports: "named",
+				globals,
 				sourcemap: DEV ? 'inline' : false,
 				plugins:[getBabelOutputPlugin({
 					presets: [
@@ -90,15 +102,17 @@ const entryConfig = (input, options) => {
 				banner,
 				format: "umd", // Universal Module Definition
 				name: options.name,
-				file: path.resolve(__dirname,  `${options.dir}/${options.name}.umd.js`),
+				globals,
+				file: path.resolve(__dirname,  `${options.dir}/${options.name}-umd.js`),
 				sourcemap: DEV ? 'inline' : false,
-				exports: "named",
+				exports: "named"
 			},
 			{
 				banner,
 				format: "umd", // Universal Module Definition
 				name: options.name,
-				file: path.resolve(__dirname,  `${options.dir}/${options.name}.umd.min.js`),
+				globals,
+				file: path.resolve(__dirname,  `${options.dir}/${options.name}-umd.min.js`),
 				sourcemap: DEV ? 'inline' : false,
 				exports: "named",
 				plugins:[
@@ -155,5 +169,6 @@ for(let folder in FascinoPlugins) {
 		)
 	}
 }
+
 
 module.exports = rollupConfig

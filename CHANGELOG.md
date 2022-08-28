@@ -1,5 +1,11 @@
 ## master
 
+## v.1.0.1
+* Arreglado error de la Función `_$().wrap()`
+* Arreglo del Package.json
+* Mejor exportación de plugins
+* Correcciones adiciones de texto y documentación
+
 ## v1.0.0
 * Migración de [Laravel Mix](https://laravel-mix.com) a [Rollup](https://rollupjs.org)
 * Mejor integración en proyectos NPM

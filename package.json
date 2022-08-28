@@ -1,15 +1,18 @@
 {
   "name": "fascino",
-  "version": "1.0.0",
-  "description": "Fascino CSS/JS Framework",
-  "main": "dist/fascino.umd.js",
+  "version": "1.0.1",
+  "config": {
+    "version_short": "1.0"
+  },
+  "description": "Fascino JS Framework",
+  "main": "./src/index.js",
   "scripts": {
     "test": "karma start tests/karma.conf.js",
     "dev": "rollup --environment DEV:true --config build/rollup.config.js --sourcemap",
     "build": "rollup --environment DEV:false --config build/rollup.config.js --sourcemap",
     "doc": "jsdoc --configure build/jsdoc.conf.js --verbose",
     "fdev": "npm-run-all dev doc",
-    "prod" : "npm-run-all build doc"
+    "prod": "npm-run-all build doc"
   },
   "publishConfig": {
     "access": "public"
@@ -21,11 +24,34 @@
     "javascript",
     "webcomponent"
   ],
-  "module": "dist/fascino.esm.js",
-  "unpkg": "dist/fascino.min.js",
-  "exports": "./src/index.js",
+  "browser": "./dist/fascino-umd.min.js",
+  "module": "./dist/fascino-es.js",
+  "unpkg": "./dist/fascino-umd.min.js",
+  "exports": {
+    "./": "./src/index.js",
+    "./all": "./src/all.js",
+    "./plugins": "./src/Plugins/index.js",
+    "./plugins/http": "./src/Plugins/http/index.js",
+    "./plugins/progressbar": "./src/Plugins/progressbar/index.js"
+  },
+  "imports": {
+    "fascino": "src/index.js",
+    "fascino/": "src/",
+    "fascino-all": "src/all.js"
+  },
   "homepage": "https://rep98.github.io/fascino",
-  "author": "Robert Pérez <delfinmundo@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/REP98/fascino/issues"
+  },
+  "author": {
+    "name": "Robert Pérez",
+    "email": "delfinmundo@gmail.com",
+    "url": "https://github.com/REP98"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
+  },
   "license": "MIT",
   "contributors": [],
   "repository": {
@@ -34,37 +60,40 @@
   },
   "files": [
     "src/**/*",
-    "dist/*.{js,map}"
+    "dist/*.{js,map}",
+    "dist/**/*.{js,map}"
   ],
+  "peerDependencies": {
+    "axios": "^0.27.2",
+    "camelcase": "^6.3.0"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.17.12",
-    "@babel/plugin-transform-runtime": "^7.17.12",
-    "@babel/preset-env": "^7.17.12",
-    "@babel/runtime": "^7.17.9",
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/runtime": "^7.18.9",
     "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-dynamic-import-vars": "^1.4.4",
     "@rollup/plugin-eslint": "^8.0.2",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "axios": "^0.27.2",
-    "camelcase": "^6.3.0",
-    "clean-jsdoc-theme": "^3.3.4",
-    "eslint": "^8.15.0",
+    "clean-jsdoc-theme": "^4.1.7",
+    "eslint": "^8.22.0",
     "eslint-config-google": "^0.14.0",
-    "jsdoc": "^3.6.10",
-    "karma": "^6.3.20",
+    "jsdoc": "^3.6.11",
+    "karma": "^6.4.0",
     "karma-firefox-launcher": "^2.1.2",
-    "karma-jasmine": "^5.0.1",
-    "karma-jasmine-html-reporter": "^1.7.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-jasmine-html-reporter": "^2.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
-    "karma-rollup-preprocessor": "^7.0.8",
     "node-notifier": "^10.0.1",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.73.0",
+    "rollup": "^2.78.1",
     "rollup-plugin-istanbul": "^3.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "terser": "5.13.1"
+    "terser": "^5.15.0"
   }
 }

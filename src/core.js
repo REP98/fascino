@@ -903,7 +903,7 @@ export class Fascino extends Selector{
 			}
 			_target.append(el)
 
-			res.push(_wrapper.e(0))
+			res.push(_wrapper.eq(0))
 		})
 
 		return w(res)

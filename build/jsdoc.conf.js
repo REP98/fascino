@@ -1,4 +1,5 @@
 const path = require('path');
+
 module.exports = {
 	plugins: ['plugins/markdown'],
 	source: {
@@ -37,7 +38,7 @@ module.exports = {
 				},
 				{
 					title: "jsDelvir",
-					link: "https://www.jsdelivr.com/package/npm/fascino?version=1.0.0",
+					link: "https://www.jsdelivr.com/package/npm/fascino?version=1.0.1",
 					target: "_blank"
 				}
       		],
@@ -109,7 +110,7 @@ module.exports = {
       		],
         	footer:`&copy; 2020-${new Date().getFullYear()} FascinoJs.`,
         	include_js:[
-        		"./dist/fascino-all.umd.min.js"
+        		"./dist/fascino-all-umd.min.js"
         	],
         	static_dir:['./assets']
         }
