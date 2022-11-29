@@ -1,14 +1,57 @@
+const camelCaseDefautl = {firstUpper: false, locale: false}
 /**
  * CamelCase
  * @memberOf module:Utils
- * @copyright {@link https://sindresorhus.com/ Sindre Sorhus}
- * @externals camelcase
- * @see [camelcase]{@link https://github.com/sindresorhus/camelcase}
  * @type {Function}
  */
-import camelcase from "camelcase"
+export const camelCase = function(src, options = camelCaseDefautl) {
+	const SEPARATOR = /[_.\- ]+/;
+	if (not(src)) {
+		return src;
+	}
 
-export const camelCase = camelcase;
+	if (isArrayish(src)) {
+		src = src.map(x => x.trim())
+				.filter(x => x.length)
+				.join('-')
+	} else {
+		src = src.trim()
+	}
+
+	if (src.length === 0) {
+		return ''
+	}
+
+	var o = extend({}, camelCaseDefautl, options),
+		tLC = (not(o.locale) || o.locale == false)
+		? string => string.toLowerCase()
+		: string => string.toLocaleLowerCase(o.locale),
+		tUC = (not(o.locale) || o.locale == false)
+		? string => string.toUpperCase()
+		: string => string.toLocaleUpperCase(o.locale)
+
+	if (src.length === 1) {
+		if (SEPARATOR.test(src)) {
+			return "";
+		}
+
+		return o.firstUpper ? tUC(src) : tLC(src)
+	}
+
+	var wordArr = src.split(SEPARATOR),
+		newSrc = "";
+	each(wordArr, (chart, ix) => {
+		if (ix == 0) {
+			newSrc += (o.firstUpper ? tUC(chart.charAt(0))  : tLC(chart.charAt(0))) + chart.slice(1);
+		} else if (ix > 0) {
+			newSrc += tUC(chart.charAt(0)) + chart.slice(1)
+		} else{
+			newSrc += chart;
+		}
+	})
+	return newSrc;
+
+};
 /**
  * Alias String.prototype.valueOf
  * @memberOf module:Utils

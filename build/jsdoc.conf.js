@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
 	plugins: ['plugins/markdown'],
 	source: {
-		include: ['./src/', "package.json", "README.md"],
+		include: ['./src/', "package.json", "README.md", "CHANGELOG.md"],
 		includePattern: '.+\\.js(doc|x)?$',
 		exclude: ['./node_modules/'],
 		excludePattern: '(^|\\/|\\\\)_'
@@ -19,10 +19,11 @@ module.exports = {
 		destination: './docs/',
 		readme: './README.md',
 		recurse: true,
-        verbose: true,
+        verbose: false,
         tutorials: "./docs/examples",
         theme_opts:{
         	theme: 'dark',
+        	homepageTitle: "FascinoJs",
         	title: `<img src="assets/Images/logo_white_512.png" loading="lazy" height="36" style="max-width: 100%; margin-right: .8rem;" /> <span style="color: #fff">FascinoJs</span>`,
         	favicon: 'assets/Images/logo_white_512.png',
       		menu: [
@@ -38,7 +39,7 @@ module.exports = {
 				},
 				{
 					title: "jsDelvir",
-					link: "https://www.jsdelivr.com/package/npm/fascino?version=1.0.1",
+					link: "https://www.jsdelivr.com/package/npm/fascino?version=1.1.0",
 					target: "_blank"
 				}
       		],
@@ -65,7 +66,7 @@ module.exports = {
       			},
       			{
       				property: "og:url",
-      				content: "https://github.com/REP98/fascino"
+      				content: "https://rep98.github.io/fascino"
       			},
       			{
       				property: "og:site_name",
@@ -93,7 +94,7 @@ module.exports = {
       			},
       			{
       				name: "twitter:site",
-      				content: "https://github.com/REP98/fascino"
+      				content: "https://rep98.github.io/fascino"
       			},
       			{
       				name: "twitter:title",
@@ -110,16 +111,19 @@ module.exports = {
       		],
         	footer:`&copy; 2020-${new Date().getFullYear()} FascinoJs.`,
         	include_js:[
-        		"./dist/fascino-all-umd.min.js"
+        		"./dist/fascino-all.min.js"
         	],
         	static_dir:['./assets']
         }
 	},
+	markdown:{
+		idInHeadings: true,
+		hardwrap: false
+	},
 	templates: {
 		cleverLinks: false,
 		monospaceLinks: false,
-		systemName: 'FascinoJs',
-		
+		systemName: 'FascinoJs',		
 	},
 	compilerOptions:{
 		module: 'esmac',
@@ -127,13 +131,3 @@ module.exports = {
 		strictFunctionTypes: true
 	}
 }
-
-/*
-,
-	compilerOptions: {
-		module: 'commonjs',
-		target: 'es2020',
-		jsx: 'preserve',
-		strictFunctionTypes: true
- 	}
- */

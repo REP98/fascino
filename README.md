@@ -1,4 +1,4 @@
-# Fascino JS
+# Fascino JS v1.1
 <p>
 	Framework JS, modular y expansible
 </p>
@@ -19,11 +19,11 @@ npm i fascino
 o integrarlo directamente a su proyecto por jsDelivr
 ```html
 <!-- Solo el core -->
-<script src="https://cdn.jsdelivr.net/npm/fascino@1.0.0/dist/fascino.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fascino@1.1.0/dist/fascino.min.js"></script>
 ```
 ```html
 <!-- Core con plugin -->
-<script src="https://cdn.jsdelivr.net/npm/fascino@1.0.0/dist/fascino-all.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fascino@1.1.0/dist/fascino-all.min.js"></script>
 ```
 ## Ejemplo de selección
 

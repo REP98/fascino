@@ -1,5 +1,10 @@
 ## master
 
+## v.1.1.0
+* Función camelCase ahora es interna
+* Migración de [Rollup](https://rollupjs.org) a [Webpack](https://webpack.js.org)
+* Modulos no compilado: ahora los modulos estan dentro de src y las compilaciones estas en la carpeta dist
+
 ## v.1.0.1
 * Arreglado error de la Función `_$().wrap()`
 * Arreglo del Package.json

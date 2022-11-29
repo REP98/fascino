@@ -1,7 +1,7 @@
 import { _$ } from './Fascino.js'
 import { Fascino } from './core.js'
 
-export {
+export default {
 	_$,
 	Fascino
 }

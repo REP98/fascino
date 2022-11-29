@@ -11,3 +11,4 @@ mix-manifest.json
 *.sublime
 /.bk/
 *.backup
+backup/

@@ -44,6 +44,10 @@
 	cursor: pointer;
 }
 
-.btn-group button:hover{
+.mobile-sidebar-wrapper > img{
+	width: 60px;
+}
 
+.sidebar > img {
+	width: 80px;
 }
