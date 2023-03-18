@@ -1,7 +1,7 @@
 /*!
  * Fascino  fascino.js
- * 	@version v1.1.0
- * 	@copyright 2021-2022 Robert Pérez.
+ * 	@version v1.1.5
+ * 	@copyright 2021-2023 Robert Pérez.
  * 	@author Robert Pérez delfinmundo@gmail.com
  *
  * 	@license Licensed under MIT
@@ -143,9 +143,7 @@ __webpack_require__.d(Colors_namespaceObject, {
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
@@ -1542,7 +1540,6 @@ var Data = /*#__PURE__*/function () {
 
 
 
-
 var ListEvents = ['blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove', 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown', 'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'];
 /**
  * Maneja y manipula los Eventos del DOM
@@ -1897,24 +1894,19 @@ var Event = /*#__PURE__*/function () {
       }
       var Dev = this._getData(el);
       if (not(eventsList) || eventsList.toLowerCase() === 'all' || eventsList === '*') {
-        var _ret = function () {
-          var _this = _this3;
-          if (Dev) {
-            for (var prop in Dev) {
-              if (hasProp(Dev, prop)) {
-                var e = Dev[prop];
-                e.forEach(function (i) {
-                  _this._remove(el, i.event, i.handler, i.options);
-                });
-              }
+        var _this = this;
+        if (Dev) {
+          for (var prop in Dev) {
+            if (hasProp(Dev, prop)) {
+              var e = Dev[prop];
+              e.forEach(function (i) {
+                _this._remove(el, i.event, i.handler, i.options);
+              });
             }
-            _this3._off();
           }
-          return {
-            v: el
-          };
-        }();
-        if (_typeof(_ret) === "object") return _ret.v;
+          this._off();
+        }
+        return el;
       }
       var EvL = strToArr(eventsList, ' ');
       EvL.forEach(function (e) {
@@ -2238,7 +2230,7 @@ var Selector = /*#__PURE__*/function () {
 
 
 ;// CONCATENATED MODULE: ./package.json
-const package_namespaceObject = {"i8":"1.1.0"};
+const package_namespaceObject = {"i8":"1.1.5"};
 ;// CONCATENATED MODULE: ./src/core.js
 
 
@@ -3846,8 +3838,8 @@ var Fascino = /*#__PURE__*/function (_Selector) {
         var display = w(el).style('display'),
           opacity = w(el).style('opacity');
         if (display != 'none' && parseInt(opacity) != 0) {
-          w(el).origin('display', display);
-          w(el).origin('opacity', opacity);
+          w(el).data('display', display);
+          w(el).data('opacity', opacity);
           w(el).style({
             display: 'none',
             opacity: 0
@@ -3870,8 +3862,8 @@ var Fascino = /*#__PURE__*/function (_Selector) {
     value: function show(callback) {
       var _this4 = this;
       return this.each(function (el) {
-        var display = w(el).origin('display', undefined, 'block'),
-          opacity = w(el).origin('opacity', undefined, '1'),
+        var display = w(el).data('display') || "block",
+          opacity = w(el).data('opacity') || 1,
           setDisplay = 'block',
           setOpacity = 1;
         if (display && display !== 'none') {

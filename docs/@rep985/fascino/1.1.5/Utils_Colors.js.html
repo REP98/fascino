@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="assets/Images/logo_white_512.png"><meta name="author" content="Robert Pérez"><meta name="description" content="Documentación Oficial de la Librería Javacript Fascino JS"><meta property="og:title" content="FascinoJs"><meta property="og:description" content="Documentación Oficial de la Librería Javacript Fascino JS"><meta property="og:type" content="website"><meta property="og:url" content="https://rep98.github.io/fascino"><meta property="og:site_name" content="FascinoJs"><meta property="og:image" content="assets/Images/FAS.png"><meta property="og:image:width" content="512"><meta property="og:image:height" content="512"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@Robert_saer"><meta name="twitter:site" content="https://rep98.github.io/fascino"><meta name="twitter:title" content="FascinoJs"><meta name="twitter:description" content="Documentación Oficial de la Librería Javacript Fascino JS"><meta name="theme-color" content="#000"><script src="fascino-all.min.js"></script><title>Source: Utils/Colors.js</title><!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="",baseURL=(locationPathname=document.location.pathname).substr(0,locationPathname.lastIndexOf("/")+1)</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body class="dark" data-theme="dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><img src="assets/Images/logo_white_512.png" loading="lazy" height="36" style="max-width:100%;margin-right:.8rem"> <span style="color:#fff">FascinoJs</span><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="s9uMeBb21N42uJKWJQV-L"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-Core.html">Core</a></div><div class="sidebar-section-children"><a href="module-Plugins.html">Plugins</a></div><div class="sidebar-section-children"><a href="module-Utils.html">Utils</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="GTsvlkIWThuBERBxFNjCU"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="Fascino_Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module-Core.Data.html">Data</a></div><div class="sidebar-section-children"><a href="module-Core.Event.html">Event</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.html">Selector</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.SelectorError.html">SelectorError</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.Serialize.html">Serialize</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.Progress.html">Progress</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="uLeFxm3gtY2cZsmqB3JJG"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="-_$.html">_$</a></div><div class="sidebar-section-children"><a href="-_$.Hooks.html">Hooks</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.html">HTTP</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.fetch.OptionsFT.html">OptionsFT</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.html">Progress</a></div><div class="sidebar-section-children"><a href="module-Utils.Colors.html">Colors</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="PTR0LnjROqtr9j2N0PrCq"><div>Tutorials</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="tutorial-Colors.html">Colors</a></div><div class="sidebar-section-children"><a href="tutorial-Data.html">Data</a></div><div class="sidebar-section-children"><a href="tutorial-Events.html">Events</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"><div class="navbar-item"><a id="" href="https://github.com/REP98/fascino" target="_blank">Github</a></div><div class="navbar-item"><a id="" href="https://www.npmjs.com/package/fascino" target="_blank">NPM</a></div><div class="navbar-item"><a id="" href="https://www.jsdelivr.com/package/npm/fascino?version=1.1.0" target="_blank">jsDelvir</a></div></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">Utils_Colors.js</h1></header><article><pre class="prettyprint source lang-js"><code>/**
+ * Funciones Útiles para el manejo de colores con javascript en formatos Hex, RGB(A), HSL(A), HWB
+ * @namespace Colors
+ * @memberOf module:Utils 
+ * @tutorial Colors
+ */
+
+import {
+	not,
+	isObject,
+	hasProp
+} from './Utils.js'
+//============================================================================================
+// CONVERSORES Y VALIDADORES
+//============================================================================================
+//-------------------- HEXADECIMA -------------------------------------------------------------
+
+/**
+ * Valida si es un color Hexadecimal valido
+ * @memberOf module:Utils.Colors
+ * @function isHex
+ * @param  {String}  color Hexadecimal a validar
+ * @return {Boolean}
+ */
+export function isHex(color) {
+	return /(^#[0-9a-f]{3}$)|(^#[0-9a-f]{4}$)|(^#[0-9a-f]{6}$)|(^#[0-9a-f]{8}$)/i.test(color)
+}
+/**
+ * Obtiene el canal Alpha de un hexadecimal y lo convierte en decimal
+ * @memberOf module:Utils.Colors
+ * @function AlphaHex
+ * @param {Hexadecimal} hex Color Hexadecimal en formato #RRGGBBAA
+ * @return {(Number|Boolean)} El numero del porcentaje o false si no es un hexadecimal valido
+ */
+export function AlphaHex(hex) {
+	if (!isHex(hex)) {
+		return false
+	}
+	let r = /^#([0-9a-f]{6})([0-9a-f]{2})$/i.exec(hex)
+	return r.length > 2 ? Hex2Per(r[2]) : 100
+}
+/**
+ * Convierte Colores Hexadecimales a RGB
+ * @see [Github]{http://gist.github.com/983661}
+ * @memberOf module:Utils.Colors
+ * @function Hex2Rgb
+ * @param {String} hex Color Hexadecimal
+ * @return {(Object|Boolean)} Objecto con el color RGBA o false si no es valido
+ */
+export function Hex2Rgb(hex) {
+	if (!isHex(hex)) {
+		return false;
+	}
+	let withAlpha = /(^#[0-9a-f]{4}$)|(^#[0-9a-f]{8}$)/i.test(hex),
+		alpha = withAlpha ? AlphaHex(hex) : 100
+
+	if (withAlpha) {
+		if (hex.length == 4) {
+			hex = hex.substring(1, 4)
+		} else {
+			hex = hex.substring(1, 7)
+		}
+	} else {
+		hex = hex.slice(1)
+	}
+
+	hex = +("0x" + hex.replace( 
+	  hex.length &lt; 5 &amp;&amp; /./g, '$&amp;$&amp;'
+	)
+	);
+
+  return {
+	r: hex >> 16 &amp; 255,
+	g: hex >> 8 &amp; 255,
+	b: hex &amp; 255,
+	a: alpha
+  }
+}
+/**
+ * Convierte Hexadecimal en HSL
+ * @memberOf module:Utils.Colors
+ * @function Hex2Hsl
+ * @param {String} hex Color
+ * @return {(Object|Boolean)} Objecto hsl o false
+ */
+export function Hex2Hsl(hex) {
+	if (!isHex(hex)) {
+		return false;
+	}
+	let c = Hex2Rgb(hex)
+	return Rgb2Hsl(c.r, c.g, c.b, c.a)
+}
+/**
+ * Convierte un Hexadecimal a HWB
+ * @memberOf module:Utils.Colors
+ * @function Hex2Hsl
+ * @param {String} hex
+ * @return {(Object|Boolean)} Objecto hsl o false
+ */
+export function Hex2Hwb(hex) {
+	if (!isHex(hex)) {
+		return false;
+	}
+	let c = Hex2Rgb(hex)
+	return Rgb2Hwb(c.r, c.g, c.b)
+}
+
+//-------------------- RGBA --------------------------------------------------------------------
+/**
+ * Valida si es un Objecto o String valido para rgb
+ * @memberOf module:Utils.Colors
+ * @function isRGB
+ * @param  {(Object|String)}  rgb RGBA
+ * @return {Boolean}
+ */
+export function isRGB(rgb) {
+	return isObject(rgb) &amp;&amp; hasProp(rgb, 'r') || /(^rgb\([\d,?\s?]+\)$)|(^rgba\(([\d,?\s?]+)\s?\/?\s?(([\d.\d]|[\d\%])+)\)$)/gi.test(rgb)
+}
+/**
+ * Convierte un valor RGBA a HEXADECIMAL
+ * @memberOf module:Utils.Colors
+ * @function Rgb2Hex
+ * @param {Number} r     Rojo
+ * @param {Number} g     Verde
+ * @param {Number} b     Azul
+ * @param {Number} a 	 Alfa
+ * @return {String}		Expresión Hexadecimal
+ */
+export function Rgb2Hex(r,g,b,a = 100) {
+	let ts = (c) => {
+        let rt = c.toString(16)
+        return rt.length == 1 ? rt+rt : rt
+      },
+      hex = "#"+ ts(r) + ts(g) + ts(b)
+      
+	if (a &lt; 100) {
+		hex += Per2Hex(a)
+	}
+ 
+	return hex.toUpperCase()
+}
+/**
+ * Convierte un rgba a Hsla, el alfa es opcional
+ * @memberOf module:Utils.Colors
+ * @function Rgb2Hsl
+ * @param {Number} r     Rojo
+ * @param {Number} g     Verde
+ * @param {Number} b     Azul
+ * @param {Number} alpha Opacidad
+ * @return {Object} Objecto con los datos HSLA
+ */
+export function Rgb2Hsl (r, g, b, alpha = 100) {
+	r /= 255
+	g /= 255
+	b /= 255
+
+    let max = Math.max(r, g, b);
+    let min = Math.min(r, g, b);
+    let [hue, sat, light] = [NaN, 0, (max + min)/2];
+    let d = max - min;
+
+    if (d !== 0) {
+        sat = (light === 0 || light === 1)
+            ? 0
+            : (max - light) / Math.min(light, 1 - light);
+
+        switch (max) {
+            case r:   hue = (g - b) / d + (g &lt; b ? 6 : 0); break;
+            case g: hue = (b - r) / d + 2; break;
+            case b:  hue = (r - g) / d + 4;
+        }
+
+        hue = hue * 60;
+    }
+
+    return {
+    	h: Math.round(hue),
+    	s: Math.round(sat * 100),
+    	l: Math.round(light * 100),
+    	a: alpha
+    };
+}
+/**
+ * Convierte un RGB en HWB
+ * @memberOf module:Utils.Colors
+ * @function Rgb2Hwb
+ * @param {Number} r Rojo
+ * @param {Number} g Verde
+ * @param {Number} b Azul
+ * @return {Object} Objecto HWB
+ */
+export function Rgb2Hwb(r, g, b, a = 100) {
+    var hsl = Rgb2Hsl(r, g, b, a),
+    	w = (1 / 255) * Math.min(r, Math.min(g, b)),
+    	b = 1 - (1 / 255) * Math.max(r, Math.max(g, b))
+   
+    return {
+    	h: hsl.h,
+    	w: Math.round(100 * w),
+    	b: Math.round(100 * b),
+    	a: hsl.a
+    }
+}
+/**
+ * Calcula el HSP de un RGB 
+ * @memberOf module:Utils.Colors
+ * @function Rgb2Hsp
+ * @param {Number} r Rojo(0-255)
+ * @param {Number} g Verde(0-255)
+ * @param {Number} b Azul(0-255)
+ * @return {Object} Un Objecto confomado por una clave hsp y una booleana isDark que indica si es o no oscuro el color
+ */
+export function Rgb2Hsp(r, g, b) {
+	// HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+	let hsp = Math.sqrt(
+	    0.299 * (r * r) +
+	    0.587 * (g * g) +
+	    0.114 * (b * b)
+	  );
+
+	return {
+		hsp,
+		isDark: !(hsp > 127.5)
+	}
+}
+
+//-------------------- HSLA --------------------------------------------------------------------
+/**
+ * Valida si es un Objecto o String HSL
+ * @memberOf module:Utils.Colors
+ * @function isHSL
+ * @param  {(Object|String)}  hsl
+ * @return {Boolean}
+ */
+export function isHSL(hsl) {
+	return isObject(hsl) &amp;&amp; hasProp(hsl, 's') || /(^hsl\([\d%?,?\s?]+\)$)|(^hsla\(([\d%?,?\s?]+)\s?\/?\s?(([\d.\d]|[\d\%])+)\)$)/gi.test(hsl)
+}
+/**
+ * Convierte HSLA en RGBA
+ * @memberOf module:Utils.Colors
+ * @function Hsl2Rgb
+ * @param {Number} hue   HUE
+ * @param {Number} sat   Saturación
+ * @param {Number} light Luz
+ * @param {Number} alpha Opciada opcional
+ * @return {Object} Object rgba
+ */
+export function Hsl2Rgb(hue = 0, sat = 100, light = 50, alpha = 100) {
+	hue = hue % 360
+	if (hue &lt; 0) {
+		hue += 360
+	}
+	sat /= 100
+	light /= 100
+
+	let f = (n) => {
+		let k = (n + hue / 30) % 12,
+			a = sat * Math.min(light, 1 - light)
+		return light - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1)))
+	}
+
+	return {
+		r: Math.round(255 * f(0)),
+		g: Math.round(255 * f(8)),
+		b: Math.round(255 * f(4)),
+		a: alpha
+	}
+}
+/**
+ * Convierte Hsl a Hexadecimal
+ * @memberOf module:Utils.Colors
+ * @function Hsl2Hex
+ * @param {Number} hue   HUE
+ * @param {Number} sat   Saturación
+ * @param {Number} light Luz
+ * @param {Number} alpha Opciada opcional
+ * @return {String}
+ */
+export function Hsl2Hex(hue = 0, sat = 100, light = 50, alpha = 100) {
+	let r = Hsl2Rgb(hue, sat, light, alpha)
+	return Rgb2Hex(r.r, r.g, r.b, r.a)
+}
+/**
+ * Convierte HSL a HWB
+ * @memberOf module:Utils.Colors
+ * @function Hsl2Hwb
+ * @param {Number} hue   HUE
+ * @param {Number} sat   Saturación
+ * @param {Number} light Luz
+ * @param {Number} alpha Opciada opcional
+ * @return {Object} Objecto hwba
+ */
+export function Hsl2Hwb(hue = 0, sat = 100, light = 50, alpha = 100) {
+	let r = Hsl2Rgb(hue, sat, light, alpha),
+		w = (1 / 255) * Math.min(r.r, Math.min(r.g, r.b)),
+    	b = 1 - (1 / 255) * Math.max(r.r, Math.max(r.g, r.b))
+
+    	w = Math.round(w)
+    	b = Math.round(b)
+
+	return {
+		h: Math.round(hue),
+		w, 
+		b,
+		a: alpha
+	}
+}
+//-------------------- HWB ---------------------------------------------------------------------
+/**
+ * Valida si es un Objecto o string HWB valido 
+ * @memberOf module:Utils.Colors
+ * @function isHwb
+ * @param  {(Object|String)}  hwb
+ * @return {Boolean}
+ */
+export function isHwb(hwb) {
+	return isObject(hwb) &amp;&amp; hasProp(hwb, 'w') || /^hwb\(([\/?\d%?\s?]+)\)$/gi.test(hwb)
+}
+/**
+ * Convierte un HWB en RGBA
+ * @memberOf module:Utils.Colors
+ * @function Hwb2Rgb
+ * @param {Number} hue  
+ * @param {Number} white
+ * @param {Number} black
+ * @param {Number} alpha
+ * @return {Object}
+ */
+export function Hwb2Rgb(hue = 0, white = 0, black = 0, alpha = 100) {
+	hue /= 360
+	white /= 100
+	black /= 100
+
+	let radio = white + black,
+		r,g,b, i, v, f, n;
+
+	if (radio > 1) {
+		white = black = radio
+	}
+
+	i = Math.floor(6 * hue)
+	v = 1 - black,
+	f = 6 * hue - i
+
+	if ((i &amp; 0x01) !== 0) {
+		f = 1 - f
+	}
+
+	n = white + f * (v - white)
+
+	switch (i) {
+		default:
+		case 6:
+		case 0: r = v; g = n; b = white; break;
+		case 1: r = n; g = v; b = white; break;
+		case 2: r = white; g = v; b = n; break;
+		case 3: r = white; g = n; b = v; break;
+		case 4: r = n; g = white; b = v; break;
+		case 5: r = v; g = white; b = n; break;
+	}
+	return {
+		r: Math.round(255 * r),
+		g: Math.round(255 * g),
+		b: Math.round(255 * b),
+		a: alpha
+	}
+}
+/**
+ * Convierte un HWB a HEX
+ * @memberOf module:Utils.Colors
+ * @function Hwb2Hex
+ * @param {Number} hue  
+ * @param {Number} white
+ * @param {Number} black
+ * @param {Number} alpha
+ * @return {String}
+ */
+export function Hwb2Hex(hue = 0, white = 0, black = 0, alpha = 100){
+	let r = Hwb2Rgb(hue, white, black, alpha)
+	return Rgb2Hex(r.r, r.g, r.b, r.a)
+}
+/**
+ * Convierte un HWB a HSL
+ * @memberOf module:Utils.Colors
+ * @function Hwb2Hsl
+ * @param {Number} hue  
+ * @param {Number} white
+ * @param {Number} black
+ * @param {Number} alpha
+ * @return {Object}
+ */
+export function Hwb2Hsl(hue = 0, white = 0, black = 0, alpha = 100) {
+	let r = Hwb2Rgb(hue, white, black, alpha)
+	return Rgb2Hsl(r.r, r.g, r.b, r.a)
+}
+
+
+//============================================================================================
+// UTILIDADES PARRA LAS FUNCIONES DE COLORES
+//============================================================================================
+
+/**
+ * Convierte un color a su representacion en String
+ * @memberOf module:Utils.Colors
+ * @function Color2Str
+ * @param {(String|Object)} color El color
+ * @return {String}
+ */
+export function Color2Str(color) {
+	if (isObject(color)) {
+		if (hasProp(color, 'r')) {
+			return hasProp(color, 'a') &amp;&amp; color.a &lt; 100 ?
+				`rgba(${color.r} ${color.g} ${color.b} / ${(color.a)}%)`
+				: `rgb(${color.r} ${color.g} ${color.b})`
+		} else if (hasProp(color, 'w')) {
+			return hasProp(color, 'a') &amp;&amp; color.a &lt; 100 ? 
+				`hwb(${color.h} ${color.w}% ${color.b}% / ${color.a})` :
+				`hwb(${color.h} ${color.w}% ${color.b}%)`
+		} else if (hasProp(color, 'h')) {
+			return hasProp(color, 'a') &amp;&amp; color.a &lt; 100 ?
+				`hsla(${color.h} ${color.s}% ${color.l}% / ${(color.a)}%)`
+				: `hsl(${color.h} ${color.s}% ${color.l}%)`
+		}
+	} else {
+		return `#${color.toUpperCase()}`
+	}
+}
+/**
+ * Convierte un porcentaje a una expresión Hexadecimal
+ * @memberOf module:Utils.Colors
+ * @function Per2Hex
+ * @see [Github]{https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4?permalink_comment_id=3036936#gistcomment-3036936}
+ * @param {Number} percent El valor del porcentaje
+ * @return {String}
+ */
+export function Per2Hex(percent) {
+	percent = Math.max(0, Math.min(100, percent))
+	let PerHex = Math.round(percent / 100 * 255).toString(16)
+	return PerHex.padStart(2, "0").toUpperCase()
+}
+/**
+ * Convierte un Hexadecimal a Porcentaje
+ * @memberOf module:Utils.Colors
+ * @function Hex2Per
+ * @param {String} Hex Hexadecimal
+ * @return {Number}
+ */
+export function Hex2Per(Hex) {
+	return Math.round(((parseInt(Hex, 16) - 0) / 255) * 100)
+}
+/**
+ * Ilumina u oscurece un color &lt;br/>
+ * Similar a las funciones de Sass
+ * @memberOf module:Utils.Colors
+ * @function lightOrDark
+ * @see [Author y Blog original]{https://css-tricks.com/snippets/javascript/lighten-darken-color/}
+ * @param  {String} color Color Hexadecimal
+ * @param  {Number} amt   Importe si e positivo seria Light negativo para dark
+ * @return {String}       Color Hexadecimal
+ */ 
+export function lightOrDark(color, amt){
+	if(!isHex(color)) {
+		return color;
+	}
+
+	let hex = color.slice(1),
+		num = parseInt(hex, 16),
+		nor = (c) => {
+			if (c > 255) {
+				c = 255
+			} else if(c &lt; 0) {
+				c = 0
+			}
+			return c
+		},
+		r = nor((num >> 16) + amt),
+		g = nor((num &amp; 0x0000FF) + amt),
+		b = nor(((num >> 8) &amp; 0x00FF) + amt)
+
+	return "#" + String("000000" + (g | (b &lt;&lt; 8) | (r &lt;&lt; 16)).toString(16)).slice(-6);
+}
+/**
+ * Convierte un representación String de un color a un Objecto, si toRgb es verdadero el color suministrado
+ * sera trasformado en un color RGB  y retorna su objecto dado.
+ * @memberOf module:Utils.Colors
+ * @function ColorStr2Obj
+ * @param {String}  color representación de colores
+ * @param {Boolean} toRgb Retorna objecto rgb si se establece a true
+ */
+export function ColorStr2Obj(color, toRgb = false) {
+	if (isHex(color)) {
+    	return Hex2Rgb(color)
+  	} else {
+  		var c = /^([rgb|rgba|hsl|hsla|hwb]+)\(([\d]+),?\s?([\d%?]+),?\s?([\d%?]+),?\s?\/?\s?([\d%?]+)?\)$/gi.exec(color),
+  			o = {}, rgb;
+  		if (not(c)) {
+  			return color
+  		}
+  		switch(c[1]) {
+  			case 'rgb':
+  			case 'rgba':
+  				o.r = parseInt(c[2])
+  				o.g = parseInt(c[3])
+  				o.b = parseInt(c[4])
+  				o.a = parseInt(c[5] || 100)
+  				rgb = o
+  			break;
+  			case 'hsl':
+  			case 'hsla':
+  				o.h = parseInt(c[2])
+  				o.s = parseInt(c[3])
+  				o.l = parseInt(c[4])
+  				o.a = parseInt(c[5] || 100)
+  				rgb = toRgb ? Hsl2Rgb(o.h, o.s, o.l, o.a) : null
+  			break;
+  			case 'hwb':
+  				o.h = parseInt(c[2])
+  				o.w = parseInt(c[3])
+  				o.b = parseInt(c[4])
+  				o.a = parseInt(c[5] || 100)
+  				rgb = toRgb ? Hwb2Rgb(o.h, o.w, o.b, o.a) : null
+  			break;
+  		}
+  		return toRgb ? rgb : o
+  	}
+}
+
+
+String.prototype.toObject = function(toRgb = false) {
+	return ColorStr2Obj(this, toRgb)
+}</code></pre></article></section><footer class="footer" id="PeOAagUepe"><div class="wrapper">&copy; 2020-2023 FascinoJs.</div></footer></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><img src="assets/Images/logo_white_512.png" loading="lazy" height="36" style="max-width:100%;margin-right:.8rem"> <span style="color:#fff">FascinoJs</span><div class="mobile-nav-links"><div class="navbar-item"><a id="" href="https://github.com/REP98/fascino" target="_blank">Github</a></div><div class="navbar-item"><a id="" href="https://www.npmjs.com/package/fascino" target="_blank">NPM</a></div><div class="navbar-item"><a id="" href="https://www.jsdelivr.com/package/npm/fascino?version=1.1.0" target="_blank">jsDelvir</a></div></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="s9uMeBb21N42uJKWJQV-L"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-Core.html">Core</a></div><div class="sidebar-section-children"><a href="module-Plugins.html">Plugins</a></div><div class="sidebar-section-children"><a href="module-Utils.html">Utils</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="GTsvlkIWThuBERBxFNjCU"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="Fascino_Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module-Core.Data.html">Data</a></div><div class="sidebar-section-children"><a href="module-Core.Event.html">Event</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.html">Selector</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.SelectorError.html">SelectorError</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.Serialize.html">Serialize</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.Progress.html">Progress</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="uLeFxm3gtY2cZsmqB3JJG"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="-_$.html">_$</a></div><div class="sidebar-section-children"><a href="-_$.Hooks.html">Hooks</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.html">HTTP</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.fetch.OptionsFT.html">OptionsFT</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.html">Progress</a></div><div class="sidebar-section-children"><a href="module-Utils.Colors.html">Colors</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="PTR0LnjROqtr9j2N0PrCq"><div>Tutorials</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="tutorial-Colors.html">Colors</a></div><div class="sidebar-section-children"><a href="tutorial-Data.html">Data</a></div><div class="sidebar-section-children"><a href="tutorial-Events.html">Events</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>

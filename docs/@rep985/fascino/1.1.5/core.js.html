@@ -1,0 +1,2164 @@
+<!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="assets/Images/logo_white_512.png"><meta name="author" content="Robert Pérez"><meta name="description" content="Documentación Oficial de la Librería Javacript Fascino JS"><meta property="og:title" content="FascinoJs"><meta property="og:description" content="Documentación Oficial de la Librería Javacript Fascino JS"><meta property="og:type" content="website"><meta property="og:url" content="https://rep98.github.io/fascino"><meta property="og:site_name" content="FascinoJs"><meta property="og:image" content="assets/Images/FAS.png"><meta property="og:image:width" content="512"><meta property="og:image:height" content="512"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@Robert_saer"><meta name="twitter:site" content="https://rep98.github.io/fascino"><meta name="twitter:title" content="FascinoJs"><meta name="twitter:description" content="Documentación Oficial de la Librería Javacript Fascino JS"><meta name="theme-color" content="#000"><script src="fascino-all.min.js"></script><title>Source: core.js</title><!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="",baseURL=(locationPathname=document.location.pathname).substr(0,locationPathname.lastIndexOf("/")+1)</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body class="dark" data-theme="dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><img src="assets/Images/logo_white_512.png" loading="lazy" height="36" style="max-width:100%;margin-right:.8rem"> <span style="color:#fff">FascinoJs</span><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="s9uMeBb21N42uJKWJQV-L"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-Core.html">Core</a></div><div class="sidebar-section-children"><a href="module-Plugins.html">Plugins</a></div><div class="sidebar-section-children"><a href="module-Utils.html">Utils</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="GTsvlkIWThuBERBxFNjCU"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="Fascino_Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module-Core.Data.html">Data</a></div><div class="sidebar-section-children"><a href="module-Core.Event.html">Event</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.html">Selector</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.SelectorError.html">SelectorError</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.Serialize.html">Serialize</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.Progress.html">Progress</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="uLeFxm3gtY2cZsmqB3JJG"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="-_$.html">_$</a></div><div class="sidebar-section-children"><a href="-_$.Hooks.html">Hooks</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.html">HTTP</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.fetch.OptionsFT.html">OptionsFT</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.html">Progress</a></div><div class="sidebar-section-children"><a href="module-Utils.Colors.html">Colors</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="PTR0LnjROqtr9j2N0PrCq"><div>Tutorials</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="tutorial-Colors.html">Colors</a></div><div class="sidebar-section-children"><a href="tutorial-Data.html">Data</a></div><div class="sidebar-section-children"><a href="tutorial-Events.html">Events</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"><div class="navbar-item"><a id="" href="https://github.com/REP98/fascino" target="_blank">Github</a></div><div class="navbar-item"><a id="" href="https://www.npmjs.com/package/fascino" target="_blank">NPM</a></div><div class="navbar-item"><a id="" href="https://www.jsdelivr.com/package/npm/fascino?version=1.1.0" target="_blank">jsDelvir</a></div></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">core.js</h1></header><article><pre class="prettyprint source lang-js"><code>import {Data, Event, Selector} from './Classes'
+import pkg from '../package.json'
+import {
+	camelCase,
+	createScript,
+	each,
+	empty,
+	extend,
+	formatBytes,
+	getStyleComputed,
+	hasProp,
+	isArrayish,
+	isElement,
+	isFunction,
+	isFascinoElement,
+	isNumber,
+	isObject,
+	isSelector,
+	isString,
+	isVisible,
+	merge,
+	normName,
+	normalizeData,
+	normalizeElements,
+	not,
+	parseHTML,
+	script
+}  from './Utils/Utils.js'
+
+if (!Element.prototype.matches) {
+	Element.prototype.matches =
+		Element.prototype.matchesSelector ||
+		Element.prototype.mozMatchesSelector ||
+		Element.prototype.msMatchesSelector ||
+		Element.prototype.oMatchesSelector ||
+		Element.prototype.webkitMatchesSelector ||
+		function(s) {
+			let matches = (this.document || this.ownerDocument).querySelectorAll(s),
+				i = matches.length
+			while (--i >= 0 &amp;&amp; matches.item(i) !== this) { }
+			return i > -1
+		}
+}
+
+if (!Element.prototype.closest) {
+	Element.prototype.closest = function(s) {
+		let el = this
+
+		do {
+			if (el.matches(s)) return el
+			el = el.parentElement || el.parentNode
+		} while (el !== null &amp;&amp; el.nodeType === 1)
+		return null
+	}
+}
+
+/**
+ * Lista de Eventos Nativos de Javascript &lt;br>
+ * Aquí se Almacenan los nombre de las funciones de eventos nativos 
+ * 'blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+ * 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown',
+ * 'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'
+ * @example &lt;caption>Uso&lt;/caption>
+ * _$('selector').clicK(function(e){})
+ * @memberOf Fascino
+ * @private
+ * @type {Array}
+ */
+const ListEvents = [
+	'blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+	'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown',
+	'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'
+]
+/**
+ * @memberOf Fascino
+ * @private
+ * @const {Number}
+ * @default 3
+ */
+const NODETEXT = 3
+/**
+ * Función que reinvoca la Clase Fascino
+ * @memberOf Fascino
+ * @private
+ * @param  {(String|Element|Array|Function|Object)} selector
+ * @param  {HTMLElement} context
+ * @return {Fascino}
+ */
+function w(sel, ctx){
+	return new Fascino(sel, ctx);
+}
+
+/**
+ * Fascino, Encantador Framework JS para su fácil uso
+ * @global
+ * @namespace Fascino
+ * @class
+ * @extends {module:Core.Selector}
+ */
+export class Fascino extends Selector{
+	_ds = new Data()
+	_ev = new Event()
+	/**
+	 * @param  {(String|Element|Array|Function|Object)} selector Seletor, Elemento ó funcion para iniciar FascinoJs
+	 * @param  {HTMLElement} context Contexto del selector, por defecto es &lt;code>document&lt;/code>
+	 * @return {Fascino}
+	 */
+	constructor(selector, context = document) {
+		super(selector, context)
+		this.name = 'FascinoJS'
+		this.length = this.Elem.length
+		this.version = pkg.version
+		if (this.length == 1) {
+			this.events = this.getEvent()
+		}
+	}
+	// STATICOS
+
+	/**
+	 * Añade funciones a Fascino
+	 * @memberOf Fascino
+	 * @public
+	 * @param {String} name Nombre de la función
+	 * @param {Function} fn Función a asignar
+	 * @return {Fascino}
+	 */
+	static addFn(name, fn) {
+		if (!hasProp(this, name)) {
+			this.prototype[name] = fn
+		}
+
+		return this		
+	}
+
+	// PRIVADOS
+	/**
+	 * Private _is
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String}  prop propiedad tipo
+	 * @return {Boolean}
+	 */
+	_is(prop) {
+		let res = false
+		this.each((el) => {
+			res = el[prop]
+		})
+		return res
+	}
+	/**
+	 * Busca y obtiene una propiedad de un elemento dado
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String} n Nombre de la propiedad
+	 * @param  {String} v Valor de la propiedad
+	 * @return {Fascino}
+	 */
+	_prop(n, v) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (arguments.length === 1) {
+			return n in this.Elem[0] ? this.Elem[0][n] : undefined
+		}
+
+		if (empty(v)) {
+			v = ''
+		}
+
+		return this.each((el) => {
+			el[n] = v
+			if (n === 'innerHTML') {
+				script(el)
+			}
+		})
+	}
+
+	/**
+	 * Método privado que ayuda a establecer opciones a un elemento dado.
+	 * @memberOf Fascino
+	 * @private
+	 * @param {(Element|NodeList)} newNode
+	 * @param {Object} options
+	 */
+	_setOptions(newNode, options) {
+		if (!empty(options)) {
+			for (let key in options) {
+				if (hasProp(options, key)) {
+					let value = options[key]
+					if (hasProp(this, key)) {
+						w(newNode)[key].apply(this, value)
+					}
+				}
+			}
+		}
+	}
+	/**
+	 * Tamaño Externo del elemento
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String} prop
+	 * @param  {String} val
+	 * @return {(String|Number)}
+	 */
+	_sizeOut(prop, val) {
+		let el, size, style, result
+
+		if (this.length === 0) {
+			return
+		}
+
+		if (!empty(val) &amp;&amp; typeof val !== 'boolean') {
+			return this.each((el) => {
+				if (el === window || el === document) {
+					return
+				}
+				let h, style = getStyleComputed(el),
+					bs = prop === 'width' ? parseInt(style['border-left-width']) + parseInt(style['border-right-width']) : parseInt(style['border-top-width']) + parseInt(style['border-bottom-width']),
+					pa = prop === 'width' ? parseInt(style['padding-left']) + parseInt(style['padding-right']) : parseInt(style['padding-top']) + parseInt(style['padding-bottom'])
+
+				h = w(el)[prop](val)[prop]() - bs - pa
+				el.style[prop] = h + 'px'
+			})
+		}
+
+		el = this.Elem[0]
+		size = el[prop === 'width' ? 'offsetWidth' : 'offsetHeight']
+		style = getStyleComputed(el)
+		result = size + parseInt(style[prop === 'width' ? 'margin-left' : 'margin-top']) + parseInt(style[prop === 'width' ? 'margin-right' : 'margin-bottom'])
+		return val === true ? result : size
+	}
+	/**
+	 * Tamano real del elemento
+	 * @memberOf Fascino
+	 * @private
+	 * @param  {String} pro
+	 * @param  {String} val
+	 * @return {(fascino|Number|NaN|String)}
+	 */
+	_size(prop, val) {
+		if (this.length === 0) {
+			return NaN
+		}
+
+		if (empty(val)) {
+			let el = this.Elem[0]
+			if (prop === 'height') {
+				return el === window ? window.innerHeight : el === document ? el.body.clientHeight : parseInt(getComputedStyle(el).height)
+			} else if (prop === 'width') {
+				return el === window ? window.innerWidth : el === document ? el.body.clientWidth : parseInt(getComputedStyle(el).width)
+			}
+		}
+
+		return this.each((el) => {
+			if (el === window || el === document) {
+				return
+			}
+			el.style[prop] = isNaN(val) ? val : val + 'px'
+		})
+	}
+	// PUBLICOS
+	/**
+	 * Recorre los elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...(Function|Array)} arg Argumentos
+	 * @return {Fascino}
+	 */
+	each(...arg) {
+		this.Elem.forEach(...arg)
+		return this
+	}
+	/**
+	 * Verifica si el elemento es seleccionable por el Selector
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} selectorString Selector CSS
+	 * @return {(Element|Array)}
+	 */
+	matches(selectorString) {
+		const elem = []
+		this.each((el) => {
+			if (el.matches(selectorString)) {
+				elem.push(el)
+			}
+		})
+		return elem
+	}
+	/**
+	 * Crea una nueva matriz de elementos a través de la función dada
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} callback Función
+	 * @return {Array}
+	 */
+	map(callback) {
+		return this.Elem.map(callback)
+	}
+	/**
+	 * Combina Elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Array} els Matriz de elementos nueva
+	 * @return {Fascino}
+	 */
+	merge(els) {
+		merge(this.Elem, els)
+		return this
+	}
+	/**
+	 * Obtiene la posición del elemento dentro de su padre
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Null)} parent   El padre de los Elementos
+	 * @param  {String} nodeName tipo de nombre de nodo entre los cuales buscar
+	 * @return {Number}
+	 */
+	index(parent, nodeName) {
+		let el = this.Elem[0], index = -1, child
+		parent = empty(parent) ? el.parentNode() : normalizeElements(parent)
+
+		if (empty(nodeName)) {
+			child = w(parent).children()
+		} else {
+			child = w(parent).find(nodeName)
+		}
+
+		child.each((element, i) => {
+			if (element === el) {
+				index = i
+			}
+		})
+
+		return index
+	}
+	/**
+	 * Obtiene el Elemento solicitado por su posición dentro de la matriz de Elementos, El Elemeto obtenido es de tipo Element
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Number} i Posición
+	 * @return {Element}
+	 */
+	get(i) {
+		if (not(i)) {
+			return this.Elem
+		}
+		return i &lt; 0 ? this.Elem[i + this.length] : this.Elem[i]
+	}
+	/**
+	 * Busca, valida y obtiene el elemento dado por su posición dentro de la matriz de elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Number} i posición del elemento
+	 * @return {Fascino}
+	 */
+	eq(i) {
+		return !isNaN(i) &amp;&amp; this.length > 0 ? extend(w(this.get(i)), { _prevObj: this }) : this
+	}
+	/**
+	 * Obtiene el ultimo elemento de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Element}
+	 */
+	last() {
+		return this.eq(this.length - 1)
+	}
+	/**
+	 * Obtiene el primer elemento de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Element}
+	 */
+	first() {
+		return this.eq(0)
+	}
+	/**
+	 * Crea una nueva selección de elemento que cumplan con la condición dada en la función
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fn Función para filtrar
+	 * @return {Fascino}
+	 */
+	filter(fn) {
+		if (isString(fn)) {
+			let sel = fn
+			fn = function(el) {
+				return el.matches(sel)
+			}
+		}
+
+		return extend(
+			merge(w().Elem, [].filter.call(this.Elem, fn)),
+			{ _prevObj: this })
+	}
+	/**
+	 * Obtiene los elementos impares de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {(Element|Fascino)}
+	 */
+	odd() {
+		let result = this.filter(function(el, i) {
+			return i % 2 === 0
+		})
+		return extend(result, { _prevObj: this })
+	}
+	/**
+	 * Obtiene los numero pares de la matriz
+	 * @memberOf Fascino
+	 * @public
+	 * @return {(Element|Fascino)}
+	 */
+	even() {
+		let result = this.filter(function(el, i) {
+			return i % 2 !== 0
+		})
+		return extend(result, { _prevObj: this })
+	}
+	/**
+	 * Busca un elemento hijo por su selector CSS
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector CSS valido
+	 * @return {Fascino}
+	 */
+	find(sel) {
+		let rEl = Array.from('')
+
+		this.Elem.forEach((el)=>{
+			rEl.push(
+				[].concat(...Element.prototype.querySelectorAll.call(el, sel))
+			)
+		})
+
+		return rEl.length === 0 ? [] : rEl.length === 1 ? w(rEl[0]) : merge(w().Elem, rEl)
+	}
+	/**
+	 * Verifica si el elemento es hijo del Elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} s Selector CSS
+	 * @return {Boolean}
+	 */
+	contains(s) {
+		return this.find(s).length > 0
+	}
+	/**
+	 * Obtiene los hijos de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector o elemento hijo a buscar
+	 * @return {Array} Lista de hijos
+	 */
+	children(sel) {
+		let element = this.Elem[0]
+		if (empty(sel)) {
+			return [].concat(...element.children)
+		}
+
+
+		return [].concat(...element.children)
+			.filter(child => child.matches(sel))
+	}
+	/**
+	 * Verifica de que tipo es el selector
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {*}  s
+	 * @return {Boolean}
+	 */
+	is(s) {
+		let result = false
+		if (this.length === 0 ) {
+			return false
+		}
+
+		if (s &amp;&amp; hasProp(s, 'Elem')) {
+			this.each((el) => {
+				s.each((o) => {
+					if (el === o) {
+						result = true
+						return
+					}
+				})
+			})
+		}
+
+		if (isString(s)) {
+			if (s === ':selected') {
+				result = this._is('selected')
+			} else if (s === ':checked') {
+				result = this._is('checked')
+			} else if (s === ':visible') {
+				this.each((el) => {
+					if (isVisible(el)) {
+						result = true
+					}
+				})
+			} else if (s === ':hidden') {
+				this.each((el) => {
+					if (el.getAttribute('type') === 'hidden' || isHiden(el)) {
+						result = true
+					}
+				})
+			} else if (s === ':disabled') {
+				this.each((el) => {
+					if (el.getAttribute('disabled') || _$(el).hasClass('disabled')) {
+						result = true
+					}
+				})
+			} else if (s === ':readonly') {
+				this.each((el) => {
+					if (el.getAttribute('readonly') || _$(el).hasClass('readonly')) {
+						result = true
+					}
+				})
+			} else {
+				this.each((el) => {
+					if (el.matches(s) || Element.prototype.matches.call(el, s)) {
+						result = true
+					}
+				})
+			}
+		} else if (isArrayish(s)) {
+			this.each((el) => {
+				s.forEach((sel) => {
+					if (el === sel) {
+						result = true
+					}
+				})
+			})
+		} else if (s.nodeType === 1) {
+			this.each((el) => {
+				if (el === s) {
+					result = true
+				}
+			})
+		}
+
+		return result
+	}
+	/**
+	 * Método público de Fascino._prop
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} n
+	 * @param  {String} v
+	 * @return {Fascino}
+	 */
+	prop(n, v) {
+		return arguments.length === 1 ?
+			this._prop(n) :
+			this._prop(n, empty(v) ? '' : v)
+	}
+	/**
+	 * Agrega un elemento al padre seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino|String)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	append(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el) => {
+			w(newNode).each((nN, i) => {
+				if (nN === el) {
+					return
+				}
+				let child = i === 0 ? nN : nN.cloneNode(true)
+				script(child)
+				if (child.tagName &amp;&amp; child.tagName !== 'SCRIPT') {
+					el.append(child)
+				}
+			})
+		})
+	}
+	/**
+	 * Agrega el elemento seleccionado al nuevo padre
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino|String)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	appendTo(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el) => {
+			w(newNode).each((p, i) => {
+				if (el === p) {
+					return p
+				}
+				p.append(
+					i === 0 ? el : el.cloneNode(true)
+				)
+			})
+		})
+	}
+	/**
+	 * Agrega un nuevo elemento al principio del padre seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino|String)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	prepend(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el, elIndex) => {
+			w(newNode).each((e) => {
+				if (el === e) return
+				let child = elIndex === 0 ? e : e.cloneNode(true)
+				script(child)
+				if (child.tagName &amp;&amp; child.tagName !== 'SCRIPT') {
+					el.prepend(child)
+				}
+			})
+		})
+	}
+	/**
+	 * Agrega el elemento seleccionado al nuevo padre
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|Fascino)} node
+	 * @param  {Object} options
+	 * @return {Fascino}
+	 */
+	prependTo(node, options) {
+		if (this.length === 0) {
+			return this
+		}
+		let newNode = normalizeElements(node)
+
+		this._setOptions(newNode, options)
+
+		return this.each((el)=>{
+			w(newNode).each((parent, parIndex) => {
+				if (el === parent) return parent
+				w(parent).prepend(parIndex === 0 ? el : el.cloneNode(true))
+			})
+		})
+	}
+	
+	/**
+	 * Clona el elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Boolean} deep Verdadero si los hijos del nodo también deben ser clonados
+	 * @return {Array}
+	 */
+	clone(deep = false) {
+		let res = []
+		if (not(deep)) {
+			deep = false
+		}
+
+		this.each((e) => {
+			let el = e.cloneNode(deep)
+			res.push(el)
+		})
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Crea una copia de un nodo desde un documento externo
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Boolean} deep Verdadero si los hijos del nodo también deben ser importados
+	 * @return {Array}
+	 */
+	import(deep = true) {
+		let res = []
+		if (not(deep)) {
+			deep = true
+		}
+		this.each((e) => {
+			res.push(document.importNode(e, deep))
+		})
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Transfiere un node desde otro document al documento del método
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Array}
+	 */
+	adopt() {
+		let res = []
+		this.each((e) => {
+			res.push(document.adoptNode(e))
+		})
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Obtiene el contenido de un Iframe o Template
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Array}
+	 */
+	contents() {
+		if (this.length === 0) {
+			return this
+		}
+		let res = []
+		this.each((el) => {
+			let content
+			if (el.nodeName === 'IFRAME') {
+				content = el.contentDocument || el.contentWindow.document
+			} else if (el.nodeName === 'TEMPLATE') {
+				content = el.content
+			}
+			res.push(content)
+		})
+
+		return merge(w().Elem, res)
+	}
+	/**
+	 * Obtiene el o los padres de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector del padre a buscar
+	 * @return {Fascino} Lista de Padres
+	 */
+	parents(sel) {
+		const parents = []
+		this.each((el) => {
+			let ancestor = el.parentNode
+			while (ancestor &amp;&amp; ancestor.nodeType === Node.ELEMENT_NODE &amp;&amp; ancestor.nodeType !== NODETEXT) {
+				if (ancestor.matches(sel)) {
+					parents.push(ancestor)
+				}
+
+				ancestor = ancestor.parentNode
+			}
+		})
+
+		return w(parents)
+	}
+	/**
+	 * Obtiene el padre del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	parent() {
+		const parent = []
+		this.each((el) => {
+			parent.push(el.parentNode)
+		})
+		return w(parent)
+	}
+	/**
+	 * Obtiene o busca el hermano anterior
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel
+	 * @return {(Fascino|Array)}
+	 */
+	prev(sel) {
+		let el = this.Elem[0],
+			previous = el.previousElementSibling
+
+		if (empty(sel)) {
+			return w(previous)
+		}
+
+		while (previous) {
+			if (previous.matches(sel)) {
+				return w(previous)
+			}
+
+			previous = previous.previousElementSibling
+		}
+
+		return []
+	}
+	/**
+	 * Obtiene o busca el hermano siguiente
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)}   sel
+	 * @return {(Fascino|Array)}
+	 */
+	next(sel) {
+		let el = this.Elem[0],
+			next = el.nextElementSibling
+
+		if (empty(sel)) {
+			return w(next)
+		}
+
+		while (next) {
+			if (next.matches(sel)) {
+				return w(next)
+			}
+
+			next = next.nextElementSibling
+		}
+
+		return []
+	}
+	/**
+	 * Busca el ascendiente más cercano al elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} sel Selector del ascendiente a buscar
+	 * @return {(Fascino|Element|Array|Null)}
+	 */
+	closest(sel) {
+		if (this.length === 0) return this
+
+		if (!sel) {
+			return this.parent(sel)
+		}
+
+		const res = []
+		this.each((el) => {
+			if ('closest' in el) {
+				res.push(el.closest(sel))
+			} else {
+				while (el) {
+					if (!el) break
+					if (el.matches(sel)) {
+						res.push(el)
+						return
+					}
+					el = el.parentElement
+				}
+			}
+		})
+		return res
+	}
+	/**
+	 * Vacía el contenido HTML de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	emptyHtml() {
+		return this.each((el) => {
+			el.innerHTML = ''
+		})
+	}
+	/**
+	 * Vacía el valor de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	emptyVal() {
+		return this.each((el) => {
+			el.value = ''
+		})
+	}
+	/**
+	 * Encierra un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Element|String)} el
+	 * @return {Fascino} El nuevo padre
+	 */
+	wrap( el ) {
+		if (this.length === 0) {
+			return
+		}
+
+		const wrapper = w(normalizeElements(el))
+
+		if (!wrapper.length) {
+			return
+		}
+
+		let res = []
+
+		this.each((el) => {
+			let _target, _wrapper
+
+			_wrapper = w(wrapper.clone(true))
+			_wrapper.insertBefore(el)
+
+			_target = _wrapper
+			while (_target.children().length) {
+				_target = _target.children().eq(0)
+			}
+			_target.append(el)
+
+			res.push(_wrapper.eq(0))
+		})
+
+		return w(res)
+	}
+	/**
+	 * Busca y encierra todos los elemento del tipo dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(NodeList|Fascino-Object|Object|Array)} el
+	 * @return {Fascino}
+	 */
+	wrapAll( el ) {
+		let wrapper, _wrapper, _target
+
+		if (this.length === 0) {
+			return
+		}
+
+		wrapper = w(normalizeElements(el))
+
+		if (!wrapper.length) {
+			return
+		}
+
+		_wrapper = w(wrapper.clone(true))
+		_wrapper.insertBefore(this.Elem[0])
+
+		_target = _wrapper
+		while (_target.children().length) {
+			_target = _target.children().eq(0)
+		}
+
+		this.each((e) => {
+			_target.append(e)
+		})
+
+		return _wrapper
+	}
+	/**
+	 * Busca y encierra los hijo de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Elemento|Fascino|String)} el
+	 * @return {Fascino}
+	 */
+	wrapInner( el ) {
+		if (this.length === 0) {
+			return
+		}
+
+		const wrapper = w(normalizeElements(el))
+
+		if (!wrapper.length) {
+			return
+		}
+
+		let res = []
+
+		this.each((e) => {
+			let elem = w(e),
+				html = elem.html(),
+				wrp = w(wrapper.clone(true))
+
+			elem.html(wrp.html(html))
+			res.push(wrp)
+		})
+
+		return w(res)
+	}
+	/**
+	 * Desencierra los elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	unwrap() {
+		return this.each((el) => {
+			let p = el.parentNode
+			while (el.firstChild) {
+				p.insertBefore(el.firstChild, el)
+			}
+			p.removeChild(el)
+		})
+	}
+	/**
+	 * Elimina uno o todos los elementos del DOM
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element|Array)} sel Selector a eliminar
+	 * @return {Array}
+	 */
+	remove(sel) {
+		let out = !empty(sel) ?
+				this.Elem.filter((el) => {
+					return el.matches(sel)
+				}) :
+				this.Elem,
+			res = []
+		out.forEach((el) => {
+			res.push(el.parentNode.removeChild(el))
+		})
+
+		return [].concat(...this.Elem, ...res)
+	}
+	/**
+	 * Inserta un elemento antes del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Element} elements
+	 * @return {Fascino}
+	 */
+	insertBefore(elements) {
+		let _el = w(elements)
+		return this.each((el) => {
+			_el.each((_e, i) => {
+				if (_e === el) {
+					return
+				}
+				let p = _e.parentNode
+				if (p) {
+					p.insertBefore(
+						i === 0 ? el : el.cloneNode(true),
+						_e
+					)
+				}
+			})
+		})
+	}
+	/**
+	 * Inserta un elemento después del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Element} elements
+	 * @return {Fascino}
+	 */
+	insertAfter(elements) {
+		let _el = w(elements)
+		return this.each((el) => {
+			_el.each((_e, i) => {
+				if (_e === el) {
+					return
+				}
+				let p = _e.parentNode
+				if (p) {
+					p.insertBefore(
+						i === 0 ? el : el.cloneNode(true),
+						_e.nextSibling
+					)
+				}
+			})
+		})
+	}
+	/**
+	 * Agrega un elemento o etiquetas HTML después del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} html
+	 * @param  {String} position la posición equivale a afterbegin o afterend; @default afterbegin
+	 * @return {Fascino}
+	 */
+	after(html, position = 'afterbegin') {
+		return this.each((el) => {
+			if (isString(html)) {
+				el.insertAdjacentHTML(position, html)
+			} else {
+				w(html).insertAfter(el)
+			}
+		})
+	}
+	/**
+	 * Agrega un elemento o HTML antes del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Element)} html
+	 * @param  {String} position la posición equivale a beforebegin o beforeend; @default beforebegin
+	 * @return {Fascino}
+	 */
+	before(html, position = 'beforebegin') {
+		return this.each((el) => {
+			if (isString(html)) {
+				el.insertAdjacentHTML(position, html)
+			} else {
+				w(html).insertBefore(el)
+			}
+		})
+	}
+	/**
+	 * Obtiene o Establece el texto al elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Null)} txt
+	 * @return {(Fascino|String)}
+	 */
+	text(txt) {
+		return empty(txt) ?
+				this._prop('textContent') :
+				this._prop('textContent', txt)
+	}
+	/**
+	 * Obtiene o Establece el contenido HTML del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Fascino|Element)} html
+	 * @return {(Fascino|String)}
+	 */
+	html(html) {
+		let value = []
+		if (this.length === 0) {
+			return this
+		}
+
+		if (html === '') {
+			return this._prop('innerHTML', '')
+		}
+
+		if (empty(html)) {
+			return this._prop('innerHTML')
+		}
+
+		if (Array.isArray(html)) {
+			value = [].concat(...value, ...html)
+		} else if (html instanceof Element || isFascinoElement(html)) {
+			let res = [],
+				h = (html instanceof Element) ? w(html) : html
+
+			h.each((v) => {
+				res.push(w(v).outerHTML())
+			})
+
+			value = [].concat(...value, ...res)
+		} else {
+			value.push(html)
+		}
+
+		this._prop('innerHTML',
+			value.length === 1 &amp;&amp; empty(value[0]) ? '' : value.join('\n')
+		)
+
+		return this
+	}
+	/**
+	 * Obtiene o Establece el valor de un elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} value Valor del input, textarea o elemento que contenta value
+	 * @return {(Fascino|String)}
+	 */
+	val(value) {
+		if (not(value)) {
+			return this.length === 0 ? undefined : this._prop('value')
+		}
+
+		return this.each((el) => {
+			if (typeof el.value != 'undefined') {
+				el.value = value
+			} else {
+				w(el).html(value)
+			}
+		})
+	}
+	/**
+	 * Obtiene el HTML o envoltura del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @return {String}
+	 */
+	outerHTML() {
+		return this._prop('outerHTML')
+	}
+	/**
+	 * Agrega clases al elemento dado
+	 * @memberOf Fascino
+	 * @example
+	 * _$(mi-elem).addClass('miclass')
+	 * _$(mi-elem).addClass('miclass1', 'miclass2' /*...*\)
+	 * @public
+	 * @param {...String} arg Lista de clases separadas por coma(,)
+	 * @return {Fascino}
+	 */
+	addClass(...arg) {
+		return this.each((e) => {
+			e.classList.add(...arg)
+		})
+	}
+	/**
+	 * Elimina Clases del elemento seleccionado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args
+	 * @return {Fascino}
+	 */
+	removeClass(...args) {
+		return this.each((e) => {
+			e.classList.remove(...args)
+		})
+	}
+	/**
+	 * Intercambia clases del elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args Lista de Clases a cambiar
+	 * @return {Fascino}
+	 */
+	toggleClass(...args) {
+		return this.each((e) => {
+			e.classList.toggle(...args)
+		})
+	}
+	/**
+	 * Reemplaza una clase por otra
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args Clase vieja clase nueva
+	 * @example
+	 * miElement.replaceClass('oldClass', 'NewClass')
+	 * @return {Fascino}
+	 */
+	replaceClass(...args) {
+		return this.each((e) => {
+			e.classList.replace(...args)
+		})
+	}
+	/**
+	 * Verifica si el elemento posee una clase
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String}  className Nombre de la clase
+	 * @return {Boolean} Verdadero si existe
+	 */
+	hasClass(className) {
+		return this.Elem[0].classList.contains(className)
+	}
+	/**
+	 * Agrega u Obtiene estilos CSS a los Elementos
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...(String|Array|Object)} arg
+	 * @example &lt;caption>Uso&lt;/caption>
+	 * miElement.style('display', 'none') // establece la propiedad CSS a display none
+	 * miElement.style({
+	 *   border: '1px solid #ff0' // Establece un border Amarillo
+	 *   color: '#000' // y un color de texto Negro
+	 * })
+	 * miElement.style('display') // retorna none
+	 * miElement.style() // Retorna todos los Estilos establecidos(CSSStyleDeclaration)
+	 * miElement.style([
+	 *   'border', 'color' // Retorna un Objecto {IDfromMiElem: {border: '1px solid #ff0', color: '#000'}}
+	 * ]) // Importante: si el elemento no tiene ID se le creara uno aleatorio
+	 * @return {(Fascino|Array|Object|String)}
+	 */
+	style(...arg) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (arg.length === 0) {
+			return getComputedStyle(this.Elem[0])
+		}
+
+		if (arg.length === 1) {
+			if (isArrayish(arg[0])) {
+				let getStyle = {}, i = 0
+				this.each((el) => {
+					let id = el.getAttribute('id'),
+						prefix = !empty(id) ? id : el.tagName+i
+					getStyle[prefix] = {}
+					arg[0].forEach( (nameStyle) => {
+						getStyle[prefix][nameStyle] = el.style[nameStyle]
+					})
+					i++
+				})
+				return getStyle
+			} else if (isObject(arg[0])) {
+				return this.each((el) => {
+					for (let key in arg[0]) {
+						if (hasProp(arg[0], key)) {
+							let value = arg[0][key]
+							el.style.setProperty(key, value)
+						}
+					}
+				})
+			} else if (arg[0].indexOf(':') === 0) {
+				return getStyleComputed(this.Elem[0], null, arg[0])
+			} else if (arg[0] === '*' || arg[0] === 'all') {
+				return getStyleComputed(this.Elem[0])
+			} else {
+				let st = getStyleComputed(this.Elem[0])
+				return arg[0] in st ? st[arg[0]] : ''
+			}
+		}
+
+		if (arg.length === 2 || arg.length === 3) {
+			return this.each((el) => {
+				el.style.setProperty(...arg)
+			})
+		}
+
+		return this
+	}
+	/**
+	 * Remueve todos o los estilos establecidos
+	 * @memberOf Fascino
+	 * @public
+	 * @example
+	 * miElement.removeStyle('border', 'color') // Removerá los estilos del border y el color
+	 * @param  {...String} name Lista de Stilo}
+	 * @return {Fascino}
+	 */
+	removeStyle(...name) {
+		if (empty(name) || this.length === 0) {
+			return this
+		}
+
+		return this.each((el) => {
+			name.forEach((n) => {
+				el.style.removeProperty(n)
+			})
+		})
+	}
+	/**
+	 * Obtiene o estable el valor de la barra de desplazamiento vertical
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	scrollTop(val) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (not(val)) {
+			return this.Elem[0] === window ? window.pageYOffset : this.Elem[0].scrollTop
+		}
+
+		return this.each((el) => {
+			el.scrollTop = val
+		})
+	}
+	/**
+	 * Obtiene o estable el valor de la barra de desplazamiento Horizontal
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	scrollLeft(val) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (empty(val)) {
+			return this.Elem[0] === window ? window.pageXOffset : this.Elem[0].scrollLeft
+		}
+
+		return this.each((el) => {
+			el.scrollLeft = val
+		})
+	}
+	/**
+	 * Obtiene o Establece el Ancho total del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	outerWidth(val) {
+		return this._sizeOut('width', val)
+	}
+	/**
+	 * Obtiene o Establece la Altura total del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)} val
+	 * @return {(String|Number|Fascino)}
+	 */
+	outerHeight(val) {
+		return this._sizeOut('height', val)
+	}
+	/**
+	 * Obtiene o Establece la posición del Elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Object} val Objeto {top,left}
+	 * @return {(Object|Fascino)}
+	 */
+	offset(val) {
+		if (this.length === 0) {
+			return this
+		}
+
+		if (empty(val)) {
+			const rect = this.Elem[0].getBoundingClientRect(),
+				scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+				scrollTop = window.pageYOffset || document.documentElement.scrollTop
+			return {
+				top: rect.top + scrollTop,
+				left: rect.left + scrollLeft
+			}
+		}
+
+		return this.each((el) => {
+			let offset = w(el).offset(),
+				top = val.top,
+				left = val.left,
+				position = getStyleComputed(el).position
+
+			if (position === 'static') {
+				w(el).style('position', 'relative')
+			}
+
+			if (['absolute', 'fixed'].indexOf(position) === -1) {
+				top = top - offset.top
+				left = left - offset.left
+			}
+
+			w(el).style({
+				top: top,
+				left: left
+			})
+		})
+	}
+	/**
+	 * Obtiene la Posición del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Boolean} margin Verdader si se incluye el margen
+	 * @return {(Object|Undefined)}
+	 */
+	position(margin = false) {
+		if (this.length === 0) {
+			return undefined
+		}
+
+		if (typeof margin != 'boolean') {
+			try {
+				margin = JSON.parse(margin)
+			} catch (e) {
+				margin = false
+			}
+		}
+
+		let ml = 0, mt = 0
+
+		if (margin) {
+			let s = getStyleComputed(this.Elem[0])
+			ml = parseInt(s['margin-left'])
+			mt = parseInt(s['margin-top'])
+		}
+
+		return {
+			top: this.Elem[0].offsetTop - mt,
+			left: this.Elem[0].offsetLeft - ml
+		}
+	}
+	/**
+	 * Obtiene o Establece la posición horizontal del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)}  v Nueva posición
+	 * @param  {Boolean} m Si se debe incluir el margen
+	 * @return {(String|Number|NaN)}
+	 */
+	left(v, m = false) {
+		if (this.length === 0) {
+			return NaN
+		}
+		if (typeof v === 'boolean') {
+			m = v
+			v = undefined
+		}
+		if (empty(v)) {
+			return this.position(m).left
+		}
+
+		return this.style('left', !isNaN(v) ? v + 'px' : v)
+	}
+	/**
+	 * Obtiene o Establece la posición vertical del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Number)}  v Nueva posición
+	 * @param  {Boolean} m Si se debe incluir el margen
+	 * @return {(String|Number|NaN)}
+	 */
+	top(v, m = false) {
+		if (this.length === 0) {
+			return NaN
+		}
+		if (typeof v === 'boolean') {
+			m = v
+			v = undefined
+		}
+		if (empty(v)) {
+			return this.position(m).top
+		}
+
+		return this.style('top', !isNaN(v) ? v + 'px' : v)
+	}
+	/**
+	 * Obtiene el Ancho interno del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Number}
+	 */
+	innerWidth() {
+		return this.Elem[0] === window ? window.innerWidth : this.Elem[0].clientWidth
+	}
+	/**
+	 * Obtiene el Alto interno del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Number}
+	 */
+	innerHeight() {
+		return this.Elem[0].clientHeight
+	}
+	/**
+	 * Obtiene o establece la altura del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Number|String)} val
+	 * @return {(Number|String|Fascino)}
+	 */
+	height(val) {
+		return this._size('height', val)
+	}
+	/**
+	 * Obtiene o establece la anchura del elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(Number|String)} val
+	 * @return {(Number|String|Fascino)}
+	 */
+	width(val) {
+		return this._size('width', val)
+	}
+	/**
+	 * Oculta un ELemento y ejecuta la función dada
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} callback
+	 * @return {Fascino}
+	 */
+	hide(callback) {
+		return this.each((el) => {
+			let display = w(el).style('display'),
+				opacity = w(el).style('opacity')
+
+			if (display != 'none' &amp;&amp; parseInt(opacity) != 0) {
+				w(el).data('display', display)
+				w(el).data('opacity', opacity)
+
+				w(el).style({
+					display: 'none',
+					opacity: 0
+				})
+			}
+			if (isFunction(callback)) {
+				callback.call(this, el)
+			}
+		})
+	}
+	/**
+	 * Muestra un elemento y ejecuta la función dada
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} callback
+	 * @return {Fascino}
+	 */
+	show(callback) {
+		return this.each((el) => {
+			let display = w(el).data('display') || "block",
+				opacity = w(el).data('opacity') || 1,
+				setDisplay = 'block', setOpacity = 1
+
+			if (display &amp;&amp; display !== 'none') {
+				setDisplay = display
+			}
+			if (opacity &amp;&amp; opacity !== 0) {
+				setOpacity = opacity
+			}
+
+			w(el).style({
+				display: setDisplay,
+				opacity: setOpacity
+			})
+
+			if (isFunction(callback)) {
+				callback.call(this, el)
+			}
+		})
+	}
+	/**
+	 * Muestra un elemento con desvanecimiento suave
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fn   Funcion a ejecutar despues del efecto
+	 * @param  {Number}   time Tiempo del desvanecimiento
+	 * @return {Fascino} 
+	 */
+	fadeIn(fn, time = 600) {
+		this.style({
+			opacity: 0,
+			display: ''
+		})
+
+		if (isNumber(fn)) {
+			time = fn 
+			fn = (el) => {}
+		}
+
+		var last = +new Date(),
+			element = this.Elem[0],
+			view = () => {
+				this.style('opacity', +element.style.opacity + (new Date() - last) / time)
+				last = +new Date()
+				
+				if (+element.style.opacity &lt; 1) {
+					(window.requestAnimationFrame &amp;&amp; requestAnimationFrame(view)) || setTimeout(view, 16)
+				}
+			}
+
+		view()
+		if (isFunction(fn)) {
+			fn.apply(this, [element])
+		}
+		return this;
+	}
+	/**
+	 * Funcion que Oculta con un desvanecimiento suave
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fn   Función a ejecutar luego de ocultar
+	 * @param  {Number}   time Tiempo del desvanecimiento
+	 * @return {Fascino}
+	 */
+	fadeOut(fn, time = 600) {
+		this.style({
+			opacity: 1,
+			display: ''
+		})
+		var last = +new Date(),
+			element = this.Elem[0],
+			view = () => {
+				element.style.opacity = Number(+element.style.opacity - (new Date() - last) / time).toFixed(4);
+				last = +new Date()
+				
+				if (-element.style.opacity &lt;= 0) {
+				    (window.requestAnimationFrame &amp;&amp; requestAnimationFrame(view)) || setTimeout(view, 16)
+				}
+			}
+		view()
+		if (isFunction(fn)) {
+			fn.apply(this, [element])
+		}
+		return this;
+	}
+	/**
+	 * Obtiene o Establece los Atributos de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...(String|Array|Object|Function)} args
+	 * @example &lt;caption>Uso&lt;/caption>
+	 * miElement.attr('name', 'paswd') // Establece el Atributo Name a passwd
+	 * miElement.attr({
+	 *   id:'miElementID', // Establece el Id a miElementID y cambia el placeholder
+	 *   placeholder:'Escribe Aquí'
+	 * })
+	 * miElement.attr() // Re-establece los Atributos y retorna un NodeMap con ellos en caso de no poseer atributos retornara un Objecto Fascino
+	 * miElement.attr('name') // Retorna 'passwd' o false
+	 * miElement.attr(['name', 'id']) // Retorna un objecto {miElementID: {name: 'passwd', id:'miElementID'}}
+	 * // Ademas podemos pasar una función que se invocara dentro de un bucle que recorre los atributos
+	 * miElement.attr( function(attrName, attrValue, Attr) {
+	 *   console.log(
+	 *       this, // El Elemento iterado
+	 *       attrName, // El nombre del atributo
+	 *       attrValue, // El Valor del Attributo
+	 *       Attr // Lista de todos los atributos
+	 * )
+	 * })
+	 * @return {(String|Array|Object|Fascino)}
+	 */
+	attr(...args) {
+		if (this.length === 0) {
+			return this
+		}
+		if (args.length === 0) {
+			if (this.Elem[0].hasAttributes()) {
+				const Attr = this.Elem[0].attributes
+				Array.from(Attr).forEach((a)=>{
+					this.Elem[0].setAttribute(a.nodeName, a.nodeValue)
+				})
+				return Attr
+			} else {
+				return this
+			}
+		}
+		if (args.length === 1) {
+			if (isArrayish(args[0])) {
+				const Attrs ={}
+				let i = 0
+				this.each((el) => {
+					let id = el.getAttribute('id'),
+						prefix = !not(id) ? id : el.tagName+i
+					Attrs[prefix] = {}
+					args[0].forEach((a) => {
+						if (el.hasAttributes(a)) {
+							Attrs[prefix][a] = el.getAttribute(a)
+						} else {
+							Attrs[prefix][a] = false
+						}
+					})
+					i++
+				})
+				return Attrs
+			} else if (isObject(args[0])) {
+				return this.each((el) => {
+					for (let key in args[0]) {
+						if (hasProp(args[0], key)) {
+							let value = normalizeData(args[0][key])
+							if (key in el) {
+								el[key] = value
+							} else {
+								el.setAttribute(key, value)
+							}
+						}
+					}
+				})
+			} else if (isString(args[0])) {
+				return this.Elem[0].hasAttributes(args[0]) ? this.Elem[0].getAttribute(args[0]) : false
+			} else if (isFunction(args[0])) {
+				return this.each((el) => {
+					if (el.hasAttributes()) {
+						let a = el.attributes
+						Array.from(a).forEach((attr) => {
+							args[0].call(el, [attr.nodeName, attr.nodeValue, attr])
+						})
+					}
+				})
+			}
+		}
+
+		return this.each((el) => {
+			let key = args[0],
+				value = normalizeData(args[1])
+			if (key in el) {
+				el[key] = value
+			} else {
+				el.setAttribute(key, value)
+			}
+		})
+	}
+	/**
+	 * Remueve los atributos dados
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} args Lista de Atributos
+	 * @example
+	 * miElement.removeAttr('style', 'name')
+	 * @return {Fascino}
+	 */
+	removeAttr(...args) {
+		return this.each((el) => {
+			let attrs = []
+			if (args.length == 1 &amp;&amp; !isArrayish(args[0])) {
+				attrs.push(args[0])
+			} else {
+				attrs = [].slice(args)
+			}
+
+			attrs.forEach((a)=>{
+				el.removeAttribute(a)
+			})
+		})
+	}
+	/**
+	 * Verifica si el elemento tiene el atributo dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String}  attr
+	 * @return {Boolean}
+	 */
+	hasAttr(attr) {
+		if (empty(attr)) {
+			return false
+		}
+
+		return this.Elem[0].hasAttribute(attr)
+	}
+	/**
+	 * Alterna los Atributos y su valor
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name  Nombre del Atributo
+	 * @param  {String} value Valor d el Atributo
+	 * @return {Fascino}
+	 */
+	toggleAttr(name, value = undefined) {
+		let _this = this
+		return this.each((el) => {
+			if (name in el &amp;&amp; el[name] !== value) {
+				el[name] = value
+			}
+			if (!empty(name) &amp;&amp; not(value)) {
+				if (el.hasAttributes(name)) {
+					el.removeAttribute(name)
+				}
+			} else {
+				_this.Elem = [el]
+				_this.attr(name, value)
+			}
+		})
+	}
+	/**
+	 * Elimina todos los atributos de un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @return {Fascino}
+	 */
+	cleanAttr() {
+		return this.each((el) => {
+			if (el.hasAttributes()) {
+				let attr = el.attributes
+				attr.forEach((a) => {
+					el.removeAttribute(a.nodeName)
+				})
+			}
+		})
+	}
+
+	/**
+	 * Establece u Obtiene los datos del Elemento Dataset
+	 * @memberOf Fascino
+	 * @public
+	 * @example &lt;caption>Uso&lt;/caption>
+	 * miElement.data('role', 'dialog')  // Establece el Rol a dialog
+	 * // Esteble al data-json al objecto dado
+	 * miElement.data({
+	 *   json:{
+	 *      a: 1,
+	 *      b: 2
+	 * }
+	 * })
+	 * miElement.data() // Retorna un Objecto con todos los datos del Atributo data
+	 * miElement.data('role') // Retorna Dialog
+	 * miElement.data(['role','json']) // Retornara un Objecto {miElementID: {role: 'dialog', json: {a:1,b:2}}}
+	 * @param  {...(String|Array|Object)} args
+	 * @return {(String|Array|Object|Fascino)}
+	 */
+	data(...args){
+		return this.length === 0 ? this : this._ds.data(this.Elem, ...args)
+	}
+	/**
+	 * Remueve los Atributos data
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {...String} keys Lista de nombres de data sin el data
+	 * @example
+	 * // &lt;input id="miElement" data-role='pick' data-color="#fff">
+	 * _$('#miElement').removeData('role', 'color');
+	 * // Obtendremos
+	 * // &lt;input id="miElement">
+	 * @return {Fascino}
+	 */
+	removeData(...keys) {
+		return this.each((el) => {
+			this._ds.remove(el, ...keys)
+		})
+	}
+	/**
+	 * Verifica si el Elemento tiene un atributo data dado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String}  key Nombre sin el data
+	 * @return {Boolean}
+	 */
+	hasData(key) {
+		if (empty(key)) {
+			return false
+		}
+
+		if (this._ds.has(this.Elem[0], key)) {
+			return this._ds.get(this.Elem[0], key)
+		}
+
+		if (hasProp(this.Elem[0].dataset, key)) {
+			return true
+		}
+
+		return this.hasAttr(`data-${key}`)
+	}
+	/**
+	 * Alterna entre los atributos data
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name  Nombre del Atributo sin el data
+	 * @param  {(String|Object|Array)} value Valor del atributo data
+	 * @return {(Boolean|String|Object|Array|Fascino)}
+	 */
+	toggleData(name, value) {
+		if (arguments.length === 0) {
+			return false
+		}
+
+		if (this.hasData()) {
+			return this._ds.access(this.ELem[0], name, value)
+		}
+
+		return this.toggleAttr(`data-${name}`, value)
+	}
+	/**
+	 * Establece el Evento para un elemento&lt;br>
+	 * Si va usar eventos estándar es mejor que use los de la lista &lt;code>_$().click(), $().blur() ...&lt;/code>
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {(String|Array)} eventsList El nombre del Evento
+	 * @param  {String} sel Namespace o selector
+	 * @param  {Function} handler Función a ejecutar
+	 * @param  {Object} options Opciones de AddEventListiner
+	 * @return {Fascino}
+	 */
+	on(eventsList, sel, handler, options) {
+		return this.each((el) => {
+			this._ev.on(el, eventsList, sel, handler, options)
+		})
+	}
+	/**
+	 * Desvincula el Evento para un elemento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} eventsList El nombre del Evento
+	 * @param  {String} sel Namespace o selector
+	 * @param  {Function} handler Función a ejecutar
+	 * @param  {Object} options Opciones de AddEventListiner
+	 * @param  {Number} ix Index del evento
+	 * @return {Fascino}
+	 */
+	off(eventsList, sel, options, ix) {
+		return this.each((el) => {
+			this._ev.off(el, eventsList, sel, options, ix)
+		})
+	}
+	/**
+	 * Ejecuta el evento solo para el primer evento dado
+	 * @memberOf Fascino
+	 * @param  {String} events  El evento
+	 * @param  {String} sel Namespace o selector
+	 * @param  {Function} handler Función a ejecutar
+	 * @param  {Object} options Opciones de AddEventListiner
+	 * @return {Fascino}
+	 */
+	one(events, sel, handler, options) {
+		return this.each((el) => {
+			this._ev.one(el, events, sel, handler, options)
+		})
+	}
+	/**
+	 * Dispara o Crea un Evento Personalizado
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name Nombre del Evento
+	 * @param  {Object} data Información del Evento
+	 * @return {(void|Fascino)}
+	 */
+	fire(name, data) {
+		var _name = normName(name), newEv
+
+		if(['submit', 'reset'].indexOf(_name) > -1){
+			if(this.Elem[0].nodeName === 'FORM'){
+				this.Elem[0][_name].call(this.Elem[0])
+			} else {
+				let form = this.parents('form')
+				form.Elem[0][_name].call(form.Elem[0])
+			}
+			return this
+		}
+
+		if (ListEvents.indexOf(_name) > -1) {
+			this.Elem[0][_name].call(this.Elem[0])
+		}
+
+		newEv = this._ev.createEv(name, data)
+
+		return this.each((el) => {
+			let customEvent = w(el).data('customEvent'),
+				et = {}
+
+			et[_name] = newEv
+			if(not(customEvent)) {
+				w(el).data('customEvent', et)
+			} else {
+				w(el).data('customEvent', extend({}, customEvent, et))
+			}
+			this._ev.fire(el, newEv)
+		})
+	}
+	/**
+	 * Dispara un evento
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {String} name Nombre del Evento
+	 * @param  {Object} data Información del evento
+	 * @return {Fascino}
+	 */
+	trigger(name, data) {
+		var _name = normName(name)
+		return this.each((el) => {
+			if (ListEvents.indexOf(_name) > -1) {
+				el[_name].call(el)
+			} else if(w(el).hasData('customEvent') ){
+				let customEvent = w(el).data('customEvent')
+				if(!not(customEvent) &amp;&amp; hasProp(customEvent, _name)){
+					this._ev.fire(el, customEvent[_name])
+				} else {
+					w(el).fire(name, data)
+				}
+			}
+		})
+	}
+	/**
+	 * Crea el evento hover
+	 * @memberOf Fascino
+	 * @public
+	 * @param  {Function} fnOver Función de entrada
+	 * @param  {Function} fnOut  Función de Salida
+	 * @return {Fascino}
+	 */
+	hover(fnOver, fnOut) {
+		return this.each((el) => {
+			this.on('mouseenter', fnOver).on('mouseleave', fnOut)
+		})
+	}
+	/**
+	 * Obtiene las lista de eventos asignados aun elemento, si no se pasa ningun argumento se obtendran todos los eventos
+	 * @param  {String} name  Nombre del Evento
+	 * @param  {Number} index Posición del evento a buscar
+	 * @return {Object}
+	 */
+	getEvent(name, index) {
+		return this._ev.getEvents(this.Elem[0], name, index)
+	}
+}
+
+[
+	/**
+	 * Obtiene o Establece el relleno del Elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @function padding
+	 * @param  {(String|Number|null)} val   Valor del Elemento a establecer
+	 * @param  {String} pseudo      Important
+	 * @return {(Object|Fascino)}
+	 */
+	'padding', 
+	/**
+	 * Obtiene o Establece el relleno del Elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @function margin
+	 * @param  {(String|Number|null)} val   Valor del Elemento a establecer
+	 * @param  {String} pseudo      Important
+	 * @return {(Object|Fascino)}
+	 */
+	'margin', 
+	/**
+	 * Obtiene o Establece el relleno del Elemento dado
+	 * @memberOf Fascino
+	 * @public
+	 * @function border
+	 * @param  {(String|Number|null)} val   Valor del Elemento a establecer
+	 * @param  {String} pseudo      Important
+	 * @return {(Object|Fascino)}
+	 */
+	'border'
+].forEach((name) => {
+	Fascino.addFn(name, function(val, pseudo){
+		if (this.length === 0) {
+			return
+		}
+		if (isString(val)) {
+			if (val.indexOf(':') === 0) {
+				pseudo = val
+				val = undefined
+			}
+		}
+
+		if (empty(val)) {
+			let s = getStyleComputed(this.Elem[0], null, !empty(pseudo) ? pseudo : ''),
+				res = {}
+			if (name !== 'border') {
+				res = {
+					top: parseInt(s[`${name}-top`]),
+					right: parseInt(s[`${name}-right`]),
+					bottom: parseInt(s[`${name}-bottom`]),
+					left: parseInt(s[`${name}-left`]),
+				}
+			} else {
+				res = {
+					top: parseInt(s['border-top-width']),
+					right: parseInt(s['border-right-width']),
+					bottom: parseInt(s['border-bottom-width']),
+					left: parseInt(s['border-left-width'])
+				}
+			}
+			return res
+		}
+
+		return this.each((el) => {
+			if (isArrayish(val)) {
+				w(el).style(name, val.join(' '))
+			} else if (isObject(val)) {
+				let res = {},
+					ext = name === 'border' ? '-width' : ''
+				for (let i in val) {
+					if (hasProp(val, i)) {
+						res[`${name}-${i}${ext}`] = val[i]
+					}
+				}
+				w(el).style(res)
+			} else {
+				w(el).style(name, val)
+			}
+		})
+	})
+})
+
+/**
+ * Eventos Nativos de Javascript &lt;br>
+ * 'blur', 'focus', 'resize', 'scroll', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+ * 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change', 'select', 'submit', 'keydown',
+ * 'keypress', 'keyup', 'contextmenu', 'touchstart', 'touchend', 'touchmove', 'touchcancel'
+ * @example &lt;caption>Uso&lt;/caption>
+ * // Formato
+ * // _$(miselector).[nameEvento](selector, function, options)
+ * _$('body').clicK(function(e){
+ * 	console.log("Presionastes sobre el body")
+ * })
+ * // Al hacer doble click sobre una section del elemento main, se ejecuta la funcion del click del body
+ * _$('main').dblclick("section", function(e){
+ * 		_$('body').click()
+ * })
+ * @memberOf Fascino
+ * @public
+ * @param  {String} s selector
+ * @param  {Function} f Función a ejecutar
+ * @param  {Object} o Opciones de AddEventListiner
+ * @return {Fascino}
+ */
+ListEvents.forEach((n) => {
+	Fascino.addFn(n, function(s, f, o) {
+		return arguments.length > 0 ? this.on(n, s, f, o) : this.fire(n, {detail: 'Fire '+n})
+	})
+})
+
+</code></pre></article></section><footer class="footer" id="PeOAagUepe"><div class="wrapper">&copy; 2020-2023 FascinoJs.</div></footer></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><img src="assets/Images/logo_white_512.png" loading="lazy" height="36" style="max-width:100%;margin-right:.8rem"> <span style="color:#fff">FascinoJs</span><div class="mobile-nav-links"><div class="navbar-item"><a id="" href="https://github.com/REP98/fascino" target="_blank">Github</a></div><div class="navbar-item"><a id="" href="https://www.npmjs.com/package/fascino" target="_blank">NPM</a></div><div class="navbar-item"><a id="" href="https://www.jsdelivr.com/package/npm/fascino?version=1.1.0" target="_blank">jsDelvir</a></div></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="s9uMeBb21N42uJKWJQV-L"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-Core.html">Core</a></div><div class="sidebar-section-children"><a href="module-Plugins.html">Plugins</a></div><div class="sidebar-section-children"><a href="module-Utils.html">Utils</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="GTsvlkIWThuBERBxFNjCU"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="Fascino_Fascino.html">Fascino</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module.exports_module.exports.html">exports</a></div><div class="sidebar-section-children"><a href="module-Core.Data.html">Data</a></div><div class="sidebar-section-children"><a href="module-Core.Event.html">Event</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.html">Selector</a></div><div class="sidebar-section-children"><a href="module-Core.Selector.SelectorError.html">SelectorError</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.Serialize.html">Serialize</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.Progress.html">Progress</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="uLeFxm3gtY2cZsmqB3JJG"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="-_$.html">_$</a></div><div class="sidebar-section-children"><a href="-_$.Hooks.html">Hooks</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.html">HTTP</a></div><div class="sidebar-section-children"><a href="module-Plugins.HTTP.fetch.OptionsFT.html">OptionsFT</a></div><div class="sidebar-section-children"><a href="module-Plugins.Progress.html">Progress</a></div><div class="sidebar-section-children"><a href="module-Utils.Colors.html">Colors</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="PTR0LnjROqtr9j2N0PrCq"><div>Tutorials</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="tutorial-Colors.html">Colors</a></div><div class="sidebar-section-children"><a href="tutorial-Data.html">Data</a></div><div class="sidebar-section-children"><a href="tutorial-Events.html">Events</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>

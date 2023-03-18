@@ -14,7 +14,7 @@ git clone https://github.com/REP98/fascino.git
 ```
 por npm
 ```shell
-npm i fascino
+npm i @rep985/fascino
 ```
 o integrarlo directamente a su proyecto por jsDelivr
 ```html

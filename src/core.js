@@ -1554,8 +1554,8 @@ export class Fascino extends Selector{
 				opacity = w(el).style('opacity')
 
 			if (display != 'none' && parseInt(opacity) != 0) {
-				w(el).origin('display', display)
-				w(el).origin('opacity', opacity)
+				w(el).data('display', display)
+				w(el).data('opacity', opacity)
 
 				w(el).style({
 					display: 'none',
@@ -1576,8 +1576,8 @@ export class Fascino extends Selector{
 	 */
 	show(callback) {
 		return this.each((el) => {
-			let display = w(el).origin('display', undefined, 'block'),
-				opacity = w(el).origin('opacity', undefined, '1'),
+			let display = w(el).data('display') || "block",
+				opacity = w(el).data('opacity') || 1,
 				setDisplay = 'block', setOpacity = 1
 
 			if (display && display !== 'none') {

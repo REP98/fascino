@@ -1,5 +1,10 @@
 ## master
 
+## v.1.1.5
+* Corrección de las Funciónes `show` e `hide`
+* Actualización de Peer Dependencys
+* Actualización de Dependencias
+
 ## v.1.1.0
 * Función camelCase ahora es interna
 * Migración de [Rollup](https://rollupjs.org) a [Webpack](https://webpack.js.org)
