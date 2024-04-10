@@ -260,7 +260,7 @@ export class Fascino extends Selector{
 		})
 	}
 	// PUBLICOS
-	/**
+	/** L
 	 * Recorre los elementos
 	 * @memberOf Fascino
 	 * @public
@@ -271,7 +271,7 @@ export class Fascino extends Selector{
 		this.Elem.forEach(...arg)
 		return this
 	}
-	/**
+	/** L
 	 * Verifica si el elemento es seleccionable por el Selector
 	 * @memberOf Fascino
 	 * @public
@@ -287,7 +287,7 @@ export class Fascino extends Selector{
 		})
 		return elem
 	}
-	/**
+	/** L
 	 * Crea una nueva matriz de elementos a través de la función dada
 	 * @memberOf Fascino
 	 * @public
@@ -297,7 +297,7 @@ export class Fascino extends Selector{
 	map(callback) {
 		return this.Elem.map(callback)
 	}
-	/**
+	/** L
 	 * Combina Elementos
 	 * @memberOf Fascino
 	 * @public
@@ -308,7 +308,7 @@ export class Fascino extends Selector{
 		merge(this.Elem, els)
 		return this
 	}
-	/**
+	/** L
 	 * Obtiene la posición del elemento dentro de su padre
 	 * @memberOf Fascino
 	 * @public
@@ -336,7 +336,7 @@ export class Fascino extends Selector{
 	}
 	/**
 	 * Obtiene el Elemento solicitado por su posición dentro de la matriz de Elementos, El Elemeto obtenido es de tipo Element
-	 * @memberOf Fascino
+	 * @memberOf Fascino L
 	 * @public
 	 * @param  {Number} i Posición
 	 * @return {Element}
@@ -566,6 +566,7 @@ export class Fascino extends Selector{
 		if (this.length === 0) {
 			return this
 		}
+		
 		let newNode = normalizeElements(node)
 
 		this._setOptions(newNode, options)

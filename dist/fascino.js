@@ -1,7 +1,7 @@
 /*!
  * Fascino  fascino.js
  * 	@version v1.1.5
- * 	@copyright 2021-2023 Robert Pérez.
+ * 	@copyright 2021-2024 Robert Pérez.
  * 	@author Robert Pérez delfinmundo@gmail.com
  *
  * 	@license Licensed under MIT
@@ -64,80 +64,80 @@ __webpack_require__.d(__webpack_exports__, {
 var Utils_namespaceObject = {};
 __webpack_require__.r(Utils_namespaceObject);
 __webpack_require__.d(Utils_namespaceObject, {
-  "camelCase": () => (camelCase),
-  "cleanPreCode": () => (cleanPreCode),
-  "createScript": () => (createScript),
-  "createURI": () => (createURI),
-  "defineProperty": () => (defineProperty),
-  "each": () => (each),
-  "empty": () => (empty),
-  "extend": () => (extend),
-  "formatBytes": () => (formatBytes),
-  "gOPD": () => (gOPD),
-  "getProperty": () => (getProperty),
-  "getStyleComputed": () => (getStyleComputed),
-  "hasProp": () => (hasProp),
-  "htmlEntities": () => (htmlEntities),
-  "isArray": () => (isArray),
-  "isArrayish": () => (isArrayish),
-  "isElement": () => (isElement),
-  "isFascinoElement": () => (isFascinoElement),
-  "isFunction": () => (Utils_isFunction),
-  "isHiden": () => (Utils_isHiden),
-  "isNumber": () => (isNumber),
-  "isObject": () => (isObject),
-  "isSelector": () => (isSelector),
-  "isString": () => (isString),
-  "isURL": () => (isURL),
-  "isVisible": () => (isVisible),
-  "jsonToFormdata": () => (jsonToFormdata),
-  "merge": () => (Utils_merge),
-  "normName": () => (normName),
-  "normalizeData": () => (normalizeData),
-  "normalizeElements": () => (normalizeElements),
-  "not": () => (not),
-  "parseHTML": () => (parseHTML),
-  "random": () => (random),
-  "randomMap": () => (randomMap),
-  "script": () => (script),
-  "setOptionsOfData": () => (setOptionsOfData),
-  "setPropertyObj": () => (setPropertyObj),
-  "strToArr": () => (strToArr),
-  "strValue": () => (strValue),
-  "toStr": () => (toStr),
-  "toString": () => (Utils_toString),
-  "tryStringObject": () => (tryStringObject),
-  "uniqueId": () => (uniqueId),
-  "url": () => (url)
+  camelCase: () => (camelCase),
+  cleanPreCode: () => (cleanPreCode),
+  createScript: () => (createScript),
+  createURI: () => (createURI),
+  defineProperty: () => (defineProperty),
+  each: () => (each),
+  empty: () => (empty),
+  extend: () => (extend),
+  formatBytes: () => (formatBytes),
+  gOPD: () => (gOPD),
+  getProperty: () => (getProperty),
+  getStyleComputed: () => (getStyleComputed),
+  hasProp: () => (hasProp),
+  htmlEntities: () => (htmlEntities),
+  isArray: () => (isArray),
+  isArrayish: () => (isArrayish),
+  isElement: () => (isElement),
+  isFascinoElement: () => (isFascinoElement),
+  isFunction: () => (Utils_isFunction),
+  isHiden: () => (Utils_isHiden),
+  isNumber: () => (isNumber),
+  isObject: () => (isObject),
+  isSelector: () => (isSelector),
+  isString: () => (isString),
+  isURL: () => (isURL),
+  isVisible: () => (isVisible),
+  jsonToFormdata: () => (jsonToFormdata),
+  merge: () => (Utils_merge),
+  normName: () => (normName),
+  normalizeData: () => (normalizeData),
+  normalizeElements: () => (normalizeElements),
+  not: () => (not),
+  parseHTML: () => (parseHTML),
+  random: () => (random),
+  randomMap: () => (randomMap),
+  script: () => (script),
+  setOptionsOfData: () => (setOptionsOfData),
+  setPropertyObj: () => (setPropertyObj),
+  strToArr: () => (strToArr),
+  strValue: () => (strValue),
+  toStr: () => (toStr),
+  toString: () => (Utils_toString),
+  tryStringObject: () => (tryStringObject),
+  uniqueId: () => (uniqueId),
+  url: () => (url)
 });
 
 // NAMESPACE OBJECT: ./src/Utils/Colors.js
 var Colors_namespaceObject = {};
 __webpack_require__.r(Colors_namespaceObject);
 __webpack_require__.d(Colors_namespaceObject, {
-  "AlphaHex": () => (AlphaHex),
-  "Color2Str": () => (Color2Str),
-  "ColorStr2Obj": () => (ColorStr2Obj),
-  "Hex2Hsl": () => (Hex2Hsl),
-  "Hex2Hwb": () => (Hex2Hwb),
-  "Hex2Per": () => (Hex2Per),
-  "Hex2Rgb": () => (Hex2Rgb),
-  "Hsl2Hex": () => (Hsl2Hex),
-  "Hsl2Hwb": () => (Hsl2Hwb),
-  "Hsl2Rgb": () => (Hsl2Rgb),
-  "Hwb2Hex": () => (Hwb2Hex),
-  "Hwb2Hsl": () => (Hwb2Hsl),
-  "Hwb2Rgb": () => (Hwb2Rgb),
-  "Per2Hex": () => (Per2Hex),
-  "Rgb2Hex": () => (Rgb2Hex),
-  "Rgb2Hsl": () => (Rgb2Hsl),
-  "Rgb2Hsp": () => (Rgb2Hsp),
-  "Rgb2Hwb": () => (Rgb2Hwb),
-  "isHSL": () => (isHSL),
-  "isHex": () => (isHex),
-  "isHwb": () => (isHwb),
-  "isRGB": () => (isRGB),
-  "lightOrDark": () => (lightOrDark)
+  AlphaHex: () => (AlphaHex),
+  Color2Str: () => (Color2Str),
+  ColorStr2Obj: () => (ColorStr2Obj),
+  Hex2Hsl: () => (Hex2Hsl),
+  Hex2Hwb: () => (Hex2Hwb),
+  Hex2Per: () => (Hex2Per),
+  Hex2Rgb: () => (Hex2Rgb),
+  Hsl2Hex: () => (Hsl2Hex),
+  Hsl2Hwb: () => (Hsl2Hwb),
+  Hsl2Rgb: () => (Hsl2Rgb),
+  Hwb2Hex: () => (Hwb2Hex),
+  Hwb2Hsl: () => (Hwb2Hsl),
+  Hwb2Rgb: () => (Hwb2Rgb),
+  Per2Hex: () => (Per2Hex),
+  Rgb2Hex: () => (Rgb2Hex),
+  Rgb2Hsl: () => (Rgb2Hsl),
+  Rgb2Hsp: () => (Rgb2Hsp),
+  Rgb2Hwb: () => (Rgb2Hwb),
+  isHSL: () => (isHSL),
+  isHex: () => (isHex),
+  isHwb: () => (isHwb),
+  isRGB: () => (isRGB),
+  lightOrDark: () => (lightOrDark)
 });
 
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
@@ -184,33 +184,33 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toPrimitive.js
 
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
+function toPrimitive(t, r) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != _typeof(i)) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return (hint === "string" ? String : Number)(input);
+  return ("string" === r ? String : Number)(t);
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
 
 
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return _typeof(key) === "symbol" ? key : String(key);
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : i + "";
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
 
@@ -220,7 +220,7 @@ function _defineProperties(target, props) {
     descriptor.enumerable = descriptor.enumerable || false;
     descriptor.configurable = true;
     if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+    Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor);
   }
 }
 function _createClass(Constructor, protoProps, staticProps) {
@@ -237,6 +237,24 @@ function _assertThisInitialized(self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
   return self;
+}
+;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js
+
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+  return _assertThisInitialized(self);
+}
+;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
 function _setPrototypeOf(o, p) {
@@ -264,28 +282,10 @@ function _inherits(subClass, superClass) {
   });
   if (superClass) _setPrototypeOf(subClass, superClass);
 }
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js
-
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
-  }
-  return _assertThisInitialized(self);
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
 
 function _defineProperty(obj, key, value) {
-  key = _toPropertyKey(key);
+  key = toPropertyKey(key);
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -1243,7 +1243,7 @@ var Data = /*#__PURE__*/function () {
    * @param  {Element} el El elemento
    * @return {Boolean}
    */
-  _createClass(Data, [{
+  return _createClass(Data, [{
     key: "acceptData",
     value: function acceptData(el) {
       return el.nodeType === 1 || el.nodeType === 9 || !+el.nodeType;
@@ -1531,7 +1531,6 @@ var Data = /*#__PURE__*/function () {
       });
     }
   }]);
-  return Data;
 }();
 
 ;// CONCATENATED MODULE: ./src/Classes/Event.js
@@ -1564,7 +1563,7 @@ var Event = /*#__PURE__*/function () {
    * @param {Function} fn      Función a asignar
    * @param {Boolean}  capture use capture
    */
-  _createClass(Event, [{
+  return _createClass(Event, [{
     key: "_add",
     value: function _add(el, event, fn) {
       var useCapture = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
@@ -1950,42 +1949,34 @@ var Event = /*#__PURE__*/function () {
       return this._createEvent(name, data);
     }
   }]);
-  return Event;
 }();
 
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/isNativeFunction.js
 function _isNativeFunction(fn) {
-  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  try {
+    return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  } catch (e) {
+    return typeof fn === "function";
+  }
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js
 function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
   try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
+    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+  } catch (t) {}
+  return (_isNativeReflectConstruct = function _isNativeReflectConstruct() {
+    return !!t;
+  })();
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/construct.js
 
 
-function _construct(Parent, args, Class) {
-  if (_isNativeReflectConstruct()) {
-    _construct = Reflect.construct.bind();
-  } else {
-    _construct = function _construct(Parent, args, Class) {
-      var a = [null];
-      a.push.apply(a, args);
-      var Constructor = Function.bind.apply(Parent, a);
-      var instance = new Constructor();
-      if (Class) _setPrototypeOf(instance, Class.prototype);
-      return instance;
-    };
-  }
-  return _construct.apply(null, arguments);
+function _construct(t, e, r) {
+  if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
+  var o = [null];
+  o.push.apply(o, e);
+  var p = new (t.bind.apply(t, o))();
+  return r && _setPrototypeOf(p, r.prototype), p;
 }
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js
 
@@ -2025,9 +2016,8 @@ function _wrapNativeSuper(Class) {
 
 
 
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = Selector_isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function Selector_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, Selector_isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function Selector_isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (Selector_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 
 /**
  * @memberOf module:Core.Selector
@@ -2046,21 +2036,20 @@ var NODETEXT = 3;
  * @extends {Error} Error
  */
 var SelectorError = /*#__PURE__*/function (_Error) {
-  _inherits(SelectorError, _Error);
-  var _super = _createSuper(SelectorError);
   function SelectorError() {
     var _this;
     _classCallCheck(this, SelectorError);
     for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
       params[_key] = arguments[_key];
     }
-    _this = _super.call.apply(_super, [this].concat(params));
+    _this = _callSuper(this, SelectorError, [].concat(params));
     if (Error.captureStackTrace) {
-      Error.captureStackTrace(_assertThisInitialized(_this), SelectorError);
+      Error.captureStackTrace(_this, SelectorError);
     }
     _this.name = 'SelectorError';
     return _this;
   }
+  _inherits(SelectorError, _Error);
   return _createClass(SelectorError);
 }( /*#__PURE__*/_wrapNativeSuper(Error));
 
@@ -2102,7 +2091,7 @@ var Selector = /*#__PURE__*/function () {
    * @param  {(Array|Object|Element|window|document)} otherEl
    * @return {void}
    */
-  _createClass(Selector, [{
+  return _createClass(Selector, [{
     key: "mergeEl",
     value: function mergeEl(otherEl) {
       var _this2 = this;
@@ -2216,7 +2205,6 @@ var Selector = /*#__PURE__*/function () {
       return d.querySelectorAll(selector).length > 1 ? d.querySelectorAll(selector) : d.querySelector(selector) != null ? [d.querySelector(selector)] : [];
     }
   }]);
-  return Selector;
 }();
 
 ;// CONCATENATED MODULE: ./src/Classes/index.js
@@ -2230,7 +2218,7 @@ var Selector = /*#__PURE__*/function () {
 
 
 ;// CONCATENATED MODULE: ./package.json
-const package_namespaceObject = {"i8":"1.1.5"};
+const package_namespaceObject = {"rE":"1.1.5"};
 ;// CONCATENATED MODULE: ./src/core.js
 
 
@@ -2239,9 +2227,8 @@ const package_namespaceObject = {"i8":"1.1.5"};
 
 
 
-
-function core_createSuper(Derived) { var hasNativeReflectConstruct = core_isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function core_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function core_callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, core_isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function core_isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (core_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 
 
 
@@ -2304,8 +2291,6 @@ function w(sel, ctx) {
  * @extends {module:Core.Selector}
  */
 var Fascino = /*#__PURE__*/function (_Selector) {
-  _inherits(Fascino, _Selector);
-  var _super = core_createSuper(Fascino);
   /**
    * @param  {(String|Element|Array|Function|Object)} selector Seletor, Elemento ó funcion para iniciar FascinoJs
    * @param  {HTMLElement} context Contexto del selector, por defecto es <code>document</code>
@@ -2315,12 +2300,12 @@ var Fascino = /*#__PURE__*/function (_Selector) {
     var _this2;
     var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
     _classCallCheck(this, Fascino);
-    _this2 = _super.call(this, selector, context);
-    _defineProperty(_assertThisInitialized(_this2), "_ds", new Data());
-    _defineProperty(_assertThisInitialized(_this2), "_ev", new Event());
+    _this2 = core_callSuper(this, Fascino, [selector, context]);
+    _defineProperty(_this2, "_ds", new Data());
+    _defineProperty(_this2, "_ev", new Event());
     _this2.name = 'FascinoJS';
     _this2.length = _this2.Elem.length;
-    _this2.version = package_namespaceObject.i8;
+    _this2.version = package_namespaceObject.rE;
     if (_this2.length == 1) {
       _this2.events = _this2.getEvent();
     }
@@ -2336,7 +2321,8 @@ var Fascino = /*#__PURE__*/function (_Selector) {
    * @param {Function} fn Función a asignar
    * @return {Fascino}
    */
-  _createClass(Fascino, [{
+  _inherits(Fascino, _Selector);
+  return _createClass(Fascino, [{
     key: "_is",
     value:
     // PRIVADOS
@@ -2467,7 +2453,7 @@ var Fascino = /*#__PURE__*/function (_Selector) {
       });
     }
     // PUBLICOS
-    /**
+    /** L
      * Recorre los elementos
      * @memberOf Fascino
      * @public
@@ -2481,7 +2467,7 @@ var Fascino = /*#__PURE__*/function (_Selector) {
       (_this$Elem = this.Elem).forEach.apply(_this$Elem, arguments);
       return this;
     }
-    /**
+    /** L
      * Verifica si el elemento es seleccionable por el Selector
      * @memberOf Fascino
      * @public
@@ -2499,7 +2485,7 @@ var Fascino = /*#__PURE__*/function (_Selector) {
       });
       return elem;
     }
-    /**
+    /** L
      * Crea una nueva matriz de elementos a través de la función dada
      * @memberOf Fascino
      * @public
@@ -2511,7 +2497,7 @@ var Fascino = /*#__PURE__*/function (_Selector) {
     value: function map(callback) {
       return this.Elem.map(callback);
     }
-    /**
+    /** L
      * Combina Elementos
      * @memberOf Fascino
      * @public
@@ -2524,7 +2510,7 @@ var Fascino = /*#__PURE__*/function (_Selector) {
       Utils_merge(this.Elem, els);
       return this;
     }
-    /**
+    /** L
      * Obtiene la posición del elemento dentro de su padre
      * @memberOf Fascino
      * @public
@@ -2553,7 +2539,7 @@ var Fascino = /*#__PURE__*/function (_Selector) {
     }
     /**
      * Obtiene el Elemento solicitado por su posición dentro de la matriz de Elementos, El Elemeto obtenido es de tipo Element
-     * @memberOf Fascino
+     * @memberOf Fascino L
      * @public
      * @param  {Number} i Posición
      * @return {Element}
@@ -4384,7 +4370,6 @@ var Fascino = /*#__PURE__*/function (_Selector) {
       return this;
     }
   }]);
-  return Fascino;
 }(Selector);
 [
 /**
@@ -4555,7 +4540,6 @@ function template(html, options, conf) {
     console.error(err);
     console.error("'" + err.message + "'", ' in \n\nCode:\n', code, '\n'); /* eslint no-console: 0, quotes: 0 */
   }
-
   return result;
 }
 ;// CONCATENATED MODULE: ./src/Utils/Colors.js

@@ -1,4 +1,4 @@
-# Fascino JS v1.1
+# Fascino JS v1.2
 <p>
 	Framework JS, modular y expansible
 </p>
@@ -12,7 +12,7 @@ Puede instalarlo de manera fácil, descargando el repositorio de github
 ```shell
 git clone https://github.com/REP98/fascino.git
 ```
-por npm
+ó por npm
 ```shell
 npm i @rep985/fascino
 ```
